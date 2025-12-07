@@ -16,12 +16,8 @@
     "hide_table_of_contents": true
   },
   "sidebar": "tutorialSidebar",
-  "previous": {
-    "title": "Capstone Project - Autonomous Humanoid",
-    "permalink": "/ai_native_book/capstone/"
-  },
   "next": {
-    "title": "Introduction",
-    "permalink": "/ai_native_book/introduction"
+    "title": "Home",
+    "permalink": "/ai_native_book/"
   }
 }
