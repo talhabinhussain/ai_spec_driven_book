@@ -1,0 +1,27 @@
+{
+  "id": "module-1-ros2/chapter-1-6-launch-files",
+  "title": "Chapter 1.6 - ROS 2 Launch Files and System Orchestration",
+  "description": "Managing complex robotic systems with launch files and orchestration",
+  "source": "@site/docs/module-1-ros2/chapter-1-6-launch-files.md",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/chapter-1-6-launch-files",
+  "permalink": "/ai_native_book/module-1-ros2/chapter-1-6-launch-files",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-1-ros2/chapter-1-6-launch-files.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Chapter 1.6 - ROS 2 Launch Files and System Orchestration",
+    "description": "Managing complex robotic systems with launch files and orchestration"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 1.5 - ROS 2 Parameters and Configuration",
+    "permalink": "/ai_native_book/module-1-ros2/chapter-1-5-parameters"
+  },
+  "next": {
+    "title": "Module 2 - Simulation Environments",
+    "permalink": "/ai_native_book/module-2-simulation/"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/ai_native_book/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/ai_native_book/",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "capstone/index",
+              "path": "/ai_native_book/capstone/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "index",
+              "path": "/ai_native_book/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "introduction",
+              "path": "/ai_native_book/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-0-foundations/index",
+              "path": "/ai_native_book/module-0-foundations/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/chapter-1-1-ros2-architecture",
+              "path": "/ai_native_book/module-1-ros2/chapter-1-1-ros2-architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/chapter-1-2-first-ros2-node",
+              "path": "/ai_native_book/module-1-ros2/chapter-1-2-first-ros2-node",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/chapter-1-3-communication-patterns",
+              "path": "/ai_native_book/module-1-ros2/chapter-1-3-communication-patterns",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/chapter-1-4-message-types",
+              "path": "/ai_native_book/module-1-ros2/chapter-1-4-message-types",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/chapter-1-5-parameters",
+              "path": "/ai_native_book/module-1-ros2/chapter-1-5-parameters",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/chapter-1-6-launch-files",
+              "path": "/ai_native_book/module-1-ros2/chapter-1-6-launch-files",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/index",
+              "path": "/ai_native_book/module-1-ros2/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/index",
+              "path": "/ai_native_book/module-2-simulation/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/module-2-simu",
+              "path": "/ai_native_book/module-2-simulation/module-2-simu",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/index",
+              "path": "/ai_native_book/module-3-isaac/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/index",
+              "path": "/ai_native_book/module-4-vla/",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/ai_native_book/capstone/",
+                "label": "Capstone Project - Autonomous Humanoid"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

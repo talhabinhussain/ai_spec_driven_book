@@ -1,0 +1,27 @@
+{
+  "id": "module-3-isaac/index",
+  "title": "Module 3 - NVIDIA Isaac",
+  "description": "Implementing perception and navigation pipelines",
+  "source": "@site/docs/module-3-isaac/index.md",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/",
+  "permalink": "/ai_native_book/module-3-isaac/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-3-isaac/index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Module 3 - NVIDIA Isaac",
+    "description": "Implementing perception and navigation pipelines"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "module-2-simu",
+    "permalink": "/ai_native_book/module-2-simulation/module-2-simu"
+  },
+  "next": {
+    "title": "Module 4 - Vision-Language-Action Robotics",
+    "permalink": "/ai_native_book/module-4-vla/"
+  }
+}

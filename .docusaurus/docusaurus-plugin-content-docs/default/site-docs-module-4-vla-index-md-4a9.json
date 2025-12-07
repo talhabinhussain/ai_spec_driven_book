@@ -1,0 +1,23 @@
+{
+  "id": "module-4-vla/index",
+  "title": "Module 4 - Vision-Language-Action Robotics",
+  "description": "Building conversational robotic systems",
+  "source": "@site/docs/module-4-vla/index.md",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/",
+  "permalink": "/ai_native_book/module-4-vla/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-4-vla/index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Module 4 - Vision-Language-Action Robotics",
+    "description": "Building conversational robotic systems"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 3 - NVIDIA Isaac",
+    "permalink": "/ai_native_book/module-3-isaac/"
+  }
+}

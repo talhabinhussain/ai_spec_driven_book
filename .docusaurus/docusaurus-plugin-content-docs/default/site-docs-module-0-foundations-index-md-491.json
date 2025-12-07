@@ -1,0 +1,27 @@
+{
+  "id": "module-0-foundations/index",
+  "title": "Module 0 - Physical AI Foundations",
+  "description": "Understanding embodied intelligence and digital-to-physical transitions",
+  "source": "@site/docs/module-0-foundations/index.md",
+  "sourceDirName": "module-0-foundations",
+  "slug": "/module-0-foundations/",
+  "permalink": "/ai_native_book/module-0-foundations/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-0-foundations/index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Module 0 - Physical AI Foundations",
+    "description": "Understanding embodied intelligence and digital-to-physical transitions"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Home",
+    "permalink": "/ai_native_book/"
+  },
+  "next": {
+    "title": "Chapter 1.1 - Introduction to ROS 2 Architecture",
+    "permalink": "/ai_native_book/module-1-ros2/chapter-1-1-ros2-architecture"
+  }
+}

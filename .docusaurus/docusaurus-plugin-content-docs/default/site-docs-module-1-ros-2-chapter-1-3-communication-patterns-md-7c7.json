@@ -1,0 +1,27 @@
+{
+  "id": "module-1-ros2/chapter-1-3-communication-patterns",
+  "title": "Chapter 1.3 - ROS 2 Communication Patterns",
+  "description": "Deep dive into topics, services, and actions communication patterns",
+  "source": "@site/docs/module-1-ros2/chapter-1-3-communication-patterns.md",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/chapter-1-3-communication-patterns",
+  "permalink": "/ai_native_book/module-1-ros2/chapter-1-3-communication-patterns",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-1-ros2/chapter-1-3-communication-patterns.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Chapter 1.3 - ROS 2 Communication Patterns",
+    "description": "Deep dive into topics, services, and actions communication patterns"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 1.2 - Building Your First ROS 2 Node",
+    "permalink": "/ai_native_book/module-1-ros2/chapter-1-2-first-ros2-node"
+  },
+  "next": {
+    "title": "Chapter 1.4 - ROS 2 Message Types and Data Structures",
+    "permalink": "/ai_native_book/module-1-ros2/chapter-1-4-message-types"
+  }
+}

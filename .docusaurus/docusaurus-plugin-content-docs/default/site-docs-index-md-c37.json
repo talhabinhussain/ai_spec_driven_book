@@ -1,0 +1,27 @@
+{
+  "id": "index",
+  "title": "Home",
+  "description": "Physical AI & Humanoid Robotics Textbook",
+  "source": "@site/docs/index.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/ai_native_book/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Home",
+    "hide_table_of_contents": true
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Capstone Project - Autonomous Humanoid",
+    "permalink": "/ai_native_book/capstone/"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/ai_native_book/introduction"
+  }
+}

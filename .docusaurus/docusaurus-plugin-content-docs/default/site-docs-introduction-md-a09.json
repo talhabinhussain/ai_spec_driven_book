@@ -1,0 +1,27 @@
+{
+  "id": "introduction",
+  "title": "Introduction",
+  "description": "Getting started with Physical AI & Humanoid Robotics",
+  "source": "@site/docs/introduction.md",
+  "sourceDirName": ".",
+  "slug": "/introduction",
+  "permalink": "/ai_native_book/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/introduction.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Introduction",
+    "description": "Getting started with Physical AI & Humanoid Robotics"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Home",
+    "permalink": "/ai_native_book/"
+  },
+  "next": {
+    "title": "Module 0 - Physical AI Foundations",
+    "permalink": "/ai_native_book/module-0-foundations/"
+  }
+}

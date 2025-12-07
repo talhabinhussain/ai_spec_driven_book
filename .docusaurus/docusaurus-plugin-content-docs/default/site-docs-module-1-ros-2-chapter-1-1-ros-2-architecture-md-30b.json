@@ -1,0 +1,27 @@
+{
+  "id": "module-1-ros2/chapter-1-1-ros2-architecture",
+  "title": "Chapter 1.1 - Introduction to ROS 2 Architecture",
+  "description": "Understanding the evolution from ROS 1 to ROS 2 and core concepts",
+  "source": "@site/docs/module-1-ros2/chapter-1-1-ros2-architecture.md",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/chapter-1-1-ros2-architecture",
+  "permalink": "/ai_native_book/module-1-ros2/chapter-1-1-ros2-architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-1-ros2/chapter-1-1-ros2-architecture.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Chapter 1.1 - Introduction to ROS 2 Architecture",
+    "description": "Understanding the evolution from ROS 1 to ROS 2 and core concepts"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 0 - Physical AI Foundations",
+    "permalink": "/ai_native_book/module-0-foundations/"
+  },
+  "next": {
+    "title": "Chapter 1.2 - Building Your First ROS 2 Node",
+    "permalink": "/ai_native_book/module-1-ros2/chapter-1-2-first-ros2-node"
+  }
+}

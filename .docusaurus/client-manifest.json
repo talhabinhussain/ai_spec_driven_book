@@ -1,0 +1,211 @@
+{
+  "entrypoints": [
+    "main"
+  ],
+  "origins": {
+    "237": [
+      237
+    ],
+    "17896441": [
+      869,
+      401
+    ],
+    "main": [
+      354,
+      869,
+      792
+    ],
+    "runtime~main": [
+      792,
+      869,
+      354
+    ],
+    "0c0fbaf6": [
+      13
+    ],
+    "4912aec2": [
+      818
+    ],
+    "4a90598f": [
+      601
+    ],
+    "4dd5b0c3": [
+      226
+    ],
+    "5e95c892": [
+      647
+    ],
+    "803c2b7e": [
+      441
+    ],
+    "a09c2993": [
+      899
+    ],
+    "a7bd4aaa": [
+      98
+    ],
+    "a94703ab": [
+      869,
+      48
+    ],
+    "aba21aa0": [
+      742
+    ],
+    "ac22254c": [
+      463
+    ],
+    "styles": [
+      48,
+      354,
+      401,
+      792,
+      869
+    ]
+  },
+  "assets": {
+    "13": {
+      "js": [
+        {
+          "file": "assets/js/0c0fbaf6.dd23d934.js",
+          "hash": "f83f2154f15618a3",
+          "publicPath": "/ai_native_book/assets/js/0c0fbaf6.dd23d934.js"
+        }
+      ]
+    },
+    "48": {
+      "js": [
+        {
+          "file": "assets/js/a94703ab.257d8522.js",
+          "hash": "93a344ddfb78ae10",
+          "publicPath": "/ai_native_book/assets/js/a94703ab.257d8522.js"
+        }
+      ]
+    },
+    "98": {
+      "js": [
+        {
+          "file": "assets/js/a7bd4aaa.b753eed2.js",
+          "hash": "d1e16b9c300cd03e",
+          "publicPath": "/ai_native_book/assets/js/a7bd4aaa.b753eed2.js"
+        }
+      ]
+    },
+    "226": {
+      "js": [
+        {
+          "file": "assets/js/4dd5b0c3.7fdfd04f.js",
+          "hash": "7793c12d3ca9546b",
+          "publicPath": "/ai_native_book/assets/js/4dd5b0c3.7fdfd04f.js"
+        }
+      ]
+    },
+    "237": {
+      "js": [
+        {
+          "file": "assets/js/237.cb35122b.js",
+          "hash": "ca8e4d9628be2b56",
+          "publicPath": "/ai_native_book/assets/js/237.cb35122b.js"
+        }
+      ]
+    },
+    "354": {
+      "js": [
+        {
+          "file": "assets/js/runtime~main.290474dd.js",
+          "hash": "134319384146a59f",
+          "publicPath": "/ai_native_book/assets/js/runtime~main.290474dd.js"
+        }
+      ]
+    },
+    "401": {
+      "js": [
+        {
+          "file": "assets/js/17896441.5ece01d1.js",
+          "hash": "bc21aff55e83ecf5",
+          "publicPath": "/ai_native_book/assets/js/17896441.5ece01d1.js"
+        }
+      ]
+    },
+    "441": {
+      "js": [
+        {
+          "file": "assets/js/803c2b7e.918d4d81.js",
+          "hash": "22b9b396cfcf3523",
+          "publicPath": "/ai_native_book/assets/js/803c2b7e.918d4d81.js"
+        }
+      ]
+    },
+    "463": {
+      "js": [
+        {
+          "file": "assets/js/ac22254c.5c8c8ce1.js",
+          "hash": "2a88070c296644b9",
+          "publicPath": "/ai_native_book/assets/js/ac22254c.5c8c8ce1.js"
+        }
+      ]
+    },
+    "601": {
+      "js": [
+        {
+          "file": "assets/js/4a90598f.49d6347f.js",
+          "hash": "7e382704e5108d72",
+          "publicPath": "/ai_native_book/assets/js/4a90598f.49d6347f.js"
+        }
+      ]
+    },
+    "647": {
+      "js": [
+        {
+          "file": "assets/js/5e95c892.0e0a0a55.js",
+          "hash": "bf5dc5e8df0c58cf",
+          "publicPath": "/ai_native_book/assets/js/5e95c892.0e0a0a55.js"
+        }
+      ]
+    },
+    "742": {
+      "js": [
+        {
+          "file": "assets/js/aba21aa0.4d6cc3a3.js",
+          "hash": "aae8f10c8bc17ca7",
+          "publicPath": "/ai_native_book/assets/js/aba21aa0.4d6cc3a3.js"
+        }
+      ]
+    },
+    "792": {
+      "js": [
+        {
+          "file": "assets/js/main.22894832.js",
+          "hash": "94af7e185f8a14d0",
+          "publicPath": "/ai_native_book/assets/js/main.22894832.js"
+        }
+      ]
+    },
+    "818": {
+      "js": [
+        {
+          "file": "assets/js/4912aec2.918c023b.js",
+          "hash": "c50b39001094b791",
+          "publicPath": "/ai_native_book/assets/js/4912aec2.918c023b.js"
+        }
+      ]
+    },
+    "869": {
+      "css": [
+        {
+          "file": "assets/css/styles.7bfdbc5b.css",
+          "hash": "97454a4c4891d8f7",
+          "publicPath": "/ai_native_book/assets/css/styles.7bfdbc5b.css"
+        }
+      ]
+    },
+    "899": {
+      "js": [
+        {
+          "file": "assets/js/a09c2993.9ed9c936.js",
+          "hash": "386b4ff4d0161a82",
+          "publicPath": "/ai_native_book/assets/js/a09c2993.9ed9c936.js"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "module-1-ros2/chapter-1-5-parameters",
+  "title": "Chapter 1.5 - ROS 2 Parameters and Configuration",
+  "description": "Managing configuration through parameters, launch files, and parameter files",
+  "source": "@site/docs/module-1-ros2/chapter-1-5-parameters.md",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/chapter-1-5-parameters",
+  "permalink": "/ai_native_book/module-1-ros2/chapter-1-5-parameters",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-1-ros2/chapter-1-5-parameters.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Chapter 1.5 - ROS 2 Parameters and Configuration",
+    "description": "Managing configuration through parameters, launch files, and parameter files"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 1.4 - ROS 2 Message Types and Data Structures",
+    "permalink": "/ai_native_book/module-1-ros2/chapter-1-4-message-types"
+  },
+  "next": {
+    "title": "Chapter 1.6 - ROS 2 Launch Files and System Orchestration",
+    "permalink": "/ai_native_book/module-1-ros2/chapter-1-6-launch-files"
+  }
+}

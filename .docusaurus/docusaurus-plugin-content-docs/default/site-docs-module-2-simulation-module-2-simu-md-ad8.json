@@ -1,0 +1,24 @@
+{
+  "id": "module-2-simulation/module-2-simu",
+  "title": "module-2-simu",
+  "description": "",
+  "source": "@site/docs/module-2-simulation/module-2-simu.md",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/module-2-simu",
+  "permalink": "/ai_native_book/module-2-simulation/module-2-simu",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-2-simulation/module-2-simu.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 2 - Simulation Environments",
+    "permalink": "/ai_native_book/module-2-simulation/"
+  },
+  "next": {
+    "title": "Module 3 - NVIDIA Isaac",
+    "permalink": "/ai_native_book/module-3-isaac/"
+  }
+}

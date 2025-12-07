@@ -1,0 +1,1446 @@
+---
+title: Chapter 1.6 - ROS 2 Launch Files and System Orchestration
+description: Managing complex robotic systems with launch files and orchestration
+---
+
+# Chapter 1.6: ROS 2 Launch Files and System Orchestration
+
+## Overview
+
+In this chapter, you'll learn how to orchestrate complex robotic systems using ROS 2 launch files. Launch files allow you to start multiple nodes with specific configurations, parameters, and dependencies in a coordinated manner. This is essential for deploying complete robotic systems with proper startup sequences and resource management.
+
+By the end of this chapter, you'll understand:
+- ✅ How to create and use launch files for system orchestration
+- ✅ Advanced launch file features and best practices
+- ✅ Parameter management within launch files
+- ✅ Conditional execution and error handling in launch systems
+
+## Understanding Launch Systems
+
+### What Are Launch Files?
+
+Launch files in ROS 2 are **executable scripts** that define and coordinate the startup of multiple nodes, configuration of parameters, and management of system resources. They provide a declarative way to orchestrate complex robotic systems with proper dependencies and startup sequences.
+
+### Launch System Components
+
+- **Launch Description**: The overall structure defining what to launch
+- **Launch Actions**: Individual operations like starting nodes or setting parameters
+- **Launch Conditions**: Logic for conditional execution of actions
+- **Launch Substitutions**: Dynamic values that can be computed at runtime
+- **Launch Arguments**: User-provided parameters to customize launch behavior
+
+### Launch File Benefits
+
+- **System Orchestration**: Start multiple nodes with proper coordination
+- **Configuration Management**: Set parameters and configurations at startup
+- **Environment Setup**: Configure environment variables and paths
+- **Error Handling**: Manage startup failures and dependencies
+- **Reusability**: Create templates for different configurations
+
+## Basic Launch File Structure
+
+### Simple Launch File
+
+Create `launch/simple_launch.py`:
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    """Simple launch file that starts a single node."""
+
+    # Define the node to launch
+    simple_node = Node(
+        package='my_robot_pkg',
+        executable='simple_node',  # or 'node_name' for Python nodes
+        name='simple_node_instance',
+        output='screen',  # Output to screen for debugging
+        parameters=[
+            {'param1': 'value1'},
+            {'param2': 42}
+        ]
+    )
+
+    # Return launch description containing all nodes
+    return LaunchDescription([
+        simple_node
+    ])
+```
+
+### Launch File with Multiple Nodes
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    """Launch file with multiple coordinated nodes."""
+
+    # Navigation node
+    nav_node = Node(
+        package='nav2_bringup',
+        executable='nav2_launch.py',
+        name='navigation_system',
+        output='screen',
+        parameters=[
+            {'use_sim_time': False},
+            {'planner_frequency': 5.0}
+        ]
+    )
+
+    # Controller node
+    controller_node = Node(
+        package='my_robot_pkg',
+        executable='controller_node',
+        name='robot_controller',
+        output='screen',
+        parameters=[
+            {'max_velocity': 1.0},
+            {'control_frequency': 50.0}
+        ]
+    )
+
+    # Sensor processor node
+    sensor_node = Node(
+        package='my_robot_pkg',
+        executable='sensor_processor',
+        name='sensor_processor',
+        output='screen',
+        parameters=[
+            {'publish_frequency': 10.0},
+            {'sensor_range': 30.0}
+        ]
+    )
+
+    return LaunchDescription([
+        nav_node,
+        controller_node,
+        sensor_node
+    ])
+```
+
+## Launch Arguments and Substitutions
+
+### Launch Arguments
+
+Launch arguments allow users to customize launch behavior:
+
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    # Declare launch arguments
+    robot_name_arg = DeclareLaunchArgument(
+        'robot_name',
+        default_value='robot1',
+        description='Name of the robot to launch'
+    )
+
+    use_sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation time'
+    )
+
+    config_file_arg = DeclareLaunchArgument(
+        'config_file',
+        default_value='default.yaml',
+        description='Configuration file to use'
+    )
+
+    # Get launch configurations
+    robot_name = LaunchConfiguration('robot_name')
+    use_sim_time = LaunchConfiguration('use_sim_time')
+    config_file = LaunchConfiguration('config_file')
+
+    # Use launch configurations in node definitions
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name=['robot_', robot_name],  # Use launch config in node name
+        parameters=[
+            {'robot_name': robot_name},
+            {'use_sim_time': use_sim_time}
+        ],
+        output='screen'
+    )
+
+    return LaunchDescription([
+        robot_name_arg,
+        use_sim_time_arg,
+        config_file_arg,
+        robot_node
+    ])
+```
+
+### Common Substitutions
+
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, SetEnvironmentVariable
+from launch.substitutions import (
+    LaunchConfiguration,
+    PathJoinSubstitution,
+    TextSubstitution,
+    EnvironmentVariable
+)
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+
+def generate_launch_description():
+    # Declare arguments
+    robot_model_arg = DeclareLaunchArgument(
+        'robot_model',
+        default_value='turtlebot4',
+        description='Robot model to use'
+    )
+
+    config_file_arg = DeclareLaunchArgument(
+        'config_file',
+        default_value='config.yaml',
+        description='Configuration file name'
+    )
+
+    # Get configurations
+    robot_model = LaunchConfiguration('robot_model')
+    config_file = LaunchConfiguration('config_file')
+
+    # Use various substitutions
+    config_path = PathJoinSubstitution([
+        FindPackageShare('my_robot_pkg'),
+        'config',
+        robot_model,  # Use launch config in path
+        config_file
+    ])
+
+    # Set environment variable using substitution
+    set_env = SetEnvironmentVariable(
+        name='ROBOT_MODEL',
+        value=robot_model
+    )
+
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name=robot_model,  # Use launch config as node name
+        parameters=[config_path],
+        output='screen'
+    )
+
+    return LaunchDescription([
+        robot_model_arg,
+        config_file_arg,
+        set_env,
+        robot_node
+    ])
+```
+
+## Advanced Launch File Features
+
+### Conditional Launch Actions
+
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.conditions import IfCondition, UnlessCondition
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    # Declare conditional arguments
+    use_camera_arg = DeclareLaunchArgument(
+        'use_camera',
+        default_value='true',
+        description='Whether to start camera node'
+    )
+
+    use_lidar_arg = DeclareLaunchArgument(
+        'use_lidar',
+        default_value='true',
+        description='Whether to start lidar node'
+    )
+
+    debug_mode_arg = DeclareLaunchArgument(
+        'debug_mode',
+        default_value='false',
+        description='Enable debug mode'
+    )
+
+    # Get configurations
+    use_camera = LaunchConfiguration('use_camera')
+    use_lidar = LaunchConfiguration('use_lidar')
+    debug_mode = LaunchConfiguration('debug_mode')
+
+    # Camera node (only if use_camera is true)
+    camera_node = Node(
+        package='my_robot_pkg',
+        executable='camera_node',
+        name='camera_driver',
+        parameters=[{'use_camera': use_camera}],
+        output='screen',
+        condition=IfCondition(use_camera)  # Conditional execution
+    )
+
+    # Lidar node (only if use_lidar is true)
+    lidar_node = Node(
+        package='my_robot_pkg',
+        executable='lidar_node',
+        name='lidar_driver',
+        parameters=[{'use_lidar': use_lidar}],
+        output='screen',
+        condition=IfCondition(use_lidar)
+    )
+
+    # Debug nodes (only if debug_mode is true)
+    debug_node = Node(
+        package='my_robot_pkg',
+        executable='debug_node',
+        name='debug_system',
+        parameters=[{'debug_mode': debug_mode}],
+        output='screen',
+        condition=IfCondition(debug_mode)
+    )
+
+    return LaunchDescription([
+        use_camera_arg,
+        use_lidar_arg,
+        debug_mode_arg,
+        camera_node,
+        lidar_node,
+        debug_node
+    ])
+```
+
+### Launch File Inclusion
+
+```python
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+
+def generate_launch_description():
+    # Declare arguments that will be passed to included launch files
+    use_sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation time'
+    )
+
+    robot_model_arg = DeclareLaunchArgument(
+        'robot_model',
+        default_value='default',
+        description='Robot model to use'
+    )
+
+    # Include navigation launch file
+    nav_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('nav2_bringup'),
+                'launch',
+                'navigation_launch.py'
+            ])
+        ]),
+        launch_arguments={
+            'use_sim_time': LaunchConfiguration('use_sim_time'),
+            'params_file': PathJoinSubstitution([
+                FindPackageShare('my_robot_pkg'),
+                'config',
+                LaunchConfiguration('robot_model'),
+                'nav2_params.yaml'
+            ])
+        }.items()
+    )
+
+    # Include controller launch file
+    controller_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('my_robot_pkg'),
+                'launch',
+                'controller.launch.py'
+            ])
+        ]),
+        launch_arguments={
+            'robot_model': LaunchConfiguration('robot_model')
+        }.items()
+    )
+
+    # Additional nodes specific to this launch
+    system_monitor = Node(
+        package='my_robot_pkg',
+        executable='system_monitor',
+        name='system_monitor',
+        output='screen'
+    )
+
+    return LaunchDescription([
+        use_sim_time_arg,
+        robot_model_arg,
+        nav_launch,
+        controller_launch,
+        system_monitor
+    ])
+```
+
+### Timer Actions and Delays
+
+```python
+from launch import LaunchDescription
+from launch.actions import TimerAction, DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    # Declare delay argument
+    startup_delay_arg = DeclareLaunchArgument(
+        'startup_delay',
+        default_value='5.0',
+        description='Delay before starting critical nodes (seconds)'
+    )
+
+    # First, start essential nodes immediately
+    essential_node = Node(
+        package='my_robot_pkg',
+        executable='essential_node',
+        name='essential_system',
+        output='screen'
+    )
+
+    # Delayed nodes that depend on essential systems
+    delayed_node = TimerAction(
+        period=5.0,  # Wait 5 seconds
+        actions=[
+            Node(
+                package='my_robot_pkg',
+                executable='dependent_node',
+                name='dependent_system',
+                output='screen',
+                parameters=[{'startup_delay': 5.0}]
+            )
+        ]
+    )
+
+    # Another delayed node with configurable delay
+    config_delayed_node = TimerAction(
+        period=LaunchConfiguration('startup_delay'),
+        actions=[
+            Node(
+                package='my_robot_pkg',
+                executable='critical_node',
+                name='critical_system',
+                output='screen'
+            )
+        ]
+    )
+
+    return LaunchDescription([
+        startup_delay_arg,
+        essential_node,
+        delayed_node,
+        config_delayed_node
+    ])
+```
+
+## Parameter Management in Launch Files
+
+### Loading Parameter Files
+
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+
+def generate_launch_description():
+    # Declare parameter file argument
+    params_file_arg = DeclareLaunchArgument(
+        'params_file',
+        default_value=PathJoinSubstitution([
+            FindPackageShare('my_robot_pkg'),
+            'config',
+            'default_params.yaml'
+        ]),
+        description='Path to parameter file'
+    )
+
+    # Get parameter file path
+    params_file = LaunchConfiguration('params_file')
+
+    # Node with parameter file
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name='robot_system',
+        parameters=[params_file],  # Load parameters from file
+        output='screen'
+    )
+
+    # Multiple nodes sharing the same parameter file
+    sensor_node = Node(
+        package='my_robot_pkg',
+        executable='sensor_node',
+        name='sensor_system',
+        parameters=[params_file],
+        output='screen'
+    )
+
+    return LaunchDescription([
+        params_file_arg,
+        robot_node,
+        sensor_node
+    ])
+```
+
+### Dynamic Parameter Generation
+
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+import yaml
+import os
+
+
+def generate_dynamic_params(context):
+    """Function to generate parameters dynamically based on launch args."""
+    robot_model = LaunchConfiguration('robot_model').perform(context)
+
+    # Define parameters based on robot model
+    if robot_model == 'turtlebot4':
+        params = {
+            'max_velocity': 0.5,
+            'robot_radius': 0.177,
+            'sensor_range': 12.0
+        }
+    elif robot_model == 'jackal':
+        params = {
+            'max_velocity': 2.0,
+            'robot_radius': 0.25,
+            'sensor_range': 30.0
+        }
+    else:
+        params = {
+            'max_velocity': 1.0,
+            'robot_radius': 0.3,
+            'sensor_range': 20.0
+        }
+
+    return [Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name=f'robot_{robot_model}',
+        parameters=[params],
+        output='screen'
+    )]
+
+
+def generate_launch_description():
+    robot_model_arg = DeclareLaunchArgument(
+        'robot_model',
+        default_value='default',
+        description='Robot model to configure'
+    )
+
+    return LaunchDescription([
+        robot_model_arg,
+        OpaqueFunction(function=generate_dynamic_params)
+    ])
+```
+
+## Complex System Orchestration
+
+### Robot Bringup Launch File
+
+```python
+from launch import LaunchDescription
+from launch.actions import (
+    DeclareLaunchArgument,
+    RegisterEventHandler,
+    TimerAction
+)
+from launch.event_handlers import OnProcessStart, OnProcessIO
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+
+def generate_launch_description():
+    # Declare arguments
+    use_sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation time'
+    )
+
+    robot_model_arg = DeclareLaunchArgument(
+        'robot_model',
+        default_value='default',
+        description='Robot model to use'
+    )
+
+    # Load configurations
+    use_sim_time = LaunchConfiguration('use_sim_time')
+    robot_model = LaunchConfiguration('robot_model')
+
+    # Hardware interface (runs first)
+    hardware_interface = Node(
+        package='my_robot_pkg',
+        executable='hardware_interface',
+        name='hardware_interface',
+        parameters=[
+            {'use_sim_time': use_sim_time},
+            {'robot_model': robot_model}
+        ],
+        output='screen'
+    )
+
+    # Robot state publisher (depends on URDF)
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        parameters=[
+            {'use_sim_time': use_sim_time},
+            {'robot_description':
+                PathJoinSubstitution([
+                    FindPackageShare('my_robot_pkg'),
+                    'urdf',
+                    [robot_model, '.urdf']
+                ])
+            }
+        ],
+        output='screen'
+    )
+
+    # Joint state publisher (for simulation)
+    joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher',
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
+    )
+
+    # Navigation system (starts after hardware is ready)
+    navigation_system = Node(
+        package='nav2_bringup',
+        executable='navigation_launch.py',
+        name='navigation_system',
+        parameters=[
+            PathJoinSubstitution([
+                FindPackageShare('my_robot_pkg'),
+                'config',
+                robot_model,
+                'nav2_params.yaml'
+            ])
+        ],
+        output='screen'
+    )
+
+    # Event handler to start navigation after hardware is ready
+    start_navigation_after_hardware = RegisterEventHandler(
+        OnProcessStart(
+            target_action=hardware_interface,
+            on_start=[
+                TimerAction(
+                    period=2.0,  # Wait 2 seconds after hardware starts
+                    actions=[navigation_system]
+                )
+            ]
+        )
+    )
+
+    return LaunchDescription([
+        use_sim_time_arg,
+        robot_model_arg,
+        hardware_interface,
+        robot_state_publisher,
+        joint_state_publisher,
+        start_navigation_after_hardware
+    ])
+```
+
+### Monitoring and Error Handling
+
+```python
+from launch import LaunchDescription
+from launch.actions import (
+    DeclareLaunchArgument,
+    RegisterEventHandler,
+    EmitEvent
+)
+from launch.event_handlers import OnProcessStart, OnProcessIO, OnProcessExit
+from launch.events import Shutdown
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    # Declare monitoring argument
+    enable_monitoring_arg = DeclareLaunchArgument(
+        'enable_monitoring',
+        default_value='true',
+        description='Enable system monitoring'
+    )
+
+    enable_monitoring = LaunchConfiguration('enable_monitoring')
+
+    # Main robot node
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name='main_robot',
+        parameters=[{'enable_monitoring': enable_monitoring}],
+        output='screen'
+    )
+
+    # Monitor node
+    monitor_node = Node(
+        package='my_robot_pkg',
+        executable='system_monitor',
+        name='system_monitor',
+        parameters=[{'monitored_node': 'main_robot'}],
+        output='screen'
+    )
+
+    # Event handler for node crashes
+    handle_robot_crash = RegisterEventHandler(
+        OnProcessExit(
+            target_action=robot_node,
+            on_exit=[
+                EmitEvent(event=Shutdown(reason='Main robot node crashed'))
+            ]
+        )
+    )
+
+    # Event handler for monitoring critical messages
+    handle_critical_error = RegisterEventHandler(
+        OnProcessIO(
+            target_action=robot_node,
+            on_stderr=[
+                # Could trigger emergency stop or other safety measures
+            ]
+        )
+    )
+
+    return LaunchDescription([
+        enable_monitoring_arg,
+        robot_node,
+        monitor_node,
+        handle_robot_crash,
+        handle_critical_error
+    ])
+```
+
+## Launch File Best Practices
+
+### 1. Modular Launch Architecture
+
+Create separate launch files for different system components:
+
+**launch/robot_description.launch.py:**
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+
+def generate_launch_description():
+    robot_model_arg = DeclareLaunchArgument(
+        'robot_model',
+        default_value='default',
+        description='Robot model'
+    )
+
+    robot_model = LaunchConfiguration('robot_model')
+
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        parameters=[
+            {'robot_description':
+                PathJoinSubstitution([
+                    FindPackageShare('my_robot_pkg'),
+                    'urdf',
+                    [robot_model, '.urdf']
+                ])
+            }
+        ]
+    )
+
+    return LaunchDescription([
+        robot_model_arg,
+        robot_state_publisher
+    ])
+```
+
+**launch/sensors.launch.py:**
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    use_sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation time'
+    )
+
+    sensors = [
+        Node(
+            package='my_robot_pkg',
+            executable='camera_driver',
+            name='camera_driver',
+            parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
+            output='screen'
+        ),
+        Node(
+            package='my_robot_pkg',
+            executable='lidar_driver',
+            name='lidar_driver',
+            parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
+            output='screen'
+        )
+    ]
+
+    return LaunchDescription([
+        use_sim_time_arg,
+        *sensors
+    ])
+```
+
+**launch/main_robot.launch.py (includes others):**
+```python
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
+
+
+def generate_launch_description():
+    use_sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation time'
+    )
+
+    robot_model_arg = DeclareLaunchArgument(
+        'robot_model',
+        default_value='default',
+        description='Robot model'
+    )
+
+    # Include component launch files
+    robot_description = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('my_robot_pkg'),
+                'launch',
+                'robot_description.launch.py'
+            ])
+        ]),
+        launch_arguments={
+            'robot_model': LaunchConfiguration('robot_model')
+        }.items()
+    )
+
+    sensors = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('my_robot_pkg'),
+                'launch',
+                'sensors.launch.py'
+            ])
+        ]),
+        launch_arguments={
+            'use_sim_time': LaunchConfiguration('use_sim_time')
+        }.items()
+    )
+
+    # Additional main nodes
+    main_controller = Node(
+        package='my_robot_pkg',
+        executable='main_controller',
+        name='main_controller',
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
+        output='screen'
+    )
+
+    return LaunchDescription([
+        use_sim_time_arg,
+        robot_model_arg,
+        robot_description,
+        sensors,
+        main_controller
+    ])
+```
+
+### 2. Parameter Validation in Launch Files
+
+```python
+from launch import LaunchDescription, LaunchContext
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
+from launch.substitutions import LaunchConfiguration
+from launch.utilities import perform_substitutions
+from launch_ros.actions import Node
+import re
+
+
+def validate_and_launch(context: LaunchContext):
+    """Validate launch arguments and create nodes."""
+    # Get and validate robot name
+    robot_name = perform_substitutions(context, [LaunchConfiguration('robot_name')])
+
+    # Validate robot name format (alphanumeric and underscores only)
+    if not re.match(r'^[a-zA-Z][a-zA-Z0-9_]*$', robot_name):
+        raise RuntimeError(f'Invalid robot name: {robot_name}. Must start with letter and contain only alphanumeric and underscores.')
+
+    # Get and validate other parameters
+    max_velocity = float(perform_substitutions(context, [LaunchConfiguration('max_velocity')]))
+    if max_velocity <= 0 or max_velocity > 10.0:
+        raise RuntimeError(f'Invalid max_velocity: {max_velocity}. Must be between 0 and 10.')
+
+    # Create node with validated parameters
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name=f'robot_{robot_name}',
+        parameters=[
+            {'robot_name': robot_name},
+            {'max_velocity': max_velocity}
+        ],
+        output='screen'
+    )
+
+    return [robot_node]
+
+
+def generate_launch_description():
+    robot_name_arg = DeclareLaunchArgument(
+        'robot_name',
+        default_value='my_robot',
+        description='Valid robot name (alphanumeric, starts with letter)'
+    )
+
+    max_velocity_arg = DeclareLaunchArgument(
+        'max_velocity',
+        default_value='1.0',
+        description='Maximum velocity (0 < value <= 10)'
+    )
+
+    return LaunchDescription([
+        robot_name_arg,
+        max_velocity_arg,
+        OpaqueFunction(function=validate_and_launch)
+    ])
+```
+
+### 3. Environment and Resource Management
+
+```python
+from launch import LaunchDescription
+from launch.actions import (
+    DeclareLaunchArgument,
+    SetEnvironmentVariable,
+    SetLaunchConfiguration
+)
+from launch.substitutions import LaunchConfiguration, EnvironmentVariable
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    # Declare arguments
+    log_level_arg = DeclareLaunchArgument(
+        'log_level',
+        default_value='INFO',
+        description='Logging level for all nodes'
+    )
+
+    robot_namespace_arg = DeclareLaunchArgument(
+        'robot_namespace',
+        default_value='',
+        description='Robot namespace (empty for no namespace)'
+    )
+
+    # Set environment variables
+    set_ros_domain = SetEnvironmentVariable(
+        name='ROS_DOMAIN_ID',
+        value='0'  # Default domain, can be overridden
+    )
+
+    set_log_level = SetEnvironmentVariable(
+        name='RCUTILS_LOG_SEVERITY_THRESHOLD',
+        value=LaunchConfiguration('log_level')
+    )
+
+    # Set launch configurations
+    namespace_config = SetLaunchConfiguration(
+        'robot_namespace',
+        LaunchConfiguration('robot_namespace')
+    )
+
+    # Nodes with namespace support
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name='robot_node',
+        namespace=LaunchConfiguration('robot_namespace'),
+        parameters=[{'log_level': LaunchConfiguration('log_level')}],
+        output='screen'
+    )
+
+    return LaunchDescription([
+        log_level_arg,
+        robot_namespace_arg,
+        set_ros_domain,
+        set_log_level,
+        namespace_config,
+        robot_node
+    ])
+```
+
+## Launch File Testing and Debugging
+
+### 1. Launch File Validation
+
+```bash
+# Validate launch file syntax
+python3 path/to/launch/file.py
+
+# Dry run (show what would be launched without starting)
+ros2 launch my_robot_pkg launch_file.py --dry-run
+
+# Verbose output for debugging
+ros2 launch my_robot_pkg launch_file.py --log-level debug
+```
+
+### 2. Debug Launch Files
+
+Create a debug version of your launch file:
+
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, LogInfo
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    debug_arg = DeclareLaunchArgument(
+        'debug',
+        default_value='false',
+        description='Enable debug output'
+    )
+
+    debug = LaunchConfiguration('debug')
+
+    # Log launch information
+    debug_info = LogInfo(
+        msg=['Debug mode: ', debug],
+        condition=LaunchConfigurationEquals('debug', 'true')
+    )
+
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name='robot_node',
+        parameters=[{'debug': debug}],
+        output='screen'  # Always show output for debugging
+    )
+
+    return LaunchDescription([
+        debug_arg,
+        debug_info,
+        robot_node
+    ])
+
+
+# Helper function for conditional execution
+def LaunchConfigurationEquals(name, value):
+    """Create a condition that checks if a launch config equals a value."""
+    from launch.conditions import IfCondition
+    from launch.substitutions import PythonExpression
+    return IfCondition(
+        PythonExpression([f"\'", LaunchConfiguration(name), f"\' == \'{value}\'"])
+    )
+```
+
+### 3. Launch File Inspection Tools
+
+```python
+#!/usr/bin/env python3
+"""
+Launch file inspection tool to analyze launch files.
+"""
+
+import sys
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, LogInfo
+from launch.launch_context import LaunchContext
+from launch.utilities import visit_all_entities_and_collect_futures
+
+
+def inspect_launch_file(launch_file_path):
+    """Inspect a launch file and extract information."""
+    # Import the launch file
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("launch_module", launch_file_path)
+    launch_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(launch_module)
+
+    # Get the launch description
+    launch_description = launch_module.generate_launch_description()
+
+    # Analyze the launch description
+    context = LaunchContext()
+    entities, futures = visit_all_entities_and_collect_futures(launch_description, context)
+
+    print(f"Launch file: {launch_file_path}")
+    print(f"Number of entities: {len(entities)}")
+
+    # Count different types of actions
+    node_count = 0
+    arg_count = 0
+
+    for entity in entities:
+        entity_type = type(entity).__name__
+        if 'Node' in entity_type:
+            node_count += 1
+        elif 'DeclareLaunchArgument' in entity_type:
+            arg_count += 1
+
+    print(f"Nodes: {node_count}")
+    print(f"Arguments: {arg_count}")
+
+    return launch_description
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: python3 launch_inspector.py <launch_file.py>")
+        sys.exit(1)
+
+    launch_file = sys.argv[1]
+    inspect_launch_file(launch_file)
+```
+
+## Performance Considerations
+
+### 1. Efficient Launch Sequences
+
+```python
+from launch import LaunchDescription
+from launch.actions import TimerAction, GroupAction
+from launch_ros.actions import Node
+from launch.conditions import IfCondition
+from launch.substitutions import LaunchConfiguration
+
+
+def generate_launch_description():
+    # Use GroupAction to organize related nodes
+    perception_group = GroupAction(
+        actions=[
+            Node(
+                package='my_robot_pkg',
+                executable='camera_node',
+                name='camera_driver',
+                output='log'  # Use 'log' instead of 'screen' for production
+            ),
+            Node(
+                package='my_robot_pkg',
+                executable='lidar_node',
+                name='lidar_driver',
+                output='log'
+            )
+        ]
+    )
+
+    # Use minimal output for production
+    navigation_node = Node(
+        package='nav2_bringup',
+        executable='navigation_launch.py',
+        name='navigation_system',
+        output='log'  # Less verbose output
+    )
+
+    # Delay non-critical nodes
+    monitoring_node = TimerAction(
+        period=10.0,  # Start after main systems
+        actions=[
+            Node(
+                package='my_robot_pkg',
+                executable='monitoring_node',
+                name='system_monitor',
+                output='log'
+            )
+        ]
+    )
+
+    return LaunchDescription([
+        perception_group,
+        navigation_node,
+        monitoring_node
+    ])
+```
+
+### 2. Resource Management
+
+```python
+from launch import LaunchDescription
+from launch.actions import SetEnvironmentVariable
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    # Set memory and CPU limits via environment
+    set_memory_limit = SetEnvironmentVariable(
+        name='ROS_PYTHON_MEMORY_LIMIT',
+        value='1G'  # Example: limit Python memory usage
+    )
+
+    robot_node = Node(
+        package='my_robot_pkg',
+        executable='robot_node',
+        name='robot_node',
+        # Limit CPU affinity if needed
+        # Additional resource management options
+        output='log'
+    )
+
+    return LaunchDescription([
+        set_memory_limit,
+        robot_node
+    ])
+```
+
+## Command-Line Launch Tools
+
+### Useful Launch Commands
+
+```bash
+# Launch a file with arguments
+ros2 launch my_robot_pkg robot.launch.py robot_model:=turtlebot4 use_sim_time:=true
+
+# List all available launch files in a package
+find $(ros2 pkg prefix my_robot_pkg)/share/my_robot_pkg/launch -name "*.py"
+
+# Get launch file information
+ros2 launch my_robot_pkg robot.launch.py --show-args
+
+# Launch with specific ROS domain
+ROS_DOMAIN_ID=1 ros2 launch my_robot_pkg robot.launch.py
+
+# Launch and redirect output to file
+ros2 launch my_robot_pkg robot.launch.py 2>&1 | tee launch_output.log
+```
+
+## Real-World Launch Examples
+
+### Autonomous Robot Launch
+
+```python
+from launch import LaunchDescription
+from launch.actions import (
+    DeclareLaunchArgument,
+    IncludeLaunchDescription,
+    TimerAction
+)
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+
+def generate_launch_description():
+    # System-wide arguments
+    use_sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation time'
+    )
+
+    robot_model_arg = DeclareLaunchArgument(
+        'robot_model',
+        default_value='default',
+        description='Robot model configuration'
+    )
+
+    enable_autonomy_arg = DeclareLaunchArgument(
+        'enable_autonomy',
+        default_value='true',
+        description='Enable autonomous navigation'
+    )
+
+    # Load configurations
+    use_sim_time = LaunchConfiguration('use_sim_time')
+    robot_model = LaunchConfiguration('robot_model')
+    enable_autonomy = LaunchConfiguration('enable_autonomy')
+
+    # Hardware interface (essential first)
+    hardware_interface = Node(
+        package='my_robot_pkg',
+        executable='hardware_interface',
+        name='hardware_interface',
+        parameters=[
+            {'use_sim_time': use_sim_time},
+            {'robot_model': robot_model}
+        ],
+        output='screen'
+    )
+
+    # Robot description (needed by other nodes)
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        parameters=[
+            {'use_sim_time': use_sim_time},
+            {'robot_description':
+                PathJoinSubstitution([
+                    FindPackageShare('my_robot_pkg'),
+                    'urdf',
+                    [robot_model, '.urdf']
+                ])
+            }
+        ],
+        output='screen'
+    )
+
+    # Sensors (after hardware is ready)
+    sensors_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('my_robot_pkg'),
+                'launch',
+                'sensors.launch.py'
+            ])
+        ]),
+        launch_arguments={
+            'use_sim_time': use_sim_time,
+            'robot_model': robot_model
+        }.items()
+    )
+
+    # Navigation system (starts after sensors)
+    navigation_launch = TimerAction(
+        period=3.0,
+        actions=[
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([
+                    PathJoinSubstitution([
+                        FindPackageShare('nav2_bringup'),
+                        'launch',
+                        'navigation_launch.py'
+                    ])
+                ]),
+                launch_arguments={
+                    'use_sim_time': use_sim_time,
+                    'params_file': PathJoinSubstitution([
+                        FindPackageShare('my_robot_pkg'),
+                        'config',
+                        robot_model,
+                        'nav2_params.yaml'
+                    ])
+                }.items()
+            )
+        ]
+    )
+
+    # Autonomy system (conditional)
+    autonomy_launch = TimerAction(
+        period=5.0,
+        actions=[
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([
+                    PathJoinSubstitution([
+                        FindPackageShare('my_robot_pkg'),
+                        'launch',
+                        'autonomy.launch.py'
+                    ])
+                ]),
+                launch_arguments={
+                    'enable_autonomy': enable_autonomy,
+                    'use_sim_time': use_sim_time
+                }.items()
+            )
+        ],
+        condition=IfCondition(enable_autonomy)
+    )
+
+    # System monitor (always runs last)
+    system_monitor = TimerAction(
+        period=8.0,
+        actions=[
+            Node(
+                package='my_robot_pkg',
+                executable='system_monitor',
+                name='system_monitor',
+                parameters=[
+                    {'use_sim_time': use_sim_time},
+                    {'robot_model': robot_model}
+                ],
+                output='screen'
+            )
+        ]
+    )
+
+    return LaunchDescription([
+        use_sim_time_arg,
+        robot_model_arg,
+        enable_autonomy_arg,
+        hardware_interface,
+        robot_state_publisher,
+        sensors_launch,
+        navigation_launch,
+        autonomy_launch,
+        system_monitor
+    ])
+```
+
+## Summary
+
+In this chapter, you learned:
+
+- ✅ How to create and use launch files for system orchestration
+- ✅ Advanced launch file features including arguments, substitutions, and conditions
+- ✅ Parameter management within launch files and system configuration
+- ✅ Best practices for organizing complex robotic systems with launch files
+- ✅ Testing, debugging, and performance optimization techniques
+
+## Next Steps
+
+Congratulations! You've completed Module 1: The Robotic Nervous System (ROS 2). You now have a solid foundation in ROS 2 architecture, communication patterns, message types, parameters, and system orchestration.
+
+**Continue to:** [Module 2: The Digital Twin (Gazebo & Unity) →](../module-2-simulation/index.md)
+
+## Additional Resources
+
+- [ROS 2 Launch System Documentation](https://docs.ros.org/en/humble/How-To-Guides/Launch-system.html)
+- [Launch Files Tutorial](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+- [Launch Arguments Guide](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-Launch-Arguments.html)
+- [Launch Substitutions Reference](https://docs.ros.org/en/humble/How-To-Guides/Using-Substitutions.html)

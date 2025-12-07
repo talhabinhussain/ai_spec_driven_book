@@ -1,0 +1,706 @@
+openapi: 3.0.3
+info:
+  title: Physical AI & Humanoid Robotics Textbook API
+  description: API for educational components of the Physical AI & Humanoid Robotics textbook platform
+  version: 1.0.0
+  contact:
+    name: Textbook Development Team
+    email: textbook@example.com
+
+servers:
+  - url: https://textbook.example.com/api/v1
+    description: Production server
+  - url: https://staging.textbook.example.com/api/v1
+    description: Staging server
+
+paths:
+  /chapters:
+    get:
+      summary: List all textbook chapters
+      description: Retrieve a list of all available textbook chapters with metadata
+      parameters:
+        - name: module
+          in: query
+          description: Filter chapters by module number (0-4 for core modules)
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 10
+        - name: difficulty
+          in: query
+          description: Filter chapters by difficulty level
+          required: false
+          schema:
+            type: string
+            enum: [beginner, intermediate, advanced]
+      responses:
+        '200':
+          description: List of chapters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  chapters:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Chapter'
+                  total:
+                    type: integer
+                  hasNext:
+                    type: boolean
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /chapters/{chapterId}:
+    get:
+      summary: Get chapter details
+      description: Retrieve detailed information about a specific chapter
+      parameters:
+        - name: chapterId
+          in: path
+          required: true
+          description: Unique identifier of the chapter
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Chapter details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChapterWithContent'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /chapters/{chapterId}/progress:
+    get:
+      summary: Get chapter progress
+      description: Retrieve progress information for a chapter for the authenticated user
+      parameters:
+        - name: chapterId
+          in: path
+          required: true
+          description: Unique identifier of the chapter
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Chapter progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChapterProgress'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /exercises/{exerciseId}/submit:
+    post:
+      summary: Submit exercise solution
+      description: Submit a solution for an exercise and get feedback
+      parameters:
+        - name: exerciseId
+          in: path
+          required: true
+          description: Unique identifier of the exercise
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                solution:
+                  type: string
+                  description: The student's solution code or answer
+                metadata:
+                  type: object
+                  description: Additional metadata about the submission
+      responses:
+        '200':
+          description: Exercise evaluation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExerciseResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /assessments/{assessmentId}/submit:
+    post:
+      summary: Submit assessment
+      description: Submit answers for an assessment and get results
+      parameters:
+        - name: assessmentId
+          in: path
+          required: true
+          description: Unique identifier of the assessment
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                answers:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AssessmentAnswer'
+                timeSpent:
+                  type: integer
+                  description: Time spent on the assessment in seconds
+      responses:
+        '200':
+          description: Assessment results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /visualizations/{visualizationId}/config:
+    get:
+      summary: Get visualization configuration
+      description: Retrieve configuration parameters for a specific visualization
+      parameters:
+        - name: visualizationId
+          in: path
+          required: true
+          description: Unique identifier of the visualization
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Visualization configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisualizationConfig'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /search:
+    get:
+      summary: Search textbook content
+      description: Search across all textbook content
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Search query
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Filter search results by content type
+          required: false
+          schema:
+            type: string
+            enum: [chapter, exercise, code, reference]
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+                  total:
+                    type: integer
+                  hasNext:
+                    type: boolean
+
+components:
+  schemas:
+    Chapter:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the chapter
+        title:
+          type: string
+          description: Display title of the chapter
+        moduleNumber:
+          type: integer
+          description: Sequential number of the module (0-4 for core modules)
+        duration:
+          type: number
+          description: Estimated completion time in hours
+        difficultyLevel:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        description:
+          type: string
+          description: Brief description of chapter content
+        learningObjectives:
+          type: array
+          items:
+            type: string
+          description: List of learning objectives
+        prerequisites:
+          type: array
+          items:
+            type: string
+          description: List of prerequisite knowledge or chapters
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    ChapterWithContent:
+      allOf:
+        - $ref: '#/components/schemas/Chapter'
+        - type: object
+          properties:
+            content:
+              type: string
+              description: Main content in MDX format
+            exercises:
+              type: array
+              items:
+                $ref: '#/components/schemas/Exercise'
+            assessments:
+              type: array
+              items:
+                $ref: '#/components/schemas/Assessment'
+            visualizations:
+              type: array
+              items:
+                $ref: '#/components/schemas/Visualization'
+            codeExamples:
+              type: array
+              items:
+                $ref: '#/components/schemas/CodeExample'
+            references:
+              type: array
+              items:
+                $ref: '#/components/schemas/Reference'
+
+    ChapterProgress:
+      type: object
+      properties:
+        chapterId:
+          type: string
+          description: Unique identifier of the chapter
+        userId:
+          type: string
+          description: Unique identifier of the user
+        completed:
+          type: boolean
+          description: Whether the chapter is completed
+        progress:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: Progress percentage
+        exercisesCompleted:
+          type: integer
+          description: Number of exercises completed
+        exercisesTotal:
+          type: integer
+          description: Total number of exercises
+        assessmentsCompleted:
+          type: integer
+          description: Number of assessments completed
+        assessmentsTotal:
+          type: integer
+          description: Total number of assessments
+        lastAccessed:
+          type: string
+          format: date-time
+        timeSpent:
+          type: integer
+          description: Time spent on the chapter in seconds
+
+    Exercise:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier within the chapter
+        title:
+          type: string
+          description: Descriptive title of the exercise
+        type:
+          type: string
+          enum: [simulation, coding, analysis, design, experiment]
+        description:
+          type: string
+          description: Detailed instructions for the exercise
+        estimatedTime:
+          type: integer
+          description: Time needed in minutes
+        difficultyLevel:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        expectedOutcome:
+          type: string
+          description: What students should achieve
+        resources:
+          type: array
+          items:
+            type: string
+          description: List of required resources or files
+
+    Assessment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier within the chapter
+        title:
+          type: string
+          description: Descriptive title of the assessment
+        type:
+          type: string
+          enum: [quiz, project, practical, reflection]
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+        passingScore:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: Minimum score required to pass
+        timeLimit:
+          type: integer
+          description: Time limit in minutes (0 for untimed)
+
+    Question:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier within the assessment
+        text:
+          type: string
+          description: The question text
+        type:
+          type: string
+          enum: [multiple-choice, true-false, short-answer, coding, essay]
+        options:
+          type: array
+          items:
+            type: string
+          description: For multiple-choice questions, possible answers
+        correctAnswer:
+          type: string
+          description: The correct answer
+        explanation:
+          type: string
+          description: Explanation of the correct answer
+        points:
+          type: integer
+          minimum: 1
+          maximum: 10
+          description: Points assigned to the question
+        difficultyLevel:
+          type: string
+          enum: [beginner, intermediate, advanced]
+
+    AssessmentAnswer:
+      type: object
+      properties:
+        questionId:
+          type: string
+          description: Unique identifier of the question
+        answer:
+          type: string
+          description: The student's answer
+        timeSpent:
+          type: integer
+          description: Time spent on this question in seconds
+
+    AssessmentResult:
+      type: object
+      properties:
+        assessmentId:
+          type: string
+          description: Unique identifier of the assessment
+        userId:
+          type: string
+          description: Unique identifier of the user
+        score:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: Final score percentage
+        passed:
+          type: boolean
+          description: Whether the assessment was passed
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssessmentAnswerResult'
+        feedback:
+          type: string
+          description: Overall feedback for the assessment
+        completedAt:
+          type: string
+          format: date-time
+
+    AssessmentAnswerResult:
+      type: object
+      properties:
+        questionId:
+          type: string
+          description: Unique identifier of the question
+        answer:
+          type: string
+          description: The student's answer
+        correct:
+          type: boolean
+          description: Whether the answer was correct
+        pointsAwarded:
+          type: integer
+          description: Points awarded for this answer
+        feedback:
+          type: string
+          description: Feedback for this specific answer
+
+    ExerciseResult:
+      type: object
+      properties:
+        exerciseId:
+          type: string
+          description: Unique identifier of the exercise
+        userId:
+          type: string
+          description: Unique identifier of the user
+        completed:
+          type: boolean
+          description: Whether the exercise was completed successfully
+        score:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: Score percentage
+        feedback:
+          type: string
+          description: Feedback for the exercise
+        validationResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationResult'
+        completedAt:
+          type: string
+          format: date-time
+
+    ValidationResult:
+      type: object
+      properties:
+        rule:
+          type: string
+          description: The validation rule that was checked
+        passed:
+          type: boolean
+          description: Whether the validation passed
+        message:
+          type: string
+          description: Explanation of the validation result
+
+    Visualization:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier within the chapter
+        title:
+          type: string
+          description: Descriptive title of the visualization
+        type:
+          type: string
+          enum: [3d-robot, graph, diagram, simulation, chart]
+        description:
+          type: string
+          description: Brief description of what the visualization shows
+        componentName:
+          type: string
+          description: Name of the React component to render
+        parameters:
+          type: object
+          description: Configuration parameters for the visualization
+        interactions:
+          type: array
+          items:
+            type: string
+          description: List of possible user interactions
+
+    VisualizationConfig:
+      type: object
+      properties:
+        visualizationId:
+          type: string
+          description: Unique identifier of the visualization
+        parameters:
+          type: object
+          description: Configuration parameters for the visualization
+        supportedInteractions:
+          type: array
+          items:
+            type: string
+          description: List of supported user interactions
+        accessibilityOptions:
+          type: object
+          description: Accessibility configuration options
+
+    CodeExample:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier within the chapter
+        title:
+          type: string
+          description: Descriptive title of the code example
+        language:
+          type: string
+          description: Programming language
+        code:
+          type: string
+          description: The actual code content
+        description:
+          type: string
+          description: Explanation of what the code does
+        expectedOutput:
+          type: string
+          description: What the code should produce
+
+    Reference:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the reference
+        type:
+          type: string
+          enum: [academic, technical-documentation, standard, web-resource]
+        title:
+          type: string
+          description: Title of the referenced work
+        authors:
+          type: array
+          items:
+            type: string
+          description: List of authors
+        year:
+          type: integer
+          description: Publication year
+        source:
+          type: string
+          description: Journal, conference, or publisher
+        url:
+          type: string
+          format: uri
+          description: URL if available
+        citation:
+          type: string
+          description: Properly formatted citation in APA/IEEE style
+
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the result
+        type:
+          type: string
+          enum: [chapter, exercise, code, reference]
+        title:
+          type: string
+          description: Title of the result
+        content:
+          type: string
+          description: Excerpt or description of the result
+        chapterId:
+          type: string
+          description: Chapter ID if applicable
+        url:
+          type: string
+          format: uri
+          description: URL to the result
+        score:
+          type: number
+          description: Relevance score
+
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or payload
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+              code:
+                type: string
+                description: Error code
+              details:
+                type: object
+                description: Additional error details
+
+    Unauthorized:
+      description: Unauthorized - authentication required
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token for authentication
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: chapters
+    description: Chapter-related operations
+  - name: exercises
+    description: Exercise-related operations
+  - name: assessments
+    description: Assessment-related operations
+  - name: visualizations
+    description: Visualization-related operations
+  - name: search
+    description: Search operations

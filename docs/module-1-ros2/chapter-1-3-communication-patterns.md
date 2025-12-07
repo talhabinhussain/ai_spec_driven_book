@@ -1,0 +1,1185 @@
+---
+title: Chapter 1.3 - ROS 2 Communication Patterns
+description: Deep dive into topics, services, and actions communication patterns
+---
+
+# Chapter 1.3: ROS 2 Communication Patterns
+
+## Overview
+
+In this chapter, you'll explore the three fundamental communication patterns in ROS 2: **Topics**, **Services**, and **Actions**. Each pattern serves specific use cases and understanding when to use each is crucial for effective robotic system design.
+
+By the end of this chapter, you'll understand:
+- ✅ The differences between topics, services, and actions
+- ✅ When to use each communication pattern
+- ✅ How to implement each pattern in Python
+- ✅ Best practices for communication design
+
+## Communication Patterns Overview
+
+ROS 2 provides three distinct communication patterns, each optimized for different scenarios:
+
+| Pattern | Type | Use Case | Characteristics |
+|---------|------|----------|-----------------|
+| **Topics** | Publish-Subscribe | Continuous data streams | Asynchronous, many-to-many |
+| **Services** | Request-Response | Quick, synchronous operations | Synchronous, one-to-one |
+| **Actions** | Goal-Based | Long-running, cancellable tasks | Asynchronous with feedback |
+
+## Topics: Publish-Subscribe Pattern
+
+### Understanding Topics
+
+Topics enable **asynchronous, many-to-many communication** between nodes. Publishers send messages to topics without knowing who (if anyone) is listening. Subscribers receive messages from topics without knowing who published them.
+
+### Topic Characteristics
+
+- **Asynchronous**: Publishers don't wait for subscribers
+- **Decoupled**: Publishers and subscribers don't know about each other
+- **Typed**: Each topic has a specific message type
+- **Many-to-Many**: Multiple publishers and subscribers per topic
+- **Fire-and-forget**: Publishers send messages regardless of subscribers
+
+### Topic Implementation Example
+
+Let's create a comprehensive topic example with both publisher and subscriber:
+
+#### Publisher Node (`publisher_node.py`)
+
+```python
+#!/usr/bin/env python3
+"""
+Topic publisher example that demonstrates continuous data streaming.
+"""
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String, Int32, Float32
+from geometry_msgs.msg import Twist
+import math
+import time
+
+
+class TopicPublisherNode(Node):
+    def __init__(self):
+        super().__init__('topic_publisher_node')
+
+        # Create multiple publishers for different data types
+        self.string_publisher = self.create_publisher(String, 'chatter', 10)
+        self.counter_publisher = self.create_publisher(Int32, 'counter', 10)
+        self.sensor_publisher = self.create_publisher(Float32, 'sensor_data', 10)
+        self.cmd_vel_publisher = self.create_publisher(Twist, 'cmd_vel', 10)
+
+        # Timer for publishing messages at 1 Hz
+        self.timer = self.create_timer(1.0, self.publish_messages)
+        self.counter = 0
+
+        self.get_logger().info('Topic Publisher Node initialized!')
+
+    def publish_messages(self):
+        """Publish messages to all topics."""
+        # Publish string message
+        string_msg = String()
+        string_msg.data = f'Hello World: {self.counter}'
+        self.string_publisher.publish(string_msg)
+
+        # Publish counter
+        counter_msg = Int32()
+        counter_msg.data = self.counter
+        self.counter_publisher.publish(counter_msg)
+
+        # Publish simulated sensor data (sine wave)
+        sensor_msg = Float32()
+        sensor_msg.data = math.sin(self.counter * 0.1) * 10.0
+        self.sensor_publisher.publish(sensor_msg)
+
+        # Publish velocity command
+        cmd_vel_msg = Twist()
+        cmd_vel_msg.linear.x = 0.5  # Move forward at 0.5 m/s
+        cmd_vel_msg.angular.z = 0.1 * math.sin(self.counter * 0.1)  # Gentle turn
+        self.cmd_vel_publisher.publish(cmd_vel_msg)
+
+        self.get_logger().info(f'Published messages: {self.counter}')
+        self.counter += 1
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = TopicPublisherNode()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.get_logger().info('Node stopped by user')
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+#### Subscriber Node (`subscriber_node.py`)
+
+```python
+#!/usr/bin/env python3
+"""
+Topic subscriber example that demonstrates receiving messages.
+"""
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String, Int32, Float32
+from geometry_msgs.msg import Twist
+
+
+class TopicSubscriberNode(Node):
+    def __init__(self):
+        super().__init__('topic_subscriber_node')
+
+        # Create multiple subscribers
+        self.string_subscription = self.create_subscription(
+            String,
+            'chatter',
+            self.string_callback,
+            10)
+
+        self.counter_subscription = self.create_subscription(
+            Int32,
+            'counter',
+            self.counter_callback,
+            10)
+
+        self.sensor_subscription = self.create_subscription(
+            Float32,
+            'sensor_data',
+            self.sensor_callback,
+            10)
+
+        self.cmd_vel_subscription = self.create_subscription(
+            Twist,
+            'cmd_vel',
+            self.cmd_vel_callback,
+            10)
+
+        self.get_logger().info('Topic Subscriber Node initialized!')
+
+    def string_callback(self, msg):
+        """Callback for string messages."""
+        self.get_logger().info(f'Received string: {msg.data}')
+
+    def counter_callback(self, msg):
+        """Callback for counter messages."""
+        self.get_logger().info(f'Received counter: {msg.data}')
+
+    def sensor_callback(self, msg):
+        """Callback for sensor data."""
+        self.get_logger().info(f'Received sensor: {msg.data:.2f}')
+
+    def cmd_vel_callback(self, msg):
+        """Callback for velocity commands."""
+        self.get_logger().info(f'Received velocity: linear={msg.linear.x:.2f}, angular={msg.angular.z:.2f}')
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = TopicSubscriberNode()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.get_logger().info('Node stopped by user')
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+### Quality of Service (QoS) with Topics
+
+Topics support Quality of Service policies that allow you to tune communication characteristics:
+
+```python
+from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy
+
+# For sensor data (best effort, keep last 5 messages)
+sensor_qos = QoSProfile(
+    reliability=ReliabilityPolicy.BEST_EFFORT,
+    history=HistoryPolicy.KEEP_LAST,
+    depth=5,
+    durability=DurabilityPolicy.VOLATILE
+)
+
+# For critical commands (reliable, keep last 10 messages)
+command_qos = QoSProfile(
+    reliability=ReliabilityPolicy.RELIABLE,
+    history=HistoryPolicy.KEEP_LAST,
+    depth=10,
+    durability=DurabilityPolicy.VOLATILE
+)
+
+# Create publisher with custom QoS
+publisher = self.create_publisher(String, 'topic_name', sensor_qos)
+```
+
+### Common Topic Use Cases
+
+| Use Case | Example Topics | Message Types |
+|----------|----------------|---------------|
+| **Sensor Data** | `/camera/image_raw`, `/lidar/scan` | `sensor_msgs/Image`, `sensor_msgs/LaserScan` |
+| **Robot State** | `/joint_states`, `/odom` | `sensor_msgs/JointState`, `nav_msgs/Odometry` |
+| **Control Commands** | `/cmd_vel`, `/joint_commands` | `geometry_msgs/Twist`, custom messages |
+| **System Status** | `/robot_status`, `/battery` | `std_msgs/String`, `std_msgs/Float32` |
+
+## Services: Request-Response Pattern
+
+### Understanding Services
+
+Services provide **synchronous, one-to-one communication** for request-response interactions. The client sends a request and waits for a response from the server.
+
+### Service Characteristics
+
+- **Synchronous**: Client waits for server response
+- **One-to-One**: One client communicates with one server
+- **Request-Response**: Client sends request, server sends response
+- **Quick Operations**: Designed for fast operations (< 1 second)
+- **Blocking**: Client is blocked until response received
+
+### Service Implementation Example
+
+First, create a service definition file. In your package, create a `srv` directory and add `CalculateDistance.srv`:
+
+```
+# Request
+float64 x1
+float64 y1
+float64 x2
+float64 y2
+---
+# Response
+float64 distance
+bool success
+string message
+```
+
+#### Service Server (`service_server.py`)
+
+```python
+#!/usr/bin/env python3
+"""
+Service server example that calculates distance between two points.
+"""
+
+import rclpy
+from rclpy.node import Node
+from example_interfaces.srv import Trigger  # Built-in service
+from std_srvs.srv import SetBool  # Built-in service
+import math
+
+
+class ServiceServerNode(Node):
+    def __init__(self):
+        super().__init__('service_server_node')
+
+        # Create different types of services
+        self.trigger_service = self.create_service(
+            Trigger,
+            'trigger_operation',
+            self.trigger_callback
+        )
+
+        self.bool_service = self.create_service(
+            SetBool,
+            'set_power_state',
+            self.bool_callback
+        )
+
+        self.get_logger().info('Service Server Node initialized!')
+
+    def trigger_callback(self, request, response):
+        """Handle trigger service requests."""
+        self.get_logger().info('Trigger service called')
+
+        # Simulate some processing
+        response.success = True
+        response.message = f'Operation completed at {self.get_clock().now().nanoseconds}'
+
+        return response
+
+    def bool_callback(self, request, response):
+        """Handle boolean service requests."""
+        self.get_logger().info(f'SetBool service called with data: {request.data}')
+
+        response.success = True
+        response.message = f'Power state set to: {request.data}'
+
+        return response
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = ServiceServerNode()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.get_logger().info('Service server stopped by user')
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+#### Service Client (`service_client.py`)
+
+```python
+#!/usr/bin/env python3
+"""
+Service client example that calls services.
+"""
+
+import rclpy
+from rclpy.node import Node
+from example_interfaces.srv import Trigger
+from std_srvs.srv import SetBool
+import sys
+
+
+class ServiceClientNode(Node):
+    def __init__(self):
+        super().__init__('service_client_node')
+
+        # Create clients for the services
+        self.trigger_client = self.create_client(Trigger, 'trigger_operation')
+        self.bool_client = self.create_client(SetBool, 'set_power_state')
+
+        # Wait for services to be available
+        while not self.trigger_client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Trigger service not available, waiting again...')
+
+        while not self.bool_client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Bool service not available, waiting again...')
+
+        # Call services
+        self.call_trigger_service()
+        self.call_bool_service(True)
+        self.call_bool_service(False)
+
+    def call_trigger_service(self):
+        """Call the trigger service."""
+        request = Trigger.Request()
+
+        future = self.trigger_client.call_async(request)
+        rclpy.spin_until_future_complete(self, future)
+
+        if future.result() is not None:
+            response = future.result()
+            self.get_logger().info(f'Trigger response: success={response.success}, message={response.message}')
+        else:
+            self.get_logger().error('Trigger service call failed')
+
+    def call_bool_service(self, value):
+        """Call the bool service with a specific value."""
+        request = SetBool.Request()
+        request.data = value
+
+        future = self.bool_client.call_async(request)
+        rclpy.spin_until_future_complete(self, future)
+
+        if future.result() is not None:
+            response = future.result()
+            self.get_logger().info(f'Bool response: success={response.success}, message={response.message}')
+        else:
+            self.get_logger().error('Bool service call failed')
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = ServiceClientNode()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.get_logger().info('Service client stopped by user')
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+### Async Service Client
+
+For non-blocking service calls, use async clients:
+
+```python
+class AsyncServiceClientNode(Node):
+    def __init__(self):
+        super().__init__('async_service_client_node')
+        self.client = self.create_client(Trigger, 'trigger_operation')
+
+        # Wait for service and then call it asynchronously
+        if self.client.wait_for_service(timeout_sec=1.0):
+            self.call_service_async()
+
+    def call_service_async(self):
+        """Call service asynchronously."""
+        request = Trigger.Request()
+        future = self.client.call_async(request)
+        future.add_done_callback(self.service_response_callback)
+
+    def service_response_callback(self, future):
+        """Handle service response."""
+        try:
+            response = future.result()
+            self.get_logger().info(f'Async response: {response.message}')
+        except Exception as e:
+            self.get_logger().error(f'Service call failed: {e}')
+```
+
+### Common Service Use Cases
+
+| Use Case | Example Services | Service Types |
+|----------|------------------|---------------|
+| **Configuration** | `/set_parameters`, `/reset_odometry` | `rcl_interfaces/SetParameters`, custom |
+| **System Control** | `/start_robot`, `/stop_robot` | `std_srvs/SetBool`, `std_srvs/Trigger` |
+| **Data Queries** | `/get_robot_state`, `/get_map` | Custom services |
+| **Calibration** | `/calibrate_sensors`, `/home_joints` | Custom services |
+
+## Actions: Goal-Based Pattern
+
+### Understanding Actions
+
+Actions are designed for **long-running, cancellable tasks** that provide feedback during execution. They support goals, feedback, and results with the ability to cancel operations.
+
+### Action Characteristics
+
+- **Long-Running**: Designed for operations that take more than 1 second
+- **Cancellable**: Operations can be cancelled mid-execution
+- **Feedback**: Provides progress updates during execution
+- **Goal-Oriented**: Client sends a goal, server processes it
+- **Asynchronous**: Non-blocking communication
+
+### Action Implementation Example
+
+#### Action Server (`action_server.py`)
+
+```python
+#!/usr/bin/env python3
+"""
+Action server example for navigation tasks.
+"""
+
+import rclpy
+from rclpy.action import ActionServer, CancelResponse, GoalResponse
+from rclpy.node import Node
+from rclpy.callback_groups import ReentrantCallbackGroup
+from rclpy.executors import MultiThreadedExecutor
+
+from nav2_msgs.action import NavigateToPose  # Using standard action
+from geometry_msgs.msg import PoseStamped
+import time
+import math
+
+
+class NavigationActionServer(Node):
+    def __init__(self):
+        super().__init__('navigation_action_server')
+
+        # Create action server with reentrant callback group for multiple goals
+        self._action_server = ActionServer(
+            self,
+            NavigateToPose,
+            'navigate_to_pose',
+            execute_callback=self.execute_callback,
+            goal_callback=self.goal_callback,
+            cancel_callback=self.cancel_callback,
+            callback_group=ReentrantCallbackGroup()
+        )
+
+        self.get_logger().info('Navigation Action Server initialized!')
+
+    def goal_callback(self, goal_request):
+        """Accept or reject a goal."""
+        self.get_logger().info('Received navigation goal request')
+        return GoalResponse.ACCEPT
+
+    def cancel_callback(self, goal_handle):
+        """Accept or reject a cancel request."""
+        self.get_logger().info('Received cancel request')
+        return CancelResponse.ACCEPT
+
+    async def execute_callback(self, goal_handle):
+        """Execute the navigation goal."""
+        self.get_logger().info('Executing navigation goal...')
+
+        # Get target pose from goal
+        target_pose = goal_handle.request.pose.pose
+        target_x = target_pose.position.x
+        target_y = target_pose.position.y
+
+        # Simulate navigation with feedback
+        feedback_msg = NavigateToPose.Feedback()
+        result = NavigateToPose.Result()
+
+        # Simulate movement in steps
+        for step in range(10):
+            if goal_handle.is_cancel_requested:
+                goal_handle.canceled()
+                result.result = None
+                self.get_logger().info('Navigation cancelled')
+                return result
+
+            # Simulate progress
+            progress = (step + 1) / 10.0
+            distance_remaining = math.sqrt(
+                (target_x - (step * 0.1))**2 +
+                (target_y - (step * 0.1))**2
+            )
+
+            # Update feedback
+            feedback_msg.current_pose = PoseStamped()
+            feedback_msg.current_pose.pose.position.x = step * 0.1
+            feedback_msg.current_pose.pose.position.y = step * 0.1
+            feedback_msg.distance_remaining = distance_remaining
+
+            # Publish feedback
+            goal_handle.publish_feedback(feedback_msg)
+            self.get_logger().info(f'Navigation progress: {progress:.2%}, distance: {distance_remaining:.2f}')
+
+            # Simulate time delay
+            time.sleep(0.5)
+
+        # Complete the goal
+        if not goal_handle.is_cancel_requested:
+            goal_handle.succeed()
+            result.result = PoseStamped()
+            result.result.pose = target_pose
+            self.get_logger().info('Navigation completed successfully')
+        else:
+            goal_handle.canceled()
+            result.result = None
+            self.get_logger().info('Navigation was cancelled')
+
+        return result
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = NavigationActionServer()
+
+    # Use multi-threaded executor to handle multiple goals
+    executor = MultiThreadedExecutor()
+    executor.add_node(node)
+
+    try:
+        executor.spin()
+    except KeyboardInterrupt:
+        node.get_logger().info('Action server stopped by user')
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+#### Action Client (`action_client.py`)
+
+```python
+#!/usr/bin/env python3
+"""
+Action client example for navigation tasks.
+"""
+
+import rclpy
+from rclpy.action import ActionClient
+from rclpy.node import Node
+
+from nav2_msgs.action import NavigateToPose
+from geometry_msgs.msg import Pose, Point, Quaternion
+
+
+class NavigationActionClient(Node):
+    def __init__(self):
+        super().__init__('navigation_action_client')
+
+        # Create action client
+        self._action_client = ActionClient(
+            self,
+            NavigateToPose,
+            'navigate_to_pose'
+        )
+
+    def send_goal(self, x, y, z=0.0):
+        """Send a navigation goal."""
+        # Wait for action server
+        self._action_client.wait_for_server()
+
+        # Create goal message
+        goal_msg = NavigateToPose.Goal()
+        goal_msg.pose.pose.position.x = x
+        goal_msg.pose.pose.position.y = y
+        goal_msg.pose.pose.position.z = z
+        goal_msg.pose.pose.orientation.w = 1.0  # No rotation
+
+        # Send goal with feedback callback
+        self._send_goal_future = self._action_client.send_goal_async(
+            goal_msg,
+            feedback_callback=self.feedback_callback
+        )
+
+        self._send_goal_future.add_done_callback(self.goal_response_callback)
+
+    def goal_response_callback(self, future):
+        """Handle goal response."""
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().info('Goal rejected')
+            return
+
+        self.get_logger().info('Goal accepted')
+        self._get_result_future = goal_handle.get_result_async()
+        self._get_result_future.add_done_callback(self.get_result_callback)
+
+    def feedback_callback(self, feedback_msg):
+        """Handle feedback during execution."""
+        feedback = feedback_msg.feedback
+        self.get_logger().info(
+            f'Feedback: distance remaining = {feedback.distance_remaining:.2f}'
+        )
+
+    def get_result_callback(self, future):
+        """Handle the final result."""
+        result = future.result().result
+        self.get_logger().info(f'Result: {result}')
+        rclpy.shutdown()
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    action_client = NavigationActionClient()
+
+    # Send a navigation goal
+    action_client.send_goal(2.0, 2.0)  # Navigate to (2.0, 2.0)
+
+    try:
+        rclpy.spin(action_client)
+    except KeyboardInterrupt:
+        action_client.get_logger().info('Action client stopped by user')
+    finally:
+        action_client.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+### Action with Cancellation
+
+```python
+class CancellableActionClient(Node):
+    def __init__(self):
+        super().__init__('cancellable_action_client')
+        self._action_client = ActionClient(self, NavigateToPose, 'navigate_to_pose')
+
+    def send_and_cancel_goal(self):
+        """Send a goal and then cancel it."""
+        self._action_client.wait_for_server()
+
+        goal_msg = NavigateToPose.Goal()
+        goal_msg.pose.pose.position.x = 10.0
+        goal_msg.pose.pose.position.y = 10.0
+        goal_msg.pose.pose.orientation.w = 1.0
+
+        self._send_goal_future = self._action_client.send_goal_async(
+            goal_msg,
+            feedback_callback=self.feedback_callback
+        )
+
+        self._send_goal_future.add_done_callback(self.goal_response_callback)
+
+        # Schedule cancellation after 2 seconds
+        self.create_timer(2.0, self.cancel_goal)
+
+    def cancel_goal(self):
+        """Cancel the current goal."""
+        if hasattr(self, '_goal_handle') and self._goal_handle is not None:
+            self._goal_handle.cancel_goal_async()
+
+    def goal_response_callback(self, future):
+        """Handle goal response."""
+        goal_handle = future.result()
+        if goal_handle.accepted:
+            self._goal_handle = goal_handle
+            self._get_result_future = goal_handle.get_result_async()
+            self._get_result_future.add_done_callback(self.get_result_callback)
+```
+
+### Common Action Use Cases
+
+| Use Case | Example Actions | Action Types |
+|----------|-----------------|--------------|
+| **Navigation** | `/navigate_to_pose`, `/follow_path` | `nav2_msgs/NavigateToPose`, `nav_msgs/FollowPath` |
+| **Manipulation** | `/move_group`, `/gripper_command` | `moveit_msgs/MoveGroup`, custom |
+| **Calibration** | `/calibrate_camera`, `/laser_scan` | Custom actions |
+| **Long Operations** | `/mapping`, `/recording` | Custom actions |
+
+## Communication Pattern Selection Guide
+
+### When to Use Each Pattern
+
+#### Use Topics When:
+
+✅ **Continuous Data Streaming**
+- Sensor data (cameras, LiDAR, IMU)
+- Robot state (joint positions, odometry)
+- System status updates
+
+✅ **Many-to-Many Communication**
+- Multiple nodes need the same data
+- Decoupled system design
+- Fire-and-forget scenarios
+
+✅ **Real-time Requirements**
+- Low latency needed
+- High-frequency updates
+- Best-effort delivery acceptable
+
+#### Use Services When:
+
+✅ **Quick Operations**
+- Operations that complete in < 1 second
+- Configuration changes
+- System queries
+
+✅ **Request-Response Pattern**
+- Need immediate response
+- One-off calculations
+- Synchronous operations
+
+✅ **Simple Interactions**
+- Enable/disable features
+- Trigger events
+- Simple queries
+
+#### Use Actions When:
+
+✅ **Long-Running Tasks**
+- Operations that take > 1 second
+- Navigation to distant locations
+- Complex manipulations
+
+✅ **Progress Feedback Needed**
+- Want to monitor progress
+- Need intermediate results
+- Want to show completion percentage
+
+✅ **Cancellable Operations**
+- User might want to stop
+- Task might need interruption
+- Resource conflicts possible
+
+### Pattern Comparison Matrix
+
+| Aspect | Topics | Services | Actions |
+|--------|--------|----------|---------|
+| **Latency** | Very Low | Low | Medium |
+| **Complexity** | Simple | Simple | Complex |
+| **Feedback** | No | No | Yes |
+| **Cancellation** | No | No | Yes |
+| **Sync/Async** | Async | Sync | Async |
+| **Use Case** | Streaming | Queries | Long Tasks |
+
+## Advanced Communication Patterns
+
+### 1. Publisher-Subscriber with Services
+
+Combine patterns for complete functionality:
+
+```python
+class HybridNode(Node):
+    def __init__(self):
+        super().__init__('hybrid_node')
+
+        # Publisher for continuous data
+        self.data_publisher = self.create_publisher(String, 'sensor_data', 10)
+
+        # Subscriber for commands
+        self.command_subscription = self.create_subscription(
+            String, 'commands', self.command_callback, 10
+        )
+
+        # Service for configuration
+        self.config_service = self.create_service(
+            SetBool, 'configure_sensor', self.config_callback
+        )
+
+        # Timer for continuous publishing
+        self.timer = self.create_timer(0.1, self.publish_data)
+
+    def publish_data(self):
+        """Publish continuous sensor data."""
+        msg = String()
+        msg.data = f'Sensor reading: {self.get_clock().now().nanoseconds}'
+        self.data_publisher.publish(msg)
+
+    def command_callback(self, msg):
+        """Handle incoming commands."""
+        self.get_logger().info(f'Received command: {msg.data}')
+
+    def config_callback(self, request, response):
+        """Handle configuration requests."""
+        self.get_logger().info(f'Config request: {request.data}')
+        response.success = True
+        response.message = 'Configuration updated'
+        return response
+```
+
+### 2. Multiple Publishers and Subscribers
+
+Handle multiple data streams:
+
+```python
+class MultiStreamNode(Node):
+    def __init__(self):
+        super().__init__('multi_stream_node')
+
+        # Multiple publishers
+        self.pub1 = self.create_publisher(String, 'stream1', 10)
+        self.pub2 = self.create_publisher(Int32, 'stream2', 10)
+        self.pub3 = self.create_publisher(Float32, 'stream3', 10)
+
+        # Multiple subscribers
+        self.sub1 = self.create_subscription(String, 'input1', self.callback1, 10)
+        self.sub2 = self.create_subscription(Int32, 'input2', self.callback2, 10)
+        self.sub3 = self.create_subscription(Float32, 'input3', self.callback3, 10)
+
+    def callback1(self, msg):
+        self.get_logger().info(f'Stream 1: {msg.data}')
+
+    def callback2(self, msg):
+        self.get_logger().info(f'Stream 2: {msg.data}')
+
+    def callback3(self, msg):
+        self.get_logger().info(f'Stream 3: {msg.data}')
+```
+
+### 3. Conditional Communication
+
+Switch between patterns based on context:
+
+```python
+class AdaptiveNode(Node):
+    def __init__(self):
+        super().__init__('adaptive_node')
+
+        # Both publisher and service client
+        self.status_publisher = self.create_publisher(String, 'status', 10)
+        self.health_service = self.create_client(Trigger, 'health_check')
+
+        self.timer = self.create_timer(1.0, self.adaptive_communication)
+        self.use_service = False  # Toggle between patterns
+
+    def adaptive_communication(self):
+        """Switch communication pattern based on conditions."""
+        if self.use_service and self.health_service.service_is_ready():
+            # Use service for critical check
+            request = Trigger.Request()
+            future = self.health_service.call_async(request)
+            future.add_done_callback(self.health_response_callback)
+        else:
+            # Use topic for regular updates
+            msg = String()
+            msg.data = f'Regular status update: {self.get_clock().now().nanoseconds}'
+            self.status_publisher.publish(msg)
+
+    def health_response_callback(self, future):
+        """Handle health check response."""
+        try:
+            response = future.result()
+            self.get_logger().info(f'Health check: {response.message}')
+        except Exception as e:
+            self.get_logger().error(f'Health check failed: {e}')
+```
+
+## Performance Considerations
+
+### 1. Topic Performance
+
+```python
+# Optimize for high-frequency topics
+high_freq_qos = QoSProfile(
+    reliability=ReliabilityPolicy.BEST_EFFORT,
+    history=HistoryPolicy.KEEP_LAST,
+    depth=1,  # Keep only latest message
+    durability=DurabilityPolicy.VOLATILE
+)
+
+# Optimize for critical topics
+critical_qos = QoSProfile(
+    reliability=ReliabilityPolicy.RELIABLE,
+    history=HistoryPolicy.KEEP_ALL,
+    depth=100,  # Keep many messages
+    durability=DurabilityPolicy.TRANSIENT_LOCAL
+)
+```
+
+### 2. Service Performance
+
+```python
+class OptimizedServiceNode(Node):
+    def __init__(self):
+        super().__init__('optimized_service_node')
+
+        # Use callback groups for parallel service handling
+        self.callback_group = ReentrantCallbackGroup()
+
+        self.service = self.create_service(
+            SetBool,
+            'fast_service',
+            self.fast_callback,
+            callback_group=self.callback_group
+        )
+
+    def fast_callback(self, request, response):
+        """Optimized service callback."""
+        # Minimize processing time
+        response.success = True
+        response.message = 'Fast response'
+        return response
+```
+
+### 3. Action Performance
+
+```python
+class OptimizedActionServer(Node):
+    def __init__(self):
+        super().__init__('optimized_action_server')
+
+        # Use appropriate callback group
+        self.action_server = ActionServer(
+            self,
+            NavigateToPose,
+            'optimized_navigate',
+            execute_callback=self.execute_callback,
+            callback_group=ReentrantCallbackGroup()  # Allow concurrent goals
+        )
+
+    async def execute_callback(self, goal_handle):
+        """Optimized action execution."""
+        # Process efficiently
+        result = NavigateToPose.Result()
+
+        # Perform navigation with optimized feedback frequency
+        for i in range(0, 100, 10):  # Feedback every 10%
+            if goal_handle.is_cancel_requested:
+                goal_handle.canceled()
+                result.result = None
+                return result
+
+            # Publish feedback less frequently
+            if i % 20 == 0:  # Every 20%
+                feedback_msg = NavigateToPose.Feedback()
+                feedback_msg.distance_remaining = 100 - i
+                goal_handle.publish_feedback(feedback_msg)
+
+            time.sleep(0.1)  # Simulated work
+
+        goal_handle.succeed()
+        result.result = PoseStamped()  # Success result
+        return result
+```
+
+## Error Handling and Robustness
+
+### 1. Topic Error Handling
+
+```python
+class RobustTopicNode(Node):
+    def __init__(self):
+        super().__init__('robust_topic_node')
+        self.publisher = self.create_publisher(String, 'robust_topic', 10)
+        self.subscription = self.create_subscription(
+            String, 'input_topic', self.robust_callback, 10
+        )
+        self.timer = self.create_timer(1.0, self.robust_publish)
+
+    def robust_callback(self, msg):
+        """Robust message handling."""
+        try:
+            # Validate message content
+            if not msg.data:
+                self.get_logger().warn('Received empty message')
+                return
+
+            # Process message
+            self.get_logger().info(f'Processed: {msg.data}')
+
+        except Exception as e:
+            self.get_logger().error(f'Error processing message: {e}')
+
+    def robust_publish(self):
+        """Robust message publishing."""
+        try:
+            msg = String()
+            msg.data = f'Robust message: {self.get_clock().now().nanoseconds}'
+            self.publisher.publish(msg)
+        except Exception as e:
+            self.get_logger().error(f'Error publishing message: {e}')
+```
+
+### 2. Service Error Handling
+
+```python
+class RobustServiceNode(Node):
+    def __init__(self):
+        super().__init__('robust_service_node')
+        self.service = self.create_service(
+            SetBool, 'robust_service', self.robust_service_callback
+        )
+
+    def robust_service_callback(self, request, response):
+        """Robust service callback with error handling."""
+        try:
+            # Validate request
+            if request.data is None:
+                response.success = False
+                response.message = 'Invalid request: data is None'
+                return response
+
+            # Process request
+            response.success = True
+            response.message = f'Processed: {request.data}'
+
+        except Exception as e:
+            response.success = False
+            response.message = f'Service error: {str(e)}'
+            self.get_logger().error(f'Service error: {e}')
+
+        return response
+```
+
+### 3. Action Error Handling
+
+```python
+class RobustActionServer(Node):
+    def __init__(self):
+        super().__init__('robust_action_server')
+        self.action_server = ActionServer(
+            self,
+            NavigateToPose,
+            'robust_navigate',
+            execute_callback=self.robust_execute_callback,
+            goal_callback=self.goal_callback
+        )
+
+    def goal_callback(self, goal_request):
+        """Validate goal before accepting."""
+        try:
+            # Check if goal is valid
+            target = goal_request.pose.pose.position
+            if math.isnan(target.x) or math.isnan(target.y):
+                self.get_logger().warn('Invalid goal coordinates')
+                return GoalResponse.REJECT
+
+            return GoalResponse.ACCEPT
+        except Exception as e:
+            self.get_logger().error(f'Goal validation error: {e}')
+            return GoalResponse.REJECT
+
+    async def robust_execute_callback(self, goal_handle):
+        """Robust action execution."""
+        result = NavigateToPose.Result()
+
+        try:
+            target = goal_handle.request.pose.pose.position
+
+            # Simulate navigation
+            for step in range(10):
+                if goal_handle.is_cancel_requested:
+                    goal_handle.canceled()
+                    result.result = None
+                    return result
+
+                # Check for execution errors
+                if step == 5:  # Simulate obstacle detection
+                    goal_handle.abort()
+                    result.result = None
+                    self.get_logger().warn('Obstacle detected, aborting navigation')
+                    return result
+
+                # Publish feedback
+                feedback_msg = NavigateToPose.Feedback()
+                feedback_msg.distance_remaining = 10 - step
+                goal_handle.publish_feedback(feedback_msg)
+
+                time.sleep(0.2)
+
+            # Complete successfully
+            goal_handle.succeed()
+            result.result = PoseStamped()
+            result.result.pose = goal_handle.request.pose.pose
+
+        except Exception as e:
+            self.get_logger().error(f'Action execution error: {e}')
+            goal_handle.abort()
+            result.result = None
+
+        return result
+```
+
+## Best Practices Summary
+
+### 1. Pattern Selection
+- Choose the right pattern for your use case
+- Consider latency, feedback, and cancellation needs
+- Don't force one pattern when another is more appropriate
+
+### 2. Performance Optimization
+- Use appropriate QoS settings for topics
+- Keep service calls fast and simple
+- Provide meaningful feedback for actions
+
+### 3. Error Handling
+- Always validate inputs and handle exceptions
+- Use appropriate logging levels
+- Implement graceful degradation
+
+### 4. Design Principles
+- Keep nodes focused on single responsibilities
+- Use descriptive names for topics, services, and actions
+- Document message types and expected behavior
+
+## Summary
+
+In this chapter, you learned:
+
+- ✅ The three fundamental ROS 2 communication patterns: Topics, Services, and Actions
+- ✅ When to use each pattern based on use case requirements
+- ✅ How to implement each pattern with proper error handling
+- ✅ Best practices for communication design and performance optimization
+- ✅ How to combine patterns for complex system designs
+
+## Next Steps
+
+Now that you understand ROS 2 communication patterns, you're ready to learn about message types and data structures!
+
+**Continue to:** [Chapter 1.4: ROS 2 Message Types and Data Structures →](chapter-1-4-message-types)
+
+## Additional Resources
+
+- [ROS 2 Communication Patterns Documentation](https://docs.ros.org/en/humble/Concepts/About-Topics.html)
+- [ROS 2 Services Tutorial](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Client-Libraries.html)
+- [ROS 2 Actions Tutorial](https://docs.ros.org/en/humble/Tutorials/Intermediate/Actions.html)
+- [Quality of Service in ROS 2](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html)
