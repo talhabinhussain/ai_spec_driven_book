@@ -7,10 +7,10 @@ export default {
   "title": "Physical AI & Humanoid Robotics Textbook",
   "tagline": "Bridging digital AI models with physical humanoid robots",
   "favicon": "img/favicon.ico",
-  "url": "https://your-username.github.io",
-  "baseUrl": "/ai_native_book/",
-  "organizationName": "your-organization",
-  "projectName": "ai_native_book",
+  "url": "https://talhabinhussain.github.io",
+  "baseUrl": "/ai_spec_driven_book/",
+  "organizationName": " talhabinhussain",
+  "projectName": "ai_spec_driven_book",
   "deploymentBranch": "gh-pages",
   "onBrokenLinks": "warn",
   "i18n": {
@@ -27,12 +27,12 @@ export default {
       {
         "docs": {
           "sidebarPath": "./sidebars.js",
-          "editUrl": "https://github.com/your-username/ai_native_book/tree/main/",
+          "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/",
           "routeBasePath": "/"
         },
         "blog": {
           "showReadingTime": true,
-          "editUrl": "https://github.com/your-username/ai_native_book/tree/main/"
+          "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/"
         },
         "theme": {
           "customCss": "./src/css/custom.css"
@@ -56,7 +56,7 @@ export default {
           "label": "Textbook"
         },
         {
-          "href": "https://github.com/your-username/ai_native_book",
+          "href": "https://github.com/talhabinhussain/ai_spec_driven_book",
           "label": "GitHub",
           "position": "right"
         }
@@ -113,7 +113,7 @@ export default {
           "items": [
             {
               "label": "GitHub",
-              "href": "https://github.com/your-username/ai_native_book"
+              "href": "https://github.com/talhabinhussain/ai_spec_driven_book"
             }
           ]
         }

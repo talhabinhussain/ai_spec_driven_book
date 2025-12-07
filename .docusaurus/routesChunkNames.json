@@ -1,118 +1,118 @@
 {
-  "/ai_native_book/__docusaurus/debug-381": {
+  "/ai_spec_driven_book/__docusaurus/debug-1db": {
     "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
       "plugin": "plugin---ai-native-book-docusaurus-debugb-38-41c"
     }
   },
-  "/ai_native_book/__docusaurus/debug/config-2b9": {
+  "/ai_spec_driven_book/__docusaurus/debug/config-22b": {
     "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
       "plugin": "plugin---ai-native-book-docusaurus-debugb-38-41c"
     }
   },
-  "/ai_native_book/__docusaurus/debug/content-221": {
+  "/ai_spec_driven_book/__docusaurus/debug/content-00a": {
     "__comp": "__comp---theme-debug-contentba-8-ce7",
     "__context": {
       "plugin": "plugin---ai-native-book-docusaurus-debugb-38-41c"
     },
-    "__props": "__props---ai-native-book-docusaurus-debug-content-8-c-6-2b2"
+    "__props": "__props---ai-spec-driven-book-docusaurus-debug-content-0-f-3-597"
   },
-  "/ai_native_book/__docusaurus/debug/globalData-d19": {
+  "/ai_spec_driven_book/__docusaurus/debug/globalData-793": {
     "__comp": "__comp---theme-debug-global-dataede-0fa",
     "__context": {
       "plugin": "plugin---ai-native-book-docusaurus-debugb-38-41c"
     }
   },
-  "/ai_native_book/__docusaurus/debug/metadata-44a": {
+  "/ai_spec_driven_book/__docusaurus/debug/metadata-265": {
     "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
     "__context": {
       "plugin": "plugin---ai-native-book-docusaurus-debugb-38-41c"
     }
   },
-  "/ai_native_book/__docusaurus/debug/registry-c71": {
+  "/ai_spec_driven_book/__docusaurus/debug/registry-e32": {
     "__comp": "__comp---theme-debug-registry-679-501",
     "__context": {
       "plugin": "plugin---ai-native-book-docusaurus-debugb-38-41c"
     }
   },
-  "/ai_native_book/__docusaurus/debug/routes-543": {
+  "/ai_spec_driven_book/__docusaurus/debug/routes-6dc": {
     "__comp": "__comp---theme-debug-routes-946-699",
     "__context": {
       "plugin": "plugin---ai-native-book-docusaurus-debugb-38-41c"
     }
   },
-  "/ai_native_book/-082": {
+  "/ai_spec_driven_book/-e04": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
-      "plugin": "plugin---ai-native-book-docsaba-f6d"
+      "plugin": "plugin---ai-native-book-aba-910"
     }
   },
-  "/ai_native_book/-0e4": {
+  "/ai_spec_driven_book/-6ea": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---ai-native-book-29-f-b4d"
+    "__props": "__props---ai-spec-driven-book-138-4d4"
   },
-  "/ai_native_book/-d2f": {
+  "/ai_spec_driven_book/-e54": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
-  "/ai_native_book/capstone/-3b9": {
+  "/ai_spec_driven_book/capstone/-1c2": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-capstone-cd-3-4c8"
   },
-  "/ai_native_book/introduction-60a": {
+  "/ai_spec_driven_book/introduction-170": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-native-book-docs-introductiona-09-018"
+    "content": "content---ai-native-book-introductiona-09-bef"
   },
-  "/ai_native_book/module-0-foundations/-801": {
+  "/ai_spec_driven_book/module-0-foundations/-2fc": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-native-book-docs-module-0-foundations-491-f8c"
+    "content": "content---ai-native-book-module-0-foundations-491-88d"
   },
-  "/ai_native_book/module-1-ros2/-30d": {
+  "/ai_spec_driven_book/module-1-ros2/-d68": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-native-book-docs-module-1-ros-2-4-dd-463"
+    "content": "content---ai-native-book-module-1-ros-2-4-dd-e8f"
   },
-  "/ai_native_book/module-1-ros2/chapter-1-1-ros2-architecture-772": {
+  "/ai_spec_driven_book/module-1-ros2/chapter-1-1-ros2-architecture-e64": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-module-1-ros-2-chapter-1-1-ros-2-architecture-30-b-965"
   },
-  "/ai_native_book/module-1-ros2/chapter-1-2-first-ros2-node-4c8": {
+  "/ai_spec_driven_book/module-1-ros2/chapter-1-2-first-ros2-node-845": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-module-1-ros-2-chapter-1-2-first-ros-2-nodea-1-c-09d"
   },
-  "/ai_native_book/module-1-ros2/chapter-1-3-communication-patterns-efb": {
+  "/ai_spec_driven_book/module-1-ros2/chapter-1-3-communication-patterns-76e": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-module-1-ros-2-chapter-1-3-communication-patterns-7-c-7-284"
   },
-  "/ai_native_book/module-1-ros2/chapter-1-4-message-types-6fc": {
+  "/ai_spec_driven_book/module-1-ros2/chapter-1-4-message-types-982": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-module-1-ros-2-chapter-1-4-message-types-0-c-7-4e9"
   },
-  "/ai_native_book/module-1-ros2/chapter-1-5-parameters-392": {
+  "/ai_spec_driven_book/module-1-ros2/chapter-1-5-parameters-290": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-module-1-ros-2-chapter-1-5-parametersb-5-a-f11"
   },
-  "/ai_native_book/module-1-ros2/chapter-1-6-launch-files-9fa": {
+  "/ai_spec_driven_book/module-1-ros2/chapter-1-6-launch-files-34a": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-module-1-ros-2-chapter-1-6-launch-files-0-ab-16b"
   },
-  "/ai_native_book/module-2-simulation/-736": {
+  "/ai_spec_driven_book/module-2-simulation/-be5": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-native-book-docs-module-2-simulation-ac-2-60d"
+    "content": "content---ai-native-book-module-2-simulation-ac-2-5c5"
   },
-  "/ai_native_book/module-2-simulation/module-2-simu-fac": {
+  "/ai_spec_driven_book/module-2-simulation/module-2-simu-772": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-native-book-module-2-simulation-module-2-simuad-8-6e5"
   },
-  "/ai_native_book/module-3-isaac/-b6f": {
+  "/ai_spec_driven_book/module-3-isaac/-d8f": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-native-book-docs-module-3-isaac-0-c-0-054"
+    "content": "content---ai-native-book-module-3-isaac-0-c-0-9bf"
   },
-  "/ai_native_book/module-4-vla/-6e6": {
+  "/ai_spec_driven_book/module-4-vla/-b19": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-native-book-docs-module-4-vla-4-a-9-6fd"
+    "content": "content---ai-native-book-module-4-vla-4-a-9-817"
   },
-  "/ai_native_book/-e0b": {
+  "/ai_spec_driven_book/-864": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-native-book-docs-c-37-283"
+    "content": "content---ai-native-book-c-37-e41"
   }
 }

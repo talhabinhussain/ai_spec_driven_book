@@ -8,15 +8,15 @@ const config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://your-username.github.io",
+  url: "https://talhabinhussain.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/ai_native_book/",
+  baseUrl: "/ai_spec_driven_book/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "your-organization", // Usually your GitHub org/user name.
-  projectName: "ai_native_book", // Usually your repo name.
+  organizationName: " talhabinhussain", // Usually your GitHub org/user name.
+  projectName: "ai_spec_driven_book", // Usually your repo name.
   deploymentBranch: "gh-pages", // Branch that GitHub Pages will deploy from.
 
   onBrokenLinks: "warn",
@@ -39,7 +39,8 @@ const config = {
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/your-username/ai_native_book/tree/main/",
+          editUrl:
+            "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/",
           // Home page is at /docs/index.md
           routeBasePath: "/", // Serve the docs at the site's root
         },
@@ -47,7 +48,8 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/your-username/ai_native_book/tree/main/",
+          editUrl:
+            "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -75,7 +77,7 @@ const config = {
             label: "Textbook",
           },
           {
-            href: "https://github.com/your-username/ai_native_book",
+            href: "https://github.com/talhabinhussain/ai_spec_driven_book",
             label: "GitHub",
             position: "right",
           },
@@ -131,7 +133,7 @@ const config = {
             items: [
               {
                 label: "GitHub",
-                href: "https://github.com/your-username/ai_native_book",
+                href: "https://github.com/talhabinhussain/ai_spec_driven_book",
               },
             ],
           },

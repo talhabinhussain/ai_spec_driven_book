@@ -5,10 +5,10 @@
   "source": "@site/docs/module-4-vla/index.md",
   "sourceDirName": "module-4-vla",
   "slug": "/module-4-vla/",
-  "permalink": "/ai_native_book/module-4-vla/",
+  "permalink": "/ai_spec_driven_book/module-4-vla/",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-4-vla/index.md",
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/index.md",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -18,6 +18,6 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 3 - NVIDIA Isaac",
-    "permalink": "/ai_native_book/module-3-isaac/"
+    "permalink": "/ai_spec_driven_book/module-3-isaac/"
   }
 }

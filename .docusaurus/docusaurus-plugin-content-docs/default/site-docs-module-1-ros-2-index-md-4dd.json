@@ -5,10 +5,10 @@
   "source": "@site/docs/module-1-ros2/index.md",
   "sourceDirName": "module-1-ros2",
   "slug": "/module-1-ros2/",
-  "permalink": "/ai_native_book/module-1-ros2/",
+  "permalink": "/ai_spec_driven_book/module-1-ros2/",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/module-1-ros2/index.md",
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-1-ros2/index.md",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Chapter 1.6 - ROS 2 Launch Files and System Orchestration",
-    "permalink": "/ai_native_book/module-1-ros2/chapter-1-6-launch-files"
+    "permalink": "/ai_spec_driven_book/module-1-ros2/chapter-1-6-launch-files"
   },
   "next": {
     "title": "Module 2 - Simulation Environments",
-    "permalink": "/ai_native_book/module-2-simulation/"
+    "permalink": "/ai_spec_driven_book/module-2-simulation/"
   }
 }

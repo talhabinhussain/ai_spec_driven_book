@@ -5,19 +5,19 @@
   "source": "@site/docs/capstone/index.md",
   "sourceDirName": "capstone",
   "slug": "/capstone/",
-  "permalink": "/ai_native_book/capstone/",
+  "permalink": "/ai_spec_driven_book/capstone/",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/your-username/ai_native_book/tree/main/docs/capstone/index.md",
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/capstone/index.md",
   "tags": [],
   "version": "current",
   "frontMatter": {
     "title": "Capstone Project - Autonomous Humanoid",
     "description": "Integrating all concepts in a complete humanoid robot system"
-  },
-  "sidebar": "tutorialSidebar",
+  }
+}  "sidebar": "tutorialSidebar",
   "next": {
     "title": "Home",
-    "permalink": "/ai_native_book/"
+    "permalink": "/ai_spec_driven_book/"
   }
 }

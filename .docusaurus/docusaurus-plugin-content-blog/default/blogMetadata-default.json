@@ -1,5 +1,5 @@
 {
-  "blogBasePath": "/ai_native_book/blog",
+  "blogBasePath": "/ai_spec_driven_book/blog",
   "blogTitle": "Blog",
-  "authorsListPath": "/ai_native_book/blog/authors"
+  "authorsListPath": "/ai_spec_driven_book/blog/authors"
 }
