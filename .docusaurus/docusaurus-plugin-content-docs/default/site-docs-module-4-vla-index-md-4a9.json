@@ -5,19 +5,22 @@
   "source": "@site/docs/module-4-vla/index.md",
   "sourceDirName": "module-4-vla",
   "slug": "/module-4-vla/",
-  "permalink": "/ai_spec_driven_book/module-4-vla/",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/index.md",
   "tags": [],
   "version": "current",
+  "sidebarPosition": 1,
   "frontMatter": {
     "title": "Module 4 - Vision-Language-Action Robotics",
-    "description": "Building conversational robotic systems"
+    "description": "Building conversational robotic systems",
+    "sidebar_position": 1,
+    "sidebar_label": "Module Overview"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Module 3 - NVIDIA Isaac",
-    "permalink": "/ai_spec_driven_book/module-3-isaac/"
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/"
   }
 }

@@ -1,27 +1,30 @@
 {
   "id": "module-1-ros2/index",
-  "title": "Module 1 - ROS 2 Architecture",
+  "title": "Module 1 - The Robotic Nervous System (ROS 2)",
   "description": "Building robotic nervous systems with nodes, topics, and services",
   "source": "@site/docs/module-1-ros2/index.md",
   "sourceDirName": "module-1-ros2",
   "slug": "/module-1-ros2/",
-  "permalink": "/ai_spec_driven_book/module-1-ros2/",
+  "permalink": "/ai_spec_driven_book/docs/module-1-ros2/",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-1-ros2/index.md",
   "tags": [],
   "version": "current",
+  "sidebarPosition": 1,
   "frontMatter": {
-    "title": "Module 1 - ROS 2 Architecture",
-    "description": "Building robotic nervous systems with nodes, topics, and services"
+    "title": "Module 1 - The Robotic Nervous System (ROS 2)",
+    "description": "Building robotic nervous systems with nodes, topics, and services",
+    "sidebar_position": 1,
+    "sidebar_label": "Module Overview"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Chapter 1.6 - ROS 2 Launch Files and System Orchestration",
-    "permalink": "/ai_spec_driven_book/module-1-ros2/chapter-1-6-launch-files"
+    "title": "Ch 1.1: ROS 2 Architecture",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture"
   },
   "next": {
-    "title": "Module 2 - Simulation Environments",
-    "permalink": "/ai_spec_driven_book/module-2-simulation/"
+    "title": "Ch 1.2: First ROS 2 Node",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node"
   }
 }

@@ -1,6 +1,8 @@
 ---
-title: Module 1 - ROS 2 Architecture
+title: Module 1 - The Robotic Nervous System (ROS 2)
 description: Building robotic nervous systems with nodes, topics, and services
+sidebar_position: 1
+sidebar_label: "Module Overview"
 ---
 
 # The Robotic Nervous System (ROS 2)

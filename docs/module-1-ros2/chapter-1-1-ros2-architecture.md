@@ -1,6 +1,8 @@
 ---
 title: Chapter 1.1 - Introduction to ROS 2 Architecture
 description: Understanding the evolution from ROS 1 to ROS 2 and core concepts
+sidebar_position: 1
+sidebar_label: "Ch 1.1: ROS 2 Architecture"
 ---
 
 # Chapter 1.1: Introduction to ROS 2 Architecture

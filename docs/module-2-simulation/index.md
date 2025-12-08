@@ -1,6 +1,8 @@
 ---
-title: Module 2 - Simulation Environments
+title: Module 2 - The Digital Twin (Gazebo & Unity)
 description: Creating digital twins with Gazebo and Unity
+sidebar_position: 1
+sidebar_label: "Module Overview"
 ---
 
 # The Digital Twin (Gazebo & Unity)

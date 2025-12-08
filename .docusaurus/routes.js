@@ -38,103 +38,115 @@ export default [
     exact: true
   },
   {
-    path: '/ai_spec_driven_book/',
-    component: ComponentCreator('/ai_spec_driven_book/', '9f4'),
+    path: '/ai_spec_driven_book/docs',
+    component: ComponentCreator('/ai_spec_driven_book/docs', '2eb'),
     routes: [
       {
-        path: '/ai_spec_driven_book/',
-        component: ComponentCreator('/ai_spec_driven_book/', '993'),
+        path: '/ai_spec_driven_book/docs',
+        component: ComponentCreator('/ai_spec_driven_book/docs', 'd93'),
         routes: [
           {
-            path: '/ai_spec_driven_book/',
-            component: ComponentCreator('/ai_spec_driven_book/', '7d6'),
+            path: '/ai_spec_driven_book/docs',
+            component: ComponentCreator('/ai_spec_driven_book/docs', '275'),
             routes: [
               {
-                path: '/ai_spec_driven_book/capstone/',
-                component: ComponentCreator('/ai_spec_driven_book/capstone/', '1c2'),
+                path: '/ai_spec_driven_book/docs/',
+                component: ComponentCreator('/ai_spec_driven_book/docs/', 'b69'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/capstone/',
+                component: ComponentCreator('/ai_spec_driven_book/docs/capstone/', '011'),
                 exact: true
               },
               {
-                path: '/ai_spec_driven_book/introduction',
-                component: ComponentCreator('/ai_spec_driven_book/introduction', 'e94'),
+                path: '/ai_spec_driven_book/docs/intro',
+                component: ComponentCreator('/ai_spec_driven_book/docs/intro', '1b5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-0-foundations/',
-                component: ComponentCreator('/ai_spec_driven_book/module-0-foundations/', '2fc'),
+                path: '/ai_spec_driven_book/docs/introduction',
+                component: ComponentCreator('/ai_spec_driven_book/docs/introduction', '2d3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-1-ros2/',
-                component: ComponentCreator('/ai_spec_driven_book/module-1-ros2/', 'd68'),
+                path: '/ai_spec_driven_book/docs/module-0-foundations/',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-0-foundations/', '193'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-1-ros2/chapter-1-1-ros2-architecture',
-                component: ComponentCreator('/ai_spec_driven_book/module-1-ros2/chapter-1-1-ros2-architecture', 'e64'),
+                path: '/ai_spec_driven_book/docs/module-1-ros2/',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-1-ros2/', 'b07'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-1-ros2/chapter-1-2-first-ros2-node',
-                component: ComponentCreator('/ai_spec_driven_book/module-1-ros2/chapter-1-2-first-ros2-node', '845'),
+                path: '/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture', '505'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-1-ros2/chapter-1-3-communication-patterns',
-                component: ComponentCreator('/ai_spec_driven_book/module-1-ros2/chapter-1-3-communication-patterns', '76e'),
+                path: '/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node', 'b91'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-1-ros2/chapter-1-4-message-types',
-                component: ComponentCreator('/ai_spec_driven_book/module-1-ros2/chapter-1-4-message-types', '982'),
+                path: '/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns', 'b3d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-1-ros2/chapter-1-5-parameters',
-                component: ComponentCreator('/ai_spec_driven_book/module-1-ros2/chapter-1-5-parameters', '290'),
+                path: '/ai_spec_driven_book/docs/module-1-ros2/chapter-1-4-message-types',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-1-ros2/chapter-1-4-message-types', 'f0e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-1-ros2/chapter-1-6-launch-files',
-                component: ComponentCreator('/ai_spec_driven_book/module-1-ros2/chapter-1-6-launch-files', '34a'),
+                path: '/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters', '2f6'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-2-simulation/',
-                component: ComponentCreator('/ai_spec_driven_book/module-2-simulation/', 'be5'),
+                path: '/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files', '884'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-2-simulation/module-2-simu',
-                component: ComponentCreator('/ai_spec_driven_book/module-2-simulation/module-2-simu', '772'),
+                path: '/ai_spec_driven_book/docs/module-2-simulation/',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/', 'bc3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-3-isaac/',
-                component: ComponentCreator('/ai_spec_driven_book/module-3-isaac/', 'd8f'),
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-1',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-1', 'e8e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/module-4-vla/',
-                component: ComponentCreator('/ai_spec_driven_book/module-4-vla/', 'b19'),
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2', '81b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/',
-                component: ComponentCreator('/ai_spec_driven_book/', '864'),
+                path: '/ai_spec_driven_book/docs/module-3-isaac/',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-3-isaac/', 'b4d'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/', 'f63'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               }

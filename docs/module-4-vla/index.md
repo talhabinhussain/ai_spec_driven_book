@@ -1,6 +1,8 @@
 ---
 title: Module 4 - Vision-Language-Action Robotics
 description: Building conversational robotic systems
+sidebar_position: 1
+sidebar_label: "Module Overview"
 ---
 
 # Vision-Language-Action (VLA)

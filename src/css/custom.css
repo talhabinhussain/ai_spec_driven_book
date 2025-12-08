@@ -35,3 +35,33 @@
   --ifm-color-primary-lightest: #a88fd0;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Hide sidebar on homepage */
+.homepage aside.theme-doc-sidebar-container,
+html[data-page="index"] aside.theme-doc-sidebar-container {
+  display: none !important;
+}
+
+html[data-page="index"] main.col {
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* Module headers in sidebar */
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ifm-color-primary);
+}
+
+/* Chapter items */
+.theme-doc-sidebar-item-link-level-2 {
+  font-size: 0.95rem;
+  padding-left: 1.5rem;
+}
+
+/* Highlight active chapter */
+.menu__link--active {
+  background-color: var(--ifm-color-primary-lightest);
+  border-left: 3px solid var(--ifm-color-primary);
+}

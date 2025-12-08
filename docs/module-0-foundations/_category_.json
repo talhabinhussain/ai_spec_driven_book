@@ -1,0 +1,12 @@
+{
+  "label": "Module 0: Physical AI Foundations",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "Module 0: Physical AI Foundations",
+    "description": "Introduction to embodied intelligence and physical AI systems",
+    "slug": "/module-0-foundations"
+  },
+  "collapsed": true,
+  "collapsible": true
+}

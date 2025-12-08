@@ -1,0 +1,24 @@
+{
+  "id": "module-2-simulation/chapter-2",
+  "title": "chapter-2",
+  "description": "",
+  "source": "@site/docs/module-2-simulation/chapter-2.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/chapter-2",
+  "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-2-simulation/chapter-2.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "chapter-1",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-1"
+  },
+  "next": {
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/"
+  }
+}

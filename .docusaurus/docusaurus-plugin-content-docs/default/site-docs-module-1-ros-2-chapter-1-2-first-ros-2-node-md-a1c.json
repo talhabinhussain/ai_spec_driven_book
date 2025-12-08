@@ -5,23 +5,26 @@
   "source": "@site/docs/module-1-ros2/chapter-1-2-first-ros2-node.md",
   "sourceDirName": "module-1-ros2",
   "slug": "/module-1-ros2/chapter-1-2-first-ros2-node",
-  "permalink": "/ai_spec_driven_book/module-1-ros2/chapter-1-2-first-ros2-node",
+  "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-1-ros2/chapter-1-2-first-ros2-node.md",
   "tags": [],
   "version": "current",
+  "sidebarPosition": 2,
   "frontMatter": {
     "title": "Chapter 1.2 - Building Your First ROS 2 Node",
-    "description": "Create and run your first ROS 2 node with Python and rclpy"
+    "description": "Create and run your first ROS 2 node with Python and rclpy",
+    "sidebar_position": 2,
+    "sidebar_label": "Ch 1.2: First ROS 2 Node"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Chapter 1.1 - Introduction to ROS 2 Architecture",
-    "permalink": "/ai_spec_driven_book/module-1-ros2/chapter-1-1-ros2-architecture"
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/"
   },
   "next": {
-    "title": "Chapter 1.3 - ROS 2 Communication Patterns",
-    "permalink": "/ai_spec_driven_book/module-1-ros2/chapter-1-3-communication-patterns"
+    "title": "Ch 1.3: Communication Patterns",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns"
   }
 }

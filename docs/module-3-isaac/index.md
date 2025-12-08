@@ -1,6 +1,8 @@
 ---
-title: Module 3 - NVIDIA Isaac
+title: Module 3 - The AI-Robot Brain (NVIDIA Isaac)
 description: Implementing perception and navigation pipelines
+sidebar_position: 1
+sidebar_label: "Module Overview"
 ---
 
 # The AI-Robot Brain (NVIDIA Isaac™)

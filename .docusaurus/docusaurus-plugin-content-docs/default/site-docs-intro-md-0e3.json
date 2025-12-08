@@ -1,0 +1,26 @@
+{
+  "id": "intro",
+  "title": "Introduction",
+  "description": "This comprehensive course covers essential concepts from ROS 2 architecture to Vision-Language-Action (VLA) robotic systems, bridging digital AI models with physical humanoid robots.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/ai_spec_driven_book/docs/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/intro.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "intro",
+    "title": "Introduction",
+    "sidebar_position": 1,
+    "slug": "/intro"
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Home",
+    "permalink": "/ai_spec_driven_book/docs/"
+  }
+}

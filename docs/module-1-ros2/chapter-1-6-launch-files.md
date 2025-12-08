@@ -1,6 +1,8 @@
 ---
 title: Chapter 1.6 - ROS 2 Launch Files and System Orchestration
 description: Managing complex robotic systems with launch files and orchestration
+sidebar_position: 6
+sidebar_label: "Ch 1.6: Launch Files"
 ---
 
 # Chapter 1.6: ROS 2 Launch Files and System Orchestration

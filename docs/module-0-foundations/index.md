@@ -1,6 +1,8 @@
 ---
 title: Module 0 - Physical AI Foundations
 description: Understanding embodied intelligence and digital-to-physical transitions
+sidebar_position: 1
+sidebar_label: "Module Overview"
 ---
 
 # Physical AI Foundations

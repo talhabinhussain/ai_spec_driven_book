@@ -28,7 +28,7 @@ export default {
         "docs": {
           "sidebarPath": "./sidebars.js",
           "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/",
-          "routeBasePath": "/"
+          "routeBasePath": "/docs"
         },
         "blog": {
           "showReadingTime": true,
@@ -42,11 +42,19 @@ export default {
   ],
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
+    "docs": {
+      "sidebar": {
+        "hideable": true,
+        "autoCollapseCategories": true
+      },
+      "versionPersistence": "localStorage"
+    },
     "navbar": {
       "title": "Physical AI Textbook",
       "logo": {
         "alt": "Physical AI & Humanoid Robotics Textbook Logo",
-        "src": "img/logo.svg"
+        "src": "img/logo.svg",
+        "href": "/"
       },
       "items": [
         {
@@ -54,6 +62,11 @@ export default {
           "sidebarId": "tutorialSidebar",
           "position": "left",
           "label": "Textbook"
+        },
+        {
+          "href": "/docs",
+          "position": "left",
+          "label": "Home"
         },
         {
           "href": "https://github.com/talhabinhussain/ai_spec_driven_book",
@@ -328,13 +341,6 @@ export default {
       "defaultMode": "light",
       "disableSwitch": false,
       "respectPrefersColorScheme": false
-    },
-    "docs": {
-      "versionPersistence": "localStorage",
-      "sidebar": {
-        "hideable": false,
-        "autoCollapseCategories": false
-      }
     },
     "blog": {
       "sidebar": {

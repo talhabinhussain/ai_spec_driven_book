@@ -9,7 +9,11 @@ const sidebars = {
       items: [
         {
           type: 'doc',
-          id: 'index', // This points to docs/index.md
+          id: 'intro', // This points to docs/intro.md
+        },
+        {
+          type: 'doc',
+          id: 'index', // This points to docs/index.md (homepage content)
         },
         {
           type: 'doc',

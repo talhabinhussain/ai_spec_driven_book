@@ -5,7 +5,7 @@
   "source": "@site/docs/introduction.md",
   "sourceDirName": ".",
   "slug": "/introduction",
-  "permalink": "/ai_spec_driven_book/introduction",
+  "permalink": "/ai_spec_driven_book/docs/introduction",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/introduction.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Home",
-    "permalink": "/ai_spec_driven_book/"
+    "permalink": "/ai_spec_driven_book/docs/"
   },
   "next": {
-    "title": "Module 0 - Physical AI Foundations",
-    "permalink": "/ai_spec_driven_book/module-0-foundations/"
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-0-foundations/"
   }
 }

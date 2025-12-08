@@ -1,6 +1,8 @@
 ---
 title: Chapter 1.3 - ROS 2 Communication Patterns
 description: Deep dive into topics, services, and actions communication patterns
+sidebar_position: 3
+sidebar_label: "Ch 1.3: Communication Patterns"
 ---
 
 # Chapter 1.3: ROS 2 Communication Patterns

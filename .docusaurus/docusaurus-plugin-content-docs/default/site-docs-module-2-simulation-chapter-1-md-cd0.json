@@ -1,0 +1,24 @@
+{
+  "id": "module-2-simulation/chapter-1",
+  "title": "chapter-1",
+  "description": "",
+  "source": "@site/docs/module-2-simulation/chapter-1.md",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/chapter-1",
+  "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-1",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-2-simulation/chapter-1.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Ch 1.6: Launch Files",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files"
+  },
+  "next": {
+    "title": "Module 2 - Simulation Environments",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/"
+  }
+}

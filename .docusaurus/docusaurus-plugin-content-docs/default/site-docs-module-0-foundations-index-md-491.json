@@ -5,23 +5,26 @@
   "source": "@site/docs/module-0-foundations/index.md",
   "sourceDirName": "module-0-foundations",
   "slug": "/module-0-foundations/",
-  "permalink": "/ai_spec_driven_book/module-0-foundations/",
+  "permalink": "/ai_spec_driven_book/docs/module-0-foundations/",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-0-foundations/index.md",
   "tags": [],
   "version": "current",
+  "sidebarPosition": 1,
   "frontMatter": {
     "title": "Module 0 - Physical AI Foundations",
-    "description": "Understanding embodied intelligence and digital-to-physical transitions"
+    "description": "Understanding embodied intelligence and digital-to-physical transitions",
+    "sidebar_position": 1,
+    "sidebar_label": "Module Overview"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Introduction",
-    "permalink": "/ai_spec_driven_book/introduction"
+    "permalink": "/ai_spec_driven_book/docs/introduction"
   },
   "next": {
-    "title": "Chapter 1.1 - Introduction to ROS 2 Architecture",
-    "permalink": "/ai_spec_driven_book/module-1-ros2/chapter-1-1-ros2-architecture"
+    "title": "Ch 1.1: ROS 2 Architecture",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture"
   }
 }

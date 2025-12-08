@@ -1,27 +1,30 @@
 {
   "id": "module-3-isaac/index",
-  "title": "Module 3 - NVIDIA Isaac",
+  "title": "Module 3 - The AI-Robot Brain (NVIDIA Isaac)",
   "description": "Implementing perception and navigation pipelines",
   "source": "@site/docs/module-3-isaac/index.md",
   "sourceDirName": "module-3-isaac",
   "slug": "/module-3-isaac/",
-  "permalink": "/ai_spec_driven_book/module-3-isaac/",
+  "permalink": "/ai_spec_driven_book/docs/module-3-isaac/",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-3-isaac/index.md",
   "tags": [],
   "version": "current",
+  "sidebarPosition": 1,
   "frontMatter": {
-    "title": "Module 3 - NVIDIA Isaac",
-    "description": "Implementing perception and navigation pipelines"
+    "title": "Module 3 - The AI-Robot Brain (NVIDIA Isaac)",
+    "description": "Implementing perception and navigation pipelines",
+    "sidebar_position": 1,
+    "sidebar_label": "Module Overview"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "module-2-simu",
-    "permalink": "/ai_spec_driven_book/module-2-simulation/module-2-simu"
+    "title": "chapter-2",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2"
   },
   "next": {
-    "title": "Module 4 - Vision-Language-Action Robotics",
-    "permalink": "/ai_spec_driven_book/module-4-vla/"
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/"
   }
 }

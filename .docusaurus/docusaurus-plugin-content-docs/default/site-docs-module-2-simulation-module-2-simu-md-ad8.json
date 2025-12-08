@@ -5,7 +5,7 @@
   "source": "@site/docs/module-2-simulation/module-2-simu.md",
   "sourceDirName": "module-2-simulation",
   "slug": "/module-2-simulation/module-2-simu",
-  "permalink": "/ai_spec_driven_book/module-2-simulation/module-2-simu",
+  "permalink": "/ai_spec_driven_book/docs/module-2-simulation/module-2-simu",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-2-simulation/module-2-simu.md",
@@ -15,10 +15,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 2 - Simulation Environments",
-    "permalink": "/ai_spec_driven_book/module-2-simulation/"
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/"
   },
   "next": {
     "title": "Module 3 - NVIDIA Isaac",
-    "permalink": "/ai_spec_driven_book/module-3-isaac/"
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/"
   }
 }

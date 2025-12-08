@@ -22,8 +22,8 @@ import styles from './home.module.css';
       Welcome to the comprehensive textbook that covers essential concepts from ROS 2 architecture to Vision-Language-Action (VLA) robotic systems.
     </p>
     <div className={styles.ctaSection}>
-      <a href={useBaseUrl('/docs/introduction')} className={styles.ctaPrimary}>
-        Get Started Now
+      <a href={useBaseUrl('/docs/intro')} className={styles.ctaPrimary}>
+        Start Learning
       </a>
       <a href={useBaseUrl('/docs/module-0-foundations/')} className={styles.ctaSecondary}>
         Browse Modules

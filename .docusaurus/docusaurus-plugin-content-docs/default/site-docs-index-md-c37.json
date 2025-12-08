@@ -5,7 +5,7 @@
   "source": "@site/docs/index.md",
   "sourceDirName": ".",
   "slug": "/",
-  "permalink": "/ai_spec_driven_book/",
+  "permalink": "/ai_spec_driven_book/docs/",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/index.md",
@@ -16,8 +16,12 @@
     "hide_table_of_contents": true
   },
   "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/ai_spec_driven_book/docs/intro"
+  },
   "next": {
     "title": "Introduction",
-    "permalink": "/ai_spec_driven_book/introduction"
+    "permalink": "/ai_spec_driven_book/docs/introduction"
   }
 }

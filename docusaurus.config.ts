@@ -42,7 +42,7 @@ const config = {
           editUrl:
             "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/",
           // Home page is at /docs/index.md
-          routeBasePath: "/", // Serve the docs at the site's root
+          routeBasePath: "/docs", // Serve the docs at /docs path, not root
         },
         blog: {
           showReadingTime: true,
@@ -63,11 +63,18 @@ const config = {
     {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
       navbar: {
         title: "Physical AI Textbook",
         logo: {
           alt: "Physical AI & Humanoid Robotics Textbook Logo",
           src: "img/logo.svg",
+          href: "/",
         },
         items: [
           {
@@ -75,6 +82,11 @@ const config = {
             sidebarId: "tutorialSidebar",
             position: "left",
             label: "Textbook",
+          },
+          {
+            href: "/docs",
+            position: "left",
+            label: "Home",
           },
           {
             href: "https://github.com/talhabinhussain/ai_spec_driven_book",

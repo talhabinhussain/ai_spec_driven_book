@@ -1,6 +1,8 @@
 ---
 title: Chapter 1.4 - ROS 2 Message Types and Data Structures
 description: Understanding standard message types and creating custom messages
+sidebar_position: 4
+sidebar_label: "Ch 1.4: Message Types"
 ---
 
 # Chapter 1.4: ROS 2 Message Types and Data Structures

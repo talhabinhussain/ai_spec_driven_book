@@ -1,6 +1,8 @@
 ---
 title: Chapter 1.5 - ROS 2 Parameters and Configuration
 description: Managing configuration through parameters, launch files, and parameter files
+sidebar_position: 5
+sidebar_label: "Ch 1.5: Parameters"
 ---
 
 # Chapter 1.5: ROS 2 Parameters and Configuration
