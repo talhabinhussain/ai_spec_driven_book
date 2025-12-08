@@ -14,8 +14,8 @@
   "frontMatter": {
     "title": "Introduction",
     "description": "Getting started with Physical AI & Humanoid Robotics"
-  }
-}  "sidebar": "tutorialSidebar",
+  },
+  "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Home",
     "permalink": "/ai_spec_driven_book/"

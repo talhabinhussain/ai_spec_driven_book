@@ -39,15 +39,15 @@ export default [
   },
   {
     path: '/ai_spec_driven_book/',
-    component: ComponentCreator('/ai_spec_driven_book/', 'e04'),
+    component: ComponentCreator('/ai_spec_driven_book/', '9f4'),
     routes: [
       {
         path: '/ai_spec_driven_book/',
-        component: ComponentCreator('/ai_spec_driven_book/', '6ea'),
+        component: ComponentCreator('/ai_spec_driven_book/', '993'),
         routes: [
           {
             path: '/ai_spec_driven_book/',
-            component: ComponentCreator('/ai_spec_driven_book/', 'e54'),
+            component: ComponentCreator('/ai_spec_driven_book/', '7d6'),
             routes: [
               {
                 path: '/ai_spec_driven_book/capstone/',
@@ -56,8 +56,9 @@ export default [
               },
               {
                 path: '/ai_spec_driven_book/introduction',
-                component: ComponentCreator('/ai_spec_driven_book/introduction', '170'),
-                exact: true
+                component: ComponentCreator('/ai_spec_driven_book/introduction', 'e94'),
+                exact: true,
+                sidebar: "tutorialSidebar"
               },
               {
                 path: '/ai_spec_driven_book/module-0-foundations/',

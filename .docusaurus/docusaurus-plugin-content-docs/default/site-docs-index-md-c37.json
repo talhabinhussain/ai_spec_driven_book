@@ -17,12 +17,6 @@
   },
   "sidebar": "tutorialSidebar",
   "next": {
-    "title": "Home",
-    "permalink": "/ai_spec_driven_book/"
-  }
-}malink": "/ai_spec_driven_book/capstone/"
-  },
-  "next": {
     "title": "Introduction",
     "permalink": "/ai_spec_driven_book/introduction"
   }

@@ -17,8 +17,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Home",
-    "permalink": "/ai_spec_driven_book/"
+    "title": "Introduction",
+    "permalink": "/ai_spec_driven_book/introduction"
   },
   "next": {
     "title": "Chapter 1.1 - Introduction to ROS 2 Architecture",

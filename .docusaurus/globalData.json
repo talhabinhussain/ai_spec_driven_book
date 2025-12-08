@@ -21,7 +21,8 @@
             },
             {
               "id": "introduction",
-              "path": "/ai_spec_driven_book/introduction"
+              "path": "/ai_spec_driven_book/introduction",
+              "sidebar": "tutorialSidebar"
             },
             {
               "id": "module-0-foundations/index",
@@ -89,7 +90,7 @@
             "tutorialSidebar": {
               "link": {
                 "path": "/ai_spec_driven_book/",
-                "label": "Home"
+                "label": "index"
               }
             }
           }

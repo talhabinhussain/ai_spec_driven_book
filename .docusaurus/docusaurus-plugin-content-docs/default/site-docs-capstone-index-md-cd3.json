@@ -15,9 +15,4 @@
     "title": "Capstone Project - Autonomous Humanoid",
     "description": "Integrating all concepts in a complete humanoid robot system"
   }
-}  "sidebar": "tutorialSidebar",
-  "next": {
-    "title": "Home",
-    "permalink": "/ai_spec_driven_book/"
-  }
 }
