@@ -1,0 +1,30 @@
+{
+  "id": "module-1-ros2/chapter-1-5-parameters",
+  "title": "Chapter 1.5 - ROS 2 Parameters and Configuration",
+  "description": "Managing configuration through parameters, launch files, and parameter files",
+  "source": "@site/docs/module-1-ros2/chapter-1-5-parameters.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/chapter-1-5-parameters",
+  "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-1-ros2/chapter-1-5-parameters.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Chapter 1.5 - ROS 2 Parameters and Configuration",
+    "description": "Managing configuration through parameters, launch files, and parameter files",
+    "sidebar_position": 5,
+    "sidebar_label": "Ch 1.5: Parameters"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Ch 1.4: Message Types",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-4-message-types"
+  },
+  "next": {
+    "title": "Ch 1.6: Launch Files",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files"
+  }
+}

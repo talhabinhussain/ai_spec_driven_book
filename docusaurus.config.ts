@@ -41,8 +41,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/",
-          // Home page is at /docs/index.md
-          routeBasePath: "/docs", // Serve the docs at /docs path, not root
+          routeBasePath: "/docs", // Serve the docs at /docs path
         },
         blog: {
           showReadingTime: true,

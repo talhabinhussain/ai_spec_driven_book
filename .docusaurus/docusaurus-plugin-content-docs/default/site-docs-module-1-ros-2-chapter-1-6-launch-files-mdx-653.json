@@ -1,0 +1,30 @@
+{
+  "id": "module-1-ros2/chapter-1-6-launch-files",
+  "title": "Chapter 1.6 - ROS 2 Launch Files and System Orchestration",
+  "description": "Managing complex robotic systems with launch files and orchestration",
+  "source": "@site/docs/module-1-ros2/chapter-1-6-launch-files.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/chapter-1-6-launch-files",
+  "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-1-ros2/chapter-1-6-launch-files.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "title": "Chapter 1.6 - ROS 2 Launch Files and System Orchestration",
+    "description": "Managing complex robotic systems with launch files and orchestration",
+    "sidebar_position": 6,
+    "sidebar_label": "Ch 1.6: Launch Files"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Ch 1.5: Parameters",
+    "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters"
+  },
+  "next": {
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/"
+  }
+}

@@ -42,17 +42,17 @@
       "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
     }
   },
-  "/ai_spec_driven_book/docs-2eb": {
+  "/ai_spec_driven_book/docs-76f": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---ai-spec-driven-book-docsaba-a6c"
     }
   },
-  "/ai_spec_driven_book/docs-d93": {
+  "/ai_spec_driven_book/docs-3f8": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---ai-spec-driven-book-docscde-6d1"
   },
-  "/ai_spec_driven_book/docs-275": {
+  "/ai_spec_driven_book/docs-ec2": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/ai_spec_driven_book/docs/-b69": {
@@ -79,29 +79,29 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-spec-driven-book-docs-module-1-ros-2-4-dd-730"
   },
-  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture-505": {
+  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture-096": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-1-ros-2-architecture-30-b-2b3"
+    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-1-ros-2-architecture-105-c01"
   },
-  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node-b91": {
+  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node-902": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-2-first-ros-2-nodea-1-c-8b1"
+    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-2-first-ros-2-node-6-c-1-838"
   },
-  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns-b3d": {
+  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns-13f": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-3-communication-patterns-7-c-7-a86"
+    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-3-communication-patterns-9-b-0-f0e"
   },
-  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-4-message-types-f0e": {
+  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-4-message-types-f99": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-4-message-types-0-c-7-e20"
+    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-4-message-types-92-a-b6f"
   },
-  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters-2f6": {
+  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters-79e": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-5-parametersb-5-a-09d"
+    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-5-parametersb-61-158"
   },
-  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files-884": {
+  "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files-d7d": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-6-launch-files-0-ab-a47"
+    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-6-launch-files-653-6bd"
   },
   "/ai_spec_driven_book/docs/module-2-simulation/-bc3": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -122,5 +122,12 @@
   "/ai_spec_driven_book/docs/module-4-vla/-f63": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---ai-spec-driven-book-docs-module-4-vla-4-a-9-c6a"
+  },
+  "/ai_spec_driven_book/-f8d": {
+    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__context": {
+      "plugin": "plugin---ai-spec-driven-book-a-74-59d"
+    },
+    "config": "config---ai-spec-driven-book-5-e-9-46b"
   }
 }
