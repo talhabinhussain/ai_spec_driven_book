@@ -1,0 +1,93 @@
+---
+title: Chapter 2.1 - Introduction to Physics Simulation
+description: Understanding the fundamentals of physics simulation in robotics
+sidebar_position: 2
+---
+
+# Chapter 2.1: Introduction to Physics Simulation
+
+## Learning Objectives
+
+After completing this chapter, you will be able to:
+- Understand the importance of simulation in robotics development
+- Identify different physics engines and their characteristics
+- Explain timesteps, numerical integration, and stability concepts
+- Analyze the sim-to-real gap and its challenges
+
+## The Importance of Simulation in Robotics
+
+Simulation has become an indispensable tool in modern robotics development. Before deploying expensive physical hardware in real-world scenarios, engineers rely on digital twins to test algorithms, validate designs, and ensure safety. This approach allows for rapid iteration and failure without the risk of damaging expensive equipment or endangering human operators.
+
+The benefits of simulation include:
+- **Safety**: Test dangerous scenarios without risk to hardware or humans
+- **Cost-effectiveness**: Reduce hardware costs and accelerate development
+- **Reproducibility**: Create consistent test conditions
+- **Speed**: Run simulations faster than real-time to accelerate learning
+- **Control**: Precise environmental conditions for controlled experiments
+
+## Physics Engines: ODE, Bullet, and DART
+
+Physics engines are the computational backbone of robotic simulation, solving complex equations of motion in real-time. Each engine has unique characteristics:
+
+### Open Dynamics Engine (ODE)
+- Optimized for rigid body dynamics
+- Fast collision detection algorithms
+- Well-suited for wheeled robots and simple manipulators
+- Used extensively in Gazebo Classic
+
+### Bullet Physics
+- Advanced collision detection and response
+- Support for soft body dynamics
+- Realistic friction and contact modeling
+- Cross-platform compatibility
+
+### Dynamic Animation and Robotics Toolkit (DART)
+- Advanced constraint solvers
+- Support for complex kinematic chains
+- Better handling of closed-loop mechanisms
+- More stable for humanoid robots
+
+## Timesteps, Numerical Integration, and Stability
+
+Simulation accuracy depends heavily on the numerical methods used to solve differential equations. Key concepts include:
+
+### Time Step Selection
+- **Fixed timesteps**: Consistent simulation behavior, easier debugging
+- **Adaptive timesteps**: Better accuracy for complex interactions, more computational overhead
+- Typical values range from 1ms to 10ms for real-time simulation
+
+### Numerical Integration Methods
+- **Euler integration**: Simple but unstable for stiff systems
+- **Runge-Kutta methods**: More accurate but computationally expensive
+- **Semi-implicit Euler**: Good balance of stability and performance
+
+## Sim-to-Real Gap: Understanding the Challenges
+
+The sim-to-real gap represents the performance difference between simulated and real-world robots. Key factors include:
+
+### Modeling Inaccuracies
+- Mass and inertia estimation errors
+- Friction and damping parameter uncertainties
+- Actuator dynamics and delays
+
+### Environmental Differences
+- Surface properties and textures
+- Lighting and sensor conditions
+- External disturbances and noise
+
+### Sensor Noise and Delays
+- Real sensors have inherent noise and latency
+- Simulation may not capture all sensor imperfections
+- Communication delays in real systems
+
+## Practical Exercise
+
+Create a simple simulation environment with a cube falling under gravity. Experiment with different physics engines and timestep values to observe the impact on simulation stability and accuracy.
+
+## Summary
+
+Physics simulation forms the foundation of safe and efficient robotics development. Understanding the trade-offs between different physics engines and numerical methods is crucial for creating accurate digital twins that bridge the gap between simulation and reality.
+
+## Next Steps
+
+In the next chapter, we'll explore how to get started with Gazebo, the popular simulation environment for robotics.

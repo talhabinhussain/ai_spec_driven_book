@@ -34,35 +34,35 @@ Middleware for robot control and inter-process communication.
 ## Chapters
 
 ### Chapter 1.1: Introduction to ROS 2 Architecture
-- [Chapter 1.1: Introduction to ROS 2 Architecture](./chapter-1-1-ros2-architecture.md)
+- [Chapter 1.1: Introduction to ROS 2 Architecture](./chapter-1-1-ros2-architecture.mdx)
 - The evolution from ROS 1 to ROS 2
 - Core concepts: Nodes, topics, services, and actions
 - The DDS (Data Distribution Service) middleware
 - Understanding the computation graph
 
 ### Chapter 1.2: Building Your First ROS 2 Node
-- [Chapter 1.2: Building Your First ROS 2 Node](./chapter-1-2-first-ros2-node.md)
+- [Chapter 1.2: Building Your First ROS 2 Node](./chapter-1-2-first-ros2-node.mdx)
 - Setting up the ROS 2 development environment
 - Creating publisher and subscriber nodes
 - Understanding message types and custom messages
 - Debugging with `ros2 topic` and `rqt_graph`
 
 ### Chapter 1.3: Services and Actions in ROS 2
-- [Chapter 1.3: ROS 2 Communication Patterns](./chapter-1-3-communication-patterns.md)
+- [Chapter 1.3: ROS 2 Communication Patterns](./chapter-1-3-communication-patterns.mdx)
 - Request-response patterns with services
 - Long-running tasks with actions
 - Action servers and clients
 - Feedback mechanisms and goal cancellation
 
 ### Chapter 1.4: Python Integration with rclpy
-- [Chapter 1.4: ROS 2 Message Types and Data Structures](./chapter-1-4-message-types.md)
+- [Chapter 1.4: ROS 2 Message Types and Data Structures](./chapter-1-4-message-types.mdx)
 - The rclpy API and node lifecycle
 - Timers and callbacks
 - Parameter management and dynamic reconfiguration
 - Best practices for Python-based robot control
 
 ### Chapter 1.5: URDF and Robot Description
-- [Chapter 1.5: ROS 2 Parameters and Configuration](./chapter-1-5-parameters.md)
+- [Chapter 1.5: ROS 2 Parameters and Configuration](./chapter-1-5-parameters.mdx)
 - XML structure of URDF files
 - Links, joints, and kinematic chains
 - Visual and collision geometries
@@ -70,7 +70,7 @@ Middleware for robot control and inter-process communication.
 - Defining humanoid robot structure
 
 ### Chapter 1.6: Launch Files and System Composition
-- [Chapter 1.6: ROS 2 Launch Files and System Orchestration](./chapter-1-6-launch-files.md)
+- [Chapter 1.6: ROS 2 Launch Files and System Orchestration](./chapter-1-6-launch-files.mdx)
 - Writing launch files in Python
 - Parameter files and configurations
 - Multi-node orchestration

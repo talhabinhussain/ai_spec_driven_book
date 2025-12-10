@@ -1,0 +1,189 @@
+---
+title: Chapter 2.4 - Sensor Simulation in Gazebo
+description: Implementing realistic sensor simulation for robotics
+sidebar_position: 5
+---
+
+# Chapter 2.4: Sensor Simulation in Gazebo
+
+## Learning Objectives
+
+After completing this chapter, you will be able to:
+- Implement camera sensors and process image data in simulation
+- Generate realistic LiDAR and point cloud data
+- Simulate IMU sensors with appropriate noise modeling
+- Integrate force/torque sensors for manipulation tasks
+- Connect sensor data with ROS 2 communication
+
+## Camera Sensors and Image Processing
+
+Camera simulation is crucial for vision-based robotics applications. Gazebo provides realistic camera models that simulate various optical properties.
+
+### Camera Configuration
+```xml
+<sensor name="camera" type="camera">
+  <camera>
+    <horizontal_fov>1.047</horizontal_fov>
+    <image>
+      <width>640</width>
+      <height>480</height>
+      <format>R8G8B8</format>
+    </image>
+    <clip>
+      <near>0.1</near>
+      <far>10.0</far>
+    </clip>
+  </camera>
+  <always_on>1</always_on>
+  <update_rate>30</update_rate>
+</sensor>
+```
+
+### Image Processing Pipeline
+- **Distortion modeling**: Radial and tangential distortion coefficients
+- **Exposure simulation**: Dynamic range and sensitivity
+- **Noise modeling**: Gaussian, salt-and-pepper, and temporal noise
+- **Frame rate**: Realistic temporal sampling
+
+### Stereo Vision
+- **Baseline configuration**: Distance between stereo cameras
+- **Rectification**: Image alignment for disparity computation
+- **Depth estimation**: Triangulation from stereo pairs
+
+## LiDAR and Point Cloud Generation
+
+LiDAR sensors are essential for navigation and mapping applications in robotics.
+
+### Ray-based LiDAR Simulation
+```xml
+<sensor name="lidar" type="ray">
+  <ray>
+    <scan>
+      <horizontal>
+        <samples>720</samples>
+        <resolution>1</resolution>
+        <min_angle>-3.14159</min_angle>
+        <max_angle>3.14159</max_angle>
+      </horizontal>
+    </scan>
+    <range>
+      <min>0.1</min>
+      <max>30.0</max>
+      <resolution>0.01</resolution>
+    </range>
+  </ray>
+</sensor>
+```
+
+### Point Cloud Processing
+- **Resolution**: Angular and distance resolution settings
+- **Range limitations**: Near and far clipping distances
+- **Noise modeling**: Range and angular measurement uncertainties
+- **Multi-beam configurations**: For 3D LiDAR systems
+
+### Performance Considerations
+- **Ray count**: Higher resolution increases computational load
+- **Update rate**: Balance between accuracy and performance
+- **Occlusion handling**: Proper handling of multi-return measurements
+
+## IMU Simulation and Noise Modeling
+
+Inertial Measurement Units provide crucial orientation and acceleration data for robot navigation and control.
+
+### IMU Configuration
+```xml
+<sensor name="imu" type="imu">
+  <always_on>1</always_on>
+  <update_rate>100</update_rate>
+  <imu>
+    <angular_velocity>
+      <x>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>0.001</stddev>
+        </noise>
+      </x>
+      <y>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>0.001</stddev>
+        </noise>
+      </y>
+      <z>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>0.001</stddev>
+        </noise>
+      </z>
+    </angular_velocity>
+  </imu>
+</sensor>
+```
+
+### Noise Modeling
+- **Bias**: Systematic measurement offsets
+- **Drift**: Time-varying bias changes
+- **Gaussian noise**: Random measurement uncertainties
+- **Temperature effects**: Performance changes with temperature
+
+## Force/Torque Sensors for Manipulation
+
+Force/torque sensors enable precise manipulation and interaction with objects.
+
+### Sensor Configuration
+- **Measurement range**: Maximum measurable forces and torques
+- **Resolution**: Minimum detectable force/torque changes
+- **Sampling rate**: Frequency of measurements
+- **Coordinate frame**: Reference frame for measurements
+
+### Application in Manipulation
+- **Grasp control**: Detecting contact and adjusting grip force
+- **Assembly tasks**: Precise force control during insertion
+- **Surface following**: Maintaining consistent contact forces
+
+## Integrating Sensor Data with ROS 2
+
+Gazebo integrates seamlessly with ROS 2 through the gazebo_ros package:
+
+### ROS 2 Bridge Configuration
+```xml
+<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+  <ros>
+    <namespace>camera</namespace>
+    <remapping>~/image_raw:=image</remapping>
+  </ros>
+  <camera_name>my_camera</camera_name>
+  <image_topic_name>image_raw</image_topic_name>
+  <camera_info_topic_name>camera_info</camera_info_topic_name>
+</plugin>
+```
+
+### Common Sensor Topics
+- **Camera**: `/camera/image_raw`, `/camera/camera_info`
+- **LiDAR**: `/scan` or `/laser_scan`
+- **IMU**: `/imu/data`, `/imu/mag`, `/imu/temperature`
+- **Force/Torque**: `/ft_sensor/wrench`
+
+### Sensor Processing Nodes
+- **Image processing**: cv_bridge for image conversion
+- **Point cloud processing**: PCL integration for 3D data
+- **Sensor fusion**: Combining multiple sensor modalities
+- **Calibration**: ROS 2 calibration tools
+
+## Practical Exercise
+
+Create a robot model with:
+1. A camera sensor for visual perception
+2. A LiDAR sensor for range measurements
+3. An IMU for orientation estimation
+4. ROS 2 integration for sensor data access
+
+Implement a simple ROS 2 node that processes data from these sensors.
+
+## Summary
+
+Sensor simulation is critical for developing and testing perception algorithms. Realistic sensor models with appropriate noise and uncertainty characteristics enable effective algorithm development in simulation before deployment to real hardware.
+
+## Next Steps
+
+In the next chapter, we'll explore Unity integration for advanced robot visualization and human-robot interaction scenarios.

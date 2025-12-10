@@ -16,15 +16,15 @@
     "title": "Chapter 1.4 - ROS 2 Message Types and Data Structures",
     "description": "Understanding standard message types and creating custom messages",
     "sidebar_position": 4,
-    "sidebar_label": "Ch 1.4: Message Types"
+    "sidebar_label": "Chapter 1.4: Message Types"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Ch 1.3: Communication Patterns",
+    "title": "Chapter 1.3: Communication Patterns",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns"
   },
   "next": {
-    "title": "Ch 1.5: Parameters",
+    "title": "Chapter 1.5: Parameters",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters"
   }
 }

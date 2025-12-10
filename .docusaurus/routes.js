@@ -3,51 +3,16 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/ai_spec_driven_book/__docusaurus/debug',
-    component: ComponentCreator('/ai_spec_driven_book/__docusaurus/debug', '1db'),
-    exact: true
-  },
-  {
-    path: '/ai_spec_driven_book/__docusaurus/debug/config',
-    component: ComponentCreator('/ai_spec_driven_book/__docusaurus/debug/config', '22b'),
-    exact: true
-  },
-  {
-    path: '/ai_spec_driven_book/__docusaurus/debug/content',
-    component: ComponentCreator('/ai_spec_driven_book/__docusaurus/debug/content', '00a'),
-    exact: true
-  },
-  {
-    path: '/ai_spec_driven_book/__docusaurus/debug/globalData',
-    component: ComponentCreator('/ai_spec_driven_book/__docusaurus/debug/globalData', '793'),
-    exact: true
-  },
-  {
-    path: '/ai_spec_driven_book/__docusaurus/debug/metadata',
-    component: ComponentCreator('/ai_spec_driven_book/__docusaurus/debug/metadata', '265'),
-    exact: true
-  },
-  {
-    path: '/ai_spec_driven_book/__docusaurus/debug/registry',
-    component: ComponentCreator('/ai_spec_driven_book/__docusaurus/debug/registry', 'e32'),
-    exact: true
-  },
-  {
-    path: '/ai_spec_driven_book/__docusaurus/debug/routes',
-    component: ComponentCreator('/ai_spec_driven_book/__docusaurus/debug/routes', '6dc'),
-    exact: true
-  },
-  {
     path: '/ai_spec_driven_book/docs',
-    component: ComponentCreator('/ai_spec_driven_book/docs', '76f'),
+    component: ComponentCreator('/ai_spec_driven_book/docs', 'eab'),
     routes: [
       {
         path: '/ai_spec_driven_book/docs',
-        component: ComponentCreator('/ai_spec_driven_book/docs', '3f8'),
+        component: ComponentCreator('/ai_spec_driven_book/docs', '51a'),
         routes: [
           {
             path: '/ai_spec_driven_book/docs',
-            component: ComponentCreator('/ai_spec_driven_book/docs', 'ec2'),
+            component: ComponentCreator('/ai_spec_driven_book/docs', 'd8b'),
             routes: [
               {
                 path: '/ai_spec_driven_book/docs/',
@@ -127,14 +92,38 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-1',
-                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-1', 'e8e'),
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2-1-introduction-to-physics-simulation',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2-1-introduction-to-physics-simulation', '256'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2',
-                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2', '81b'),
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo', 'bd7'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning', '9ad'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2-4-sensor-simulation-in-gazebo',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2-4-sensor-simulation-in-gazebo', '2da'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization', '062'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-2-simulation/chapter-2-6-building-complex-environments',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-2-simulation/chapter-2-6-building-complex-environments', 'bb7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -145,8 +134,80 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
+                path: '/ai_spec_driven_book/docs/module-3-isaac/chapter-3-1-isaac-ecosystem',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-3-isaac/chapter-3-1-isaac-ecosystem', 'f8f'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-3-isaac/chapter-3-2-isaac-sim-basics',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-3-isaac/chapter-3-2-isaac-sim-basics', 'fb8'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-3-isaac/chapter-3-3-photorealistic-rendering',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-3-isaac/chapter-3-3-photorealistic-rendering', 'af4'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-3-isaac/chapter-3-4-robot-training',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-3-isaac/chapter-3-4-robot-training', 'd25'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-3-isaac/chapter-3-5-isaac-ros',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-3-isaac/chapter-3-5-isaac-ros', 'f77'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
                 path: '/ai_spec_driven_book/docs/module-4-vla/',
                 component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/', 'f63'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/chapter-4-1-vla-intro',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/chapter-4-1-vla-intro', 'f73'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/chapter-4-2-whisper-speech',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/chapter-4-2-whisper-speech', '559'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/chapter-4-3-llm-planning',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/chapter-4-3-llm-planning', 'a1b'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/chapter-4-4-vision-language',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/chapter-4-4-vision-language', 'cae'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/chapter-4-5-action-primitives',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/chapter-4-5-action-primitives', 'c28'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/chapter-4-6-conversational-robots',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/chapter-4-6-conversational-robots', 'cf1'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/ai_spec_driven_book/docs/module-4-vla/chapter-4-7-capstone-project',
+                component: ComponentCreator('/ai_spec_driven_book/docs/module-4-vla/chapter-4-7-capstone-project', 'b42'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               }

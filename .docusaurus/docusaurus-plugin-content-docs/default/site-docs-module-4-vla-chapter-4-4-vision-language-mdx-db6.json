@@ -1,0 +1,27 @@
+{
+  "id": "module-4-vla/chapter-4-4-vision-language",
+  "title": "Chapter 4.4: Vision-Language Integration",
+  "description": "Overview",
+  "source": "@site/docs/module-4-vla/chapter-4-4-vision-language.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/chapter-4-4-vision-language",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-4-vision-language",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/chapter-4-4-vision-language.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 4.3: Language Models for Robot Planning",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-3-llm-planning"
+  },
+  "next": {
+    "title": "Chapter 4.5: Action Primitives and Execution",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-5-action-primitives"
+  }
+}

@@ -1,133 +1,154 @@
 {
-  "/ai_spec_driven_book/__docusaurus/debug-1db": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
+  "/ai_spec_driven_book/docs-eab": {
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
+      "plugin": "aba21aa0"
     }
   },
-  "/ai_spec_driven_book/__docusaurus/debug/config-22b": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
-    }
+  "/ai_spec_driven_book/docs-51a": {
+    "__comp": "a7bd4aaa",
+    "__props": "cded216b"
   },
-  "/ai_spec_driven_book/__docusaurus/debug/content-00a": {
-    "__comp": "__comp---theme-debug-contentba-8-ce7",
-    "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
-    },
-    "__props": "__props---ai-spec-driven-book-docusaurus-debug-content-0-f-3-597"
-  },
-  "/ai_spec_driven_book/__docusaurus/debug/globalData-793": {
-    "__comp": "__comp---theme-debug-global-dataede-0fa",
-    "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
-    }
-  },
-  "/ai_spec_driven_book/__docusaurus/debug/metadata-265": {
-    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
-    "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
-    }
-  },
-  "/ai_spec_driven_book/__docusaurus/debug/registry-e32": {
-    "__comp": "__comp---theme-debug-registry-679-501",
-    "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
-    }
-  },
-  "/ai_spec_driven_book/__docusaurus/debug/routes-6dc": {
-    "__comp": "__comp---theme-debug-routes-946-699",
-    "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docusaurus-debugb-38-60d"
-    }
-  },
-  "/ai_spec_driven_book/docs-76f": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
-    "__context": {
-      "plugin": "plugin---ai-spec-driven-book-docsaba-a6c"
-    }
-  },
-  "/ai_spec_driven_book/docs-3f8": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---ai-spec-driven-book-docscde-6d1"
-  },
-  "/ai_spec_driven_book/docs-ec2": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+  "/ai_spec_driven_book/docs-d8b": {
+    "__comp": "a94703ab"
   },
   "/ai_spec_driven_book/docs/-b69": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-c-37-8df"
+    "__comp": "17896441",
+    "content": "c377a04b"
   },
   "/ai_spec_driven_book/docs/capstone/-011": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-capstone-cd-3-f60"
+    "__comp": "17896441",
+    "content": "cd369fc1"
   },
   "/ai_spec_driven_book/docs/intro-1b5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-intro-0-e-3-b36"
+    "__comp": "17896441",
+    "content": "0e384e19"
   },
   "/ai_spec_driven_book/docs/introduction-2d3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-introductiona-09-b33"
+    "__comp": "17896441",
+    "content": "a09c2993"
   },
   "/ai_spec_driven_book/docs/module-0-foundations/-193": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-0-foundations-491-ab3"
+    "__comp": "17896441",
+    "content": "4912aec2"
   },
   "/ai_spec_driven_book/docs/module-1-ros2/-b07": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-4-dd-730"
+    "__comp": "17896441",
+    "content": "4dd5b0c3"
   },
   "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture-096": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-1-ros-2-architecture-105-c01"
+    "__comp": "17896441",
+    "content": "105a82ac"
   },
   "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node-902": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-2-first-ros-2-node-6-c-1-838"
+    "__comp": "17896441",
+    "content": "6c11f75c"
   },
   "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns-13f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-3-communication-patterns-9-b-0-f0e"
+    "__comp": "17896441",
+    "content": "9b08d154"
   },
   "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-4-message-types-f99": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-4-message-types-92-a-b6f"
+    "__comp": "17896441",
+    "content": "92a7d256"
   },
   "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-5-parameters-79e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-5-parametersb-61-158"
+    "__comp": "17896441",
+    "content": "b61c759b"
   },
   "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files-d7d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-1-ros-2-chapter-1-6-launch-files-653-6bd"
+    "__comp": "17896441",
+    "content": "653255ba"
   },
   "/ai_spec_driven_book/docs/module-2-simulation/-bc3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-2-simulation-ac-2-c8a"
+    "__comp": "17896441",
+    "content": "ac22254c"
   },
-  "/ai_spec_driven_book/docs/module-2-simulation/chapter-1-e8e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-2-simulation-chapter-12-d-8-795"
+  "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-1-introduction-to-physics-simulation-256": {
+    "__comp": "17896441",
+    "content": "5bb78959"
   },
-  "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-81b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-2-simulation-chapter-29-b-8-aec"
+  "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo-bd7": {
+    "__comp": "17896441",
+    "content": "5cd09232"
+  },
+  "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning-9ad": {
+    "__comp": "17896441",
+    "content": "a615ff7e"
+  },
+  "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-4-sensor-simulation-in-gazebo-2da": {
+    "__comp": "17896441",
+    "content": "43a4ca36"
+  },
+  "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization-062": {
+    "__comp": "17896441",
+    "content": "6d39d567"
+  },
+  "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-6-building-complex-environments-bb7": {
+    "__comp": "17896441",
+    "content": "115ccf65"
   },
   "/ai_spec_driven_book/docs/module-3-isaac/-b4d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-3-isaac-0-c-0-1b9"
+    "__comp": "17896441",
+    "content": "0c0fbaf6"
+  },
+  "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-1-isaac-ecosystem-f8f": {
+    "__comp": "17896441",
+    "content": "ef895890"
+  },
+  "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-2-isaac-sim-basics-fb8": {
+    "__comp": "17896441",
+    "content": "317c6d92"
+  },
+  "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-3-photorealistic-rendering-af4": {
+    "__comp": "17896441",
+    "content": "967a4de9"
+  },
+  "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-4-robot-training-d25": {
+    "__comp": "17896441",
+    "content": "688ed08e"
+  },
+  "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-5-isaac-ros-f77": {
+    "__comp": "17896441",
+    "content": "3c0a6af6"
   },
   "/ai_spec_driven_book/docs/module-4-vla/-f63": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---ai-spec-driven-book-docs-module-4-vla-4-a-9-c6a"
+    "__comp": "17896441",
+    "content": "4a90598f"
+  },
+  "/ai_spec_driven_book/docs/module-4-vla/chapter-4-1-vla-intro-f73": {
+    "__comp": "17896441",
+    "content": "b7a0f428"
+  },
+  "/ai_spec_driven_book/docs/module-4-vla/chapter-4-2-whisper-speech-559": {
+    "__comp": "17896441",
+    "content": "bcb0bfe6"
+  },
+  "/ai_spec_driven_book/docs/module-4-vla/chapter-4-3-llm-planning-a1b": {
+    "__comp": "17896441",
+    "content": "d64c3e49"
+  },
+  "/ai_spec_driven_book/docs/module-4-vla/chapter-4-4-vision-language-cae": {
+    "__comp": "17896441",
+    "content": "db6f587e"
+  },
+  "/ai_spec_driven_book/docs/module-4-vla/chapter-4-5-action-primitives-c28": {
+    "__comp": "17896441",
+    "content": "9e6a1db0"
+  },
+  "/ai_spec_driven_book/docs/module-4-vla/chapter-4-6-conversational-robots-cf1": {
+    "__comp": "17896441",
+    "content": "0d2351bb"
+  },
+  "/ai_spec_driven_book/docs/module-4-vla/chapter-4-7-capstone-project-b42": {
+    "__comp": "17896441",
+    "content": "b9ce55ff"
   },
   "/ai_spec_driven_book/-f8d": {
-    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__comp": "1df93b7f",
     "__context": {
-      "plugin": "plugin---ai-spec-driven-book-a-74-59d"
+      "plugin": "a7456010"
     },
-    "config": "config---ai-spec-driven-book-5-e-9-46b"
+    "config": "5e9f5e1a"
   }
 }

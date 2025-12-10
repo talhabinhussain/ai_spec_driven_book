@@ -1,0 +1,23 @@
+{
+  "id": "module-4-vla/chapter-4-7-capstone-project",
+  "title": "Chapter 4.7: The Capstone Project - Autonomous Humanoid",
+  "description": "Overview",
+  "source": "@site/docs/module-4-vla/chapter-4-7-capstone-project.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/chapter-4-7-capstone-project",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-7-capstone-project",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/chapter-4-7-capstone-project.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "sidebar_position": 8
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 4.6: Building Conversational Robots",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-6-conversational-robots"
+  }
+}

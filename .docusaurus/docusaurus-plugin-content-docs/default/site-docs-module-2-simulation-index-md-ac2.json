@@ -20,11 +20,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Ch 1.6: Launch Files",
+    "title": "Chapter 1.6: Launch Files",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files"
   },
   "next": {
-    "title": "chapter-1",
-    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-1"
+    "title": "Chapter 2.1 - Introduction to Physics Simulation",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-1-introduction-to-physics-simulation"
   }
 }

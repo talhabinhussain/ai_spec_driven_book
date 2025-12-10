@@ -1,0 +1,27 @@
+{
+  "id": "module-4-vla/chapter-4-1-vla-intro",
+  "title": "Chapter 4.1: Introduction to Vision-Language-Action Models",
+  "description": "Overview",
+  "source": "@site/docs/module-4-vla/chapter-4-1-vla-intro.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/chapter-4-1-vla-intro",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-1-vla-intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/chapter-4-1-vla-intro.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/"
+  },
+  "next": {
+    "title": "Chapter 4.2: Speech Recognition with Whisper",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-2-whisper-speech"
+  }
+}

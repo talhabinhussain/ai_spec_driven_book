@@ -1,0 +1,29 @@
+{
+  "id": "module-2-simulation/chapter-2-2-getting-started-with-gazebo",
+  "title": "Chapter 2.2 - Getting Started with Gazebo",
+  "description": "Installing and configuring Gazebo for robotics simulation",
+  "source": "@site/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/chapter-2-2-getting-started-with-gazebo",
+  "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Chapter 2.2 - Getting Started with Gazebo",
+    "description": "Installing and configuring Gazebo for robotics simulation",
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 2.1 - Introduction to Physics Simulation",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-1-introduction-to-physics-simulation"
+  },
+  "next": {
+    "title": "Chapter 2.3 - Physics Configuration and Tuning",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning"
+  }
+}

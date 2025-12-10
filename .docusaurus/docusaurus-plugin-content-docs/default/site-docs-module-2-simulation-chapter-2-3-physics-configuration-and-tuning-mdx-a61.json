@@ -1,0 +1,29 @@
+{
+  "id": "module-2-simulation/chapter-2-3-physics-configuration-and-tuning",
+  "title": "Chapter 2.3 - Physics Configuration and Tuning",
+  "description": "Configuring physics parameters for realistic simulation",
+  "source": "@site/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/chapter-2-3-physics-configuration-and-tuning",
+  "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Chapter 2.3 - Physics Configuration and Tuning",
+    "description": "Configuring physics parameters for realistic simulation",
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 2.2 - Getting Started with Gazebo",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo"
+  },
+  "next": {
+    "title": "Chapter 2.4 - Sensor Simulation in Gazebo",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-4-sensor-simulation-in-gazebo"
+  }
+}

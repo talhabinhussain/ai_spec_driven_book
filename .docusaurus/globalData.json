@@ -70,13 +70,33 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "module-2-simulation/chapter-1",
-              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-1",
+              "id": "module-2-simulation/chapter-2-1-introduction-to-physics-simulation",
+              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-1-introduction-to-physics-simulation",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "module-2-simulation/chapter-2",
-              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2",
+              "id": "module-2-simulation/chapter-2-2-getting-started-with-gazebo",
+              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-2-getting-started-with-gazebo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/chapter-2-3-physics-configuration-and-tuning",
+              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-3-physics-configuration-and-tuning",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/chapter-2-4-sensor-simulation-in-gazebo",
+              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-4-sensor-simulation-in-gazebo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/chapter-2-5-unity-for-robot-visualization",
+              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/chapter-2-6-building-complex-environments",
+              "path": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-6-building-complex-environments",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -85,8 +105,68 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "module-3-isaac/chapter-3-1-isaac-ecosystem",
+              "path": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-1-isaac-ecosystem",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/chapter-3-2-isaac-sim-basics",
+              "path": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-2-isaac-sim-basics",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/chapter-3-3-photorealistic-rendering",
+              "path": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-3-photorealistic-rendering",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/chapter-3-4-robot-training",
+              "path": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-4-robot-training",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/chapter-3-5-isaac-ros",
+              "path": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-5-isaac-ros",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "module-3-isaac/index",
               "path": "/ai_spec_driven_book/docs/module-3-isaac/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/chapter-4-1-vla-intro",
+              "path": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-1-vla-intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/chapter-4-2-whisper-speech",
+              "path": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-2-whisper-speech",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/chapter-4-3-llm-planning",
+              "path": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-3-llm-planning",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/chapter-4-4-vision-language",
+              "path": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-4-vision-language",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/chapter-4-5-action-primitives",
+              "path": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-5-action-primitives",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/chapter-4-6-conversational-robots",
+              "path": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-6-conversational-robots",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/chapter-4-7-capstone-project",
+              "path": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-7-capstone-project",
               "sidebar": "tutorialSidebar"
             },
             {

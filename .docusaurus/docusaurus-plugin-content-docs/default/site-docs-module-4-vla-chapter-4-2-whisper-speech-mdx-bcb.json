@@ -1,0 +1,27 @@
+{
+  "id": "module-4-vla/chapter-4-2-whisper-speech",
+  "title": "Chapter 4.2: Speech Recognition with Whisper",
+  "description": "Overview",
+  "source": "@site/docs/module-4-vla/chapter-4-2-whisper-speech.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/chapter-4-2-whisper-speech",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-2-whisper-speech",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/chapter-4-2-whisper-speech.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 4.1: Introduction to Vision-Language-Action Models",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-1-vla-intro"
+  },
+  "next": {
+    "title": "Chapter 4.3: Language Models for Robot Planning",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-3-llm-planning"
+  }
+}

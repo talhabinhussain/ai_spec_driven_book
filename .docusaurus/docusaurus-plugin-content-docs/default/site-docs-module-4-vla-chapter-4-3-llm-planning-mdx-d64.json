@@ -1,0 +1,27 @@
+{
+  "id": "module-4-vla/chapter-4-3-llm-planning",
+  "title": "Chapter 4.3: Language Models for Robot Planning",
+  "description": "Overview",
+  "source": "@site/docs/module-4-vla/chapter-4-3-llm-planning.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/chapter-4-3-llm-planning",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-3-llm-planning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/chapter-4-3-llm-planning.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 4.2: Speech Recognition with Whisper",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-2-whisper-speech"
+  },
+  "next": {
+    "title": "Chapter 4.4: Vision-Language Integration",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-4-vision-language"
+  }
+}

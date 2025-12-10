@@ -23,6 +23,31 @@
     "0c0fbaf6": [
       13
     ],
+    "0d2351bb": [
+      620
+    ],
+    "0e384e19": [
+      976
+    ],
+    "105a82ac": [
+      912
+    ],
+    "115ccf65": [
+      717
+    ],
+    "1df93b7f": [
+      869,
+      583
+    ],
+    "317c6d92": [
+      298
+    ],
+    "3c0a6af6": [
+      883
+    ],
+    "43a4ca36": [
+      256
+    ],
     "4912aec2": [
       818
     ],
@@ -32,14 +57,47 @@
     "4dd5b0c3": [
       226
     ],
+    "5bb78959": [
+      200
+    ],
+    "5cd09232": [
+      793
+    ],
     "5e95c892": [
       647
     ],
-    "803c2b7e": [
-      441
+    "653255ba": [
+      214
+    ],
+    "688ed08e": [
+      253
+    ],
+    "6c11f75c": [
+      982
+    ],
+    "6d39d567": [
+      233
+    ],
+    "92a7d256": [
+      529
+    ],
+    "967a4de9": [
+      656
+    ],
+    "9b08d154": [
+      392
+    ],
+    "9e6a1db0": [
+      615
     ],
     "a09c2993": [
       899
+    ],
+    "a615ff7e": [
+      300
+    ],
+    "a7456010": [
+      235
     ],
     "a7bd4aaa": [
       98
@@ -54,10 +112,43 @@
     "ac22254c": [
       463
     ],
+    "b61c759b": [
+      614
+    ],
+    "b7a0f428": [
+      733
+    ],
+    "b9ce55ff": [
+      462
+    ],
+    "bcb0bfe6": [
+      353
+    ],
+    "c377a04b": [
+      869,
+      361
+    ],
+    "cd369fc1": [
+      852
+    ],
+    "cded216b": [
+      986
+    ],
+    "d64c3e49": [
+      551
+    ],
+    "db6f587e": [
+      238
+    ],
+    "ef895890": [
+      835
+    ],
     "styles": [
       48,
       354,
+      361,
       401,
+      583,
       792,
       869
     ]
@@ -66,9 +157,9 @@
     "13": {
       "js": [
         {
-          "file": "assets/js/0c0fbaf6.dd23d934.js",
-          "hash": "f83f2154f15618a3",
-          "publicPath": "/ai_native_book/assets/js/0c0fbaf6.dd23d934.js"
+          "file": "assets/js/0c0fbaf6.20e9f69b.js",
+          "hash": "0fec840858a4fed4",
+          "publicPath": "/ai_spec_driven_book/assets/js/0c0fbaf6.20e9f69b.js"
         }
       ]
     },
@@ -77,7 +168,7 @@
         {
           "file": "assets/js/a94703ab.257d8522.js",
           "hash": "93a344ddfb78ae10",
-          "publicPath": "/ai_native_book/assets/js/a94703ab.257d8522.js"
+          "publicPath": "/ai_spec_driven_book/assets/js/a94703ab.257d8522.js"
         }
       ]
     },
@@ -86,16 +177,52 @@
         {
           "file": "assets/js/a7bd4aaa.b753eed2.js",
           "hash": "d1e16b9c300cd03e",
-          "publicPath": "/ai_native_book/assets/js/a7bd4aaa.b753eed2.js"
+          "publicPath": "/ai_spec_driven_book/assets/js/a7bd4aaa.b753eed2.js"
+        }
+      ]
+    },
+    "200": {
+      "js": [
+        {
+          "file": "assets/js/5bb78959.54d24e29.js",
+          "hash": "e542ac768722cc46",
+          "publicPath": "/ai_spec_driven_book/assets/js/5bb78959.54d24e29.js"
+        }
+      ]
+    },
+    "214": {
+      "js": [
+        {
+          "file": "assets/js/653255ba.d440dc67.js",
+          "hash": "ed6516c7c36165dc",
+          "publicPath": "/ai_spec_driven_book/assets/js/653255ba.d440dc67.js"
         }
       ]
     },
     "226": {
       "js": [
         {
-          "file": "assets/js/4dd5b0c3.7fdfd04f.js",
-          "hash": "7793c12d3ca9546b",
-          "publicPath": "/ai_native_book/assets/js/4dd5b0c3.7fdfd04f.js"
+          "file": "assets/js/4dd5b0c3.6074d901.js",
+          "hash": "3e7bc1532a486523",
+          "publicPath": "/ai_spec_driven_book/assets/js/4dd5b0c3.6074d901.js"
+        }
+      ]
+    },
+    "233": {
+      "js": [
+        {
+          "file": "assets/js/6d39d567.32cad834.js",
+          "hash": "78475ac0dba7237e",
+          "publicPath": "/ai_spec_driven_book/assets/js/6d39d567.32cad834.js"
+        }
+      ]
+    },
+    "235": {
+      "js": [
+        {
+          "file": "assets/js/a7456010.f708521f.js",
+          "hash": "0ed8da0054f2ba2e",
+          "publicPath": "/ai_spec_driven_book/assets/js/a7456010.f708521f.js"
         }
       ]
     },
@@ -104,16 +231,88 @@
         {
           "file": "assets/js/237.cb35122b.js",
           "hash": "ca8e4d9628be2b56",
-          "publicPath": "/ai_native_book/assets/js/237.cb35122b.js"
+          "publicPath": "/ai_spec_driven_book/assets/js/237.cb35122b.js"
+        }
+      ]
+    },
+    "238": {
+      "js": [
+        {
+          "file": "assets/js/db6f587e.a94a0ea2.js",
+          "hash": "4b32bf8368317b8c",
+          "publicPath": "/ai_spec_driven_book/assets/js/db6f587e.a94a0ea2.js"
+        }
+      ]
+    },
+    "253": {
+      "js": [
+        {
+          "file": "assets/js/688ed08e.4be01c55.js",
+          "hash": "747ef0e9ec65aaa0",
+          "publicPath": "/ai_spec_driven_book/assets/js/688ed08e.4be01c55.js"
+        }
+      ]
+    },
+    "256": {
+      "js": [
+        {
+          "file": "assets/js/43a4ca36.86bf9d70.js",
+          "hash": "4400ce78be74559b",
+          "publicPath": "/ai_spec_driven_book/assets/js/43a4ca36.86bf9d70.js"
+        }
+      ]
+    },
+    "298": {
+      "js": [
+        {
+          "file": "assets/js/317c6d92.83da8b88.js",
+          "hash": "c70d7ef427d6972e",
+          "publicPath": "/ai_spec_driven_book/assets/js/317c6d92.83da8b88.js"
+        }
+      ]
+    },
+    "300": {
+      "js": [
+        {
+          "file": "assets/js/a615ff7e.f3efc00a.js",
+          "hash": "56d5665b32f299c4",
+          "publicPath": "/ai_spec_driven_book/assets/js/a615ff7e.f3efc00a.js"
+        }
+      ]
+    },
+    "353": {
+      "js": [
+        {
+          "file": "assets/js/bcb0bfe6.e0731146.js",
+          "hash": "f4407d6af600a99f",
+          "publicPath": "/ai_spec_driven_book/assets/js/bcb0bfe6.e0731146.js"
         }
       ]
     },
     "354": {
       "js": [
         {
-          "file": "assets/js/runtime~main.290474dd.js",
-          "hash": "134319384146a59f",
-          "publicPath": "/ai_native_book/assets/js/runtime~main.290474dd.js"
+          "file": "assets/js/runtime~main.14ca81e1.js",
+          "hash": "69e6d5e817ee65b4",
+          "publicPath": "/ai_spec_driven_book/assets/js/runtime~main.14ca81e1.js"
+        }
+      ]
+    },
+    "361": {
+      "js": [
+        {
+          "file": "assets/js/c377a04b.7f13aac5.js",
+          "hash": "f4dfb629265ac5a2",
+          "publicPath": "/ai_spec_driven_book/assets/js/c377a04b.7f13aac5.js"
+        }
+      ]
+    },
+    "392": {
+      "js": [
+        {
+          "file": "assets/js/9b08d154.8b473449.js",
+          "hash": "bdfc774363dea9ae",
+          "publicPath": "/ai_spec_driven_book/assets/js/9b08d154.8b473449.js"
         }
       ]
     },
@@ -122,34 +321,88 @@
         {
           "file": "assets/js/17896441.5ece01d1.js",
           "hash": "bc21aff55e83ecf5",
-          "publicPath": "/ai_native_book/assets/js/17896441.5ece01d1.js"
+          "publicPath": "/ai_spec_driven_book/assets/js/17896441.5ece01d1.js"
         }
       ]
     },
-    "441": {
+    "462": {
       "js": [
         {
-          "file": "assets/js/803c2b7e.918d4d81.js",
-          "hash": "22b9b396cfcf3523",
-          "publicPath": "/ai_native_book/assets/js/803c2b7e.918d4d81.js"
+          "file": "assets/js/b9ce55ff.0af3e084.js",
+          "hash": "bc7cc674a47c8f8b",
+          "publicPath": "/ai_spec_driven_book/assets/js/b9ce55ff.0af3e084.js"
         }
       ]
     },
     "463": {
       "js": [
         {
-          "file": "assets/js/ac22254c.5c8c8ce1.js",
-          "hash": "2a88070c296644b9",
-          "publicPath": "/ai_native_book/assets/js/ac22254c.5c8c8ce1.js"
+          "file": "assets/js/ac22254c.c1a48a71.js",
+          "hash": "3013672c19def7ba",
+          "publicPath": "/ai_spec_driven_book/assets/js/ac22254c.c1a48a71.js"
+        }
+      ]
+    },
+    "529": {
+      "js": [
+        {
+          "file": "assets/js/92a7d256.197c2e36.js",
+          "hash": "b8265a35d3447cb1",
+          "publicPath": "/ai_spec_driven_book/assets/js/92a7d256.197c2e36.js"
+        }
+      ]
+    },
+    "551": {
+      "js": [
+        {
+          "file": "assets/js/d64c3e49.ac62ef23.js",
+          "hash": "37c2f68e4ae72a65",
+          "publicPath": "/ai_spec_driven_book/assets/js/d64c3e49.ac62ef23.js"
+        }
+      ]
+    },
+    "583": {
+      "js": [
+        {
+          "file": "assets/js/1df93b7f.cff4f3ef.js",
+          "hash": "3547ac31f823ad92",
+          "publicPath": "/ai_spec_driven_book/assets/js/1df93b7f.cff4f3ef.js"
         }
       ]
     },
     "601": {
       "js": [
         {
-          "file": "assets/js/4a90598f.49d6347f.js",
-          "hash": "7e382704e5108d72",
-          "publicPath": "/ai_native_book/assets/js/4a90598f.49d6347f.js"
+          "file": "assets/js/4a90598f.d47ad0c2.js",
+          "hash": "8596f5c8c663c6e1",
+          "publicPath": "/ai_spec_driven_book/assets/js/4a90598f.d47ad0c2.js"
+        }
+      ]
+    },
+    "614": {
+      "js": [
+        {
+          "file": "assets/js/b61c759b.dd9ef2fe.js",
+          "hash": "d58ac0747f94e771",
+          "publicPath": "/ai_spec_driven_book/assets/js/b61c759b.dd9ef2fe.js"
+        }
+      ]
+    },
+    "615": {
+      "js": [
+        {
+          "file": "assets/js/9e6a1db0.fb78dec8.js",
+          "hash": "0aa512267cee9fd5",
+          "publicPath": "/ai_spec_driven_book/assets/js/9e6a1db0.fb78dec8.js"
+        }
+      ]
+    },
+    "620": {
+      "js": [
+        {
+          "file": "assets/js/0d2351bb.6d087041.js",
+          "hash": "79b02f64fe2f2bab",
+          "publicPath": "/ai_spec_driven_book/assets/js/0d2351bb.6d087041.js"
         }
       ]
     },
@@ -158,7 +411,34 @@
         {
           "file": "assets/js/5e95c892.0e0a0a55.js",
           "hash": "bf5dc5e8df0c58cf",
-          "publicPath": "/ai_native_book/assets/js/5e95c892.0e0a0a55.js"
+          "publicPath": "/ai_spec_driven_book/assets/js/5e95c892.0e0a0a55.js"
+        }
+      ]
+    },
+    "656": {
+      "js": [
+        {
+          "file": "assets/js/967a4de9.8d5d22cd.js",
+          "hash": "a1ad343bd8ad0117",
+          "publicPath": "/ai_spec_driven_book/assets/js/967a4de9.8d5d22cd.js"
+        }
+      ]
+    },
+    "717": {
+      "js": [
+        {
+          "file": "assets/js/115ccf65.0f1684d0.js",
+          "hash": "f4d52157f78443b3",
+          "publicPath": "/ai_spec_driven_book/assets/js/115ccf65.0f1684d0.js"
+        }
+      ]
+    },
+    "733": {
+      "js": [
+        {
+          "file": "assets/js/b7a0f428.fa920000.js",
+          "hash": "5811e5a90ead5a9b",
+          "publicPath": "/ai_spec_driven_book/assets/js/b7a0f428.fa920000.js"
         }
       ]
     },
@@ -167,43 +447,115 @@
         {
           "file": "assets/js/aba21aa0.4d6cc3a3.js",
           "hash": "aae8f10c8bc17ca7",
-          "publicPath": "/ai_native_book/assets/js/aba21aa0.4d6cc3a3.js"
+          "publicPath": "/ai_spec_driven_book/assets/js/aba21aa0.4d6cc3a3.js"
         }
       ]
     },
     "792": {
       "js": [
         {
-          "file": "assets/js/main.22894832.js",
-          "hash": "94af7e185f8a14d0",
-          "publicPath": "/ai_native_book/assets/js/main.22894832.js"
+          "file": "assets/js/main.a8d3dbb1.js",
+          "hash": "6e1ebbea93f8c750",
+          "publicPath": "/ai_spec_driven_book/assets/js/main.a8d3dbb1.js"
+        }
+      ]
+    },
+    "793": {
+      "js": [
+        {
+          "file": "assets/js/5cd09232.93f8fd13.js",
+          "hash": "4fa3c3e35255d7ba",
+          "publicPath": "/ai_spec_driven_book/assets/js/5cd09232.93f8fd13.js"
         }
       ]
     },
     "818": {
       "js": [
         {
-          "file": "assets/js/4912aec2.918c023b.js",
-          "hash": "c50b39001094b791",
-          "publicPath": "/ai_native_book/assets/js/4912aec2.918c023b.js"
+          "file": "assets/js/4912aec2.bb742b39.js",
+          "hash": "cd005452953e5e23",
+          "publicPath": "/ai_spec_driven_book/assets/js/4912aec2.bb742b39.js"
+        }
+      ]
+    },
+    "835": {
+      "js": [
+        {
+          "file": "assets/js/ef895890.b21dc5d2.js",
+          "hash": "56490364f7171562",
+          "publicPath": "/ai_spec_driven_book/assets/js/ef895890.b21dc5d2.js"
+        }
+      ]
+    },
+    "852": {
+      "js": [
+        {
+          "file": "assets/js/cd369fc1.e513f975.js",
+          "hash": "f859e16d20c5a720",
+          "publicPath": "/ai_spec_driven_book/assets/js/cd369fc1.e513f975.js"
         }
       ]
     },
     "869": {
       "css": [
         {
-          "file": "assets/css/styles.7bfdbc5b.css",
-          "hash": "97454a4c4891d8f7",
-          "publicPath": "/ai_native_book/assets/css/styles.7bfdbc5b.css"
+          "file": "assets/css/styles.edf29ba0.css",
+          "hash": "98acc45ed2f622d1",
+          "publicPath": "/ai_spec_driven_book/assets/css/styles.edf29ba0.css"
+        }
+      ]
+    },
+    "883": {
+      "js": [
+        {
+          "file": "assets/js/3c0a6af6.860a99ec.js",
+          "hash": "f79c9d7a9789dc62",
+          "publicPath": "/ai_spec_driven_book/assets/js/3c0a6af6.860a99ec.js"
         }
       ]
     },
     "899": {
       "js": [
         {
-          "file": "assets/js/a09c2993.9ed9c936.js",
-          "hash": "386b4ff4d0161a82",
-          "publicPath": "/ai_native_book/assets/js/a09c2993.9ed9c936.js"
+          "file": "assets/js/a09c2993.d6dc4be6.js",
+          "hash": "0588896e27a04902",
+          "publicPath": "/ai_spec_driven_book/assets/js/a09c2993.d6dc4be6.js"
+        }
+      ]
+    },
+    "912": {
+      "js": [
+        {
+          "file": "assets/js/105a82ac.85c407ae.js",
+          "hash": "8124ca8139663d1a",
+          "publicPath": "/ai_spec_driven_book/assets/js/105a82ac.85c407ae.js"
+        }
+      ]
+    },
+    "976": {
+      "js": [
+        {
+          "file": "assets/js/0e384e19.47378ead.js",
+          "hash": "47060e80a081bfc1",
+          "publicPath": "/ai_spec_driven_book/assets/js/0e384e19.47378ead.js"
+        }
+      ]
+    },
+    "982": {
+      "js": [
+        {
+          "file": "assets/js/6c11f75c.ee3c76e2.js",
+          "hash": "2cb56014a683f6dc",
+          "publicPath": "/ai_spec_driven_book/assets/js/6c11f75c.ee3c76e2.js"
+        }
+      ]
+    },
+    "986": {
+      "js": [
+        {
+          "file": "assets/js/cded216b.93c09796.js",
+          "hash": "5dc5da93e171f846",
+          "publicPath": "/ai_spec_driven_book/assets/js/cded216b.93c09796.js"
         }
       ]
     }

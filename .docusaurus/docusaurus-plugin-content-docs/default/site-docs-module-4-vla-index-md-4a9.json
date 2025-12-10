@@ -20,7 +20,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Module Overview",
-    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/"
+    "title": "Chapter 3.5: Isaac ROS for Production Robotics",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-5-isaac-ros"
+  },
+  "next": {
+    "title": "Chapter 4.1: Introduction to Vision-Language-Action Models",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-1-vla-intro"
   }
 }

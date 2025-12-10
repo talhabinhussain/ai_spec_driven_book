@@ -1,0 +1,173 @@
+---
+title: Chapter 2.6 - Building Complex Environments
+description: Creating advanced simulation environments with optimization
+sidebar_position: 7
+---
+
+# Chapter 2.6: Building Complex Environments
+
+## Learning Objectives
+
+After completing this chapter, you will be able to:
+- Implement procedural world generation techniques
+- Apply object randomization for robust training
+- Design multi-agent scenarios for collaborative robotics
+- Profile and optimize simulation performance
+- Create scalable simulation environments
+
+## Procedural World Generation
+
+Procedural generation enables the creation of diverse, large-scale environments without manual design effort.
+
+### Terrain Generation
+- **Heightmap algorithms**: Perlin noise, diamond-square algorithm
+- **Erosion simulation**: Realistic terrain features
+- **Biome systems**: Different environmental regions
+- **Vegetation placement**: Procedural flora distribution
+
+### Urban Environment Generation
+- **Building placement**: Grid-based or organic layouts
+- **Road networks**: Pathfinding and traffic simulation
+- **Infrastructure**: Power lines, street lights, utilities
+- **Detail population**: Objects and assets for realism
+
+### Natural Environment Generation
+- **Water systems**: Rivers, lakes, and ocean simulation
+- **Forest generation**: Tree placement and ecosystem modeling
+- **Rock formations**: Geologically accurate terrain features
+- **Weather patterns**: Dynamic environmental conditions
+
+### Procedural Generation Tools
+```csharp
+// Example Unity procedural generation
+public class TerrainGenerator : MonoBehaviour
+{
+    public int width = 256;
+    public int height = 256;
+    public float scale = 20f;
+
+    void GenerateTerrain()
+    {
+        // Generate heightmap using noise functions
+        float[,] heightmap = new float[width, height];
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                float xCoord = (float)x / width * scale;
+                float yCoord = (float)y / height * scale;
+
+                heightmap[x, y] = Mathf.PerlinNoise(xCoord, yCoord);
+            }
+        }
+
+        // Apply heightmap to terrain
+        UpdateTerrainMesh(heightmap);
+    }
+}
+```
+
+## Object Randomization for Robust Training
+
+Randomization techniques improve the robustness of learned policies by exposing them to diverse conditions:
+
+### Visual Randomization
+- **Material properties**: Albedo, roughness, and metallic values
+- **Lighting conditions**: Time of day, weather, and illumination
+- **Camera parameters**: Field of view, focal length, and distortion
+- **Texture variations**: Different patterns and appearances
+
+### Physical Randomization
+- **Mass variations**: Different object weights
+- **Friction coefficients**: Surface interaction changes
+- **Dynamics parameters**: Joint damping and stiffness
+- **Actuator properties**: Motor characteristics and noise
+
+### Environmental Randomization
+- **Obstacle placement**: Varying layouts and positions
+- **Surface properties**: Different ground types and textures
+- **Clutter scenarios**: Random object placement
+- **Dynamic elements**: Moving obstacles and changing conditions
+
+## Multi-Agent Scenarios
+
+Complex robotics applications often involve multiple agents interacting in shared environments:
+
+### Communication Protocols
+- **ROS 2 multi-robot systems**: Distributed communication
+- **Message passing**: Coordination between agents
+- **Shared knowledge**: Common operating picture
+- **Conflict resolution**: Resource allocation and path planning
+
+### Coordination Strategies
+- **Leader-follower**: Hierarchical control structures
+- **Consensus algorithms**: Distributed decision making
+- **Market-based systems**: Resource allocation through bidding
+- **Behavior-based systems**: Emergent coordination
+
+### Collision Avoidance
+- **Velocity obstacles**: Predictive collision avoidance
+- **Social force models**: Human-like navigation behavior
+- **Potential fields**: Attractive and repulsive forces
+- **Optimization-based methods**: Trajectory optimization
+
+### Scenario Examples
+- **Search and rescue**: Multiple robots in disaster environments
+- **Warehouse automation**: Coordinated material handling
+- **Swarm robotics**: Collective behavior emergence
+- **Human-robot collaboration**: Mixed teams working together
+
+## Performance Profiling and Optimization
+
+Complex environments require careful optimization to maintain real-time performance:
+
+### Profiling Tools
+- **Unity Profiler**: Frame-by-frame performance analysis
+- **Gazebo statistics**: Simulation timing and resource usage
+- **System monitoring**: CPU, GPU, and memory usage
+- **Network analysis**: Communication overhead measurement
+
+### Optimization Strategies
+
+#### Rendering Optimization
+- **Occlusion culling**: Hide non-visible objects
+- **LOD systems**: Reduce detail at distance
+- **Texture atlasing**: Combine multiple textures
+- **Shader optimization**: Efficient rendering code
+
+#### Physics Optimization
+- **Simplified collision meshes**: Lower polygon count for physics
+- **Spatial partitioning**: Efficient collision detection
+- **Fixed timestep**: Consistent physics updates
+- **Multi-threading**: Parallel physics computation
+
+#### Memory Management
+- **Object pooling**: Reuse frequently created objects
+- **Asset streaming**: Load resources on demand
+- **Garbage collection**: Minimize allocation overhead
+- **Resource compression**: Reduce memory footprint
+
+### Scalability Considerations
+- **Distributed simulation**: Multiple simulation nodes
+- **Cloud computing**: Remote simulation execution
+- **Load balancing**: Distribute computational load
+- **Network optimization**: Efficient data transmission
+
+## Practical Exercise
+
+Create a complex simulation environment with:
+1. Procedurally generated terrain
+2. Randomized object placement
+3. Multiple robot agents
+4. Performance optimization techniques
+
+Implement a multi-robot coordination scenario with collision avoidance.
+
+## Summary
+
+Building complex simulation environments requires balancing realism with performance. Procedural generation, randomization, and optimization techniques enable the creation of diverse, scalable environments for advanced robotics research and development.
+
+## Next Steps
+
+This completes Module 2 on The Digital Twin (Gazebo & Unity). In the next module, we'll explore NVIDIA Isaac for photorealistic simulation and synthetic data generation.

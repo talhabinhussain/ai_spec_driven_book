@@ -1,0 +1,504 @@
+---
+sidebar_position: 3
+---
+
+# Chapter 4.2: Speech Recognition with Whisper
+
+## Overview
+
+OpenAI's Whisper model has revolutionized automatic speech recognition (ASR) by providing robust, multilingual speech-to-text capabilities. In this chapter, we'll explore how to integrate Whisper with robotic systems to enable voice command interfaces. You'll learn to build real-time speech processing pipelines that can understand and respond to natural language commands in robotic environments.
+
+## Understanding Whisper Architecture
+
+Whisper is a transformer-based automatic speech recognition model trained on a large dataset of diverse audio. It excels at handling various accents, background noise, and multiple languages, making it ideal for robotic applications.
+
+```mermaid
+graph LR
+    A[Audio Input] --> B[Feature Extraction]
+    B --> C[Whisper Encoder]
+    C --> D[Whisper Decoder]
+    D --> E[Text Output]
+    E --> F[Command Parser]
+```
+
+### Key Features of Whisper
+
+- **Multilingual Support**: Supports 99+ languages
+- **Robustness**: Handles background noise and accents
+- **Timestamps**: Provides word-level timing information
+- **Speaker Identification**: Can distinguish between speakers
+- **Punctuation**: Automatically adds punctuation and capitalization
+
+## Whisper Integration with ROS 2
+
+To integrate Whisper with ROS 2, we need to create a speech processing pipeline that can handle real-time audio input and generate text commands:
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from sensor_msgs.msg import AudioData
+import whisper
+import numpy as np
+import torch
+import pyaudio
+import wave
+
+class WhisperNode(Node):
+    def __init__(self):
+        super().__init__('whisper_node')
+
+        # Load Whisper model
+        self.model = whisper.load_model("base.en")  # or "base", "small", "medium", "large"
+
+        # Audio subscription
+        self.audio_sub = self.create_subscription(
+            AudioData, 'audio_input', self.audio_callback, 10
+        )
+
+        # Command publisher
+        self.command_pub = self.create_publisher(String, 'voice_command', 10)
+
+        # Real-time audio processing
+        self.setup_audio_stream()
+
+        self.get_logger().info("Whisper node initialized")
+
+    def setup_audio_stream(self):
+        """
+        Set up real-time audio capture for continuous processing
+        """
+        self.audio = pyaudio.PyAudio()
+        self.stream = self.audio.open(
+            format=pyaudio.paInt16,
+            channels=1,
+            rate=16000,
+            input=True,
+            frames_per_buffer=8192
+        )
+
+        # Start continuous audio processing
+        self.process_audio_continuously()
+
+    def audio_callback(self, msg):
+        """
+        Handle audio data from ROS topic
+        """
+        # Convert audio data to numpy array
+        audio_array = np.frombuffer(msg.data, dtype=np.int16).astype(np.float32) / 32768.0
+
+        # Transcribe audio using Whisper
+        result = self.model.transcribe(audio_array)
+        text = result["text"].strip()
+
+        if text:
+            # Publish recognized command
+            command_msg = String()
+            command_msg.data = text
+            self.command_pub.publish(command_msg)
+            self.get_logger().info(f"Recognized: {text}")
+
+    def process_audio_continuously(self):
+        """
+        Process audio in real-time for continuous command recognition
+        """
+        def audio_thread():
+            while rclpy.ok():
+                # Read audio data from stream
+                audio_data = self.stream.read(8192)
+                audio_array = np.frombuffer(audio_data, dtype=np.int16).astype(np.float32) / 32768.0
+
+                # Only process if audio level is above threshold (voice activity detection)
+                if np.max(np.abs(audio_array)) > 0.01:  # Simple VAD threshold
+                    result = self.model.transcribe(audio_array)
+                    text = result["text"].strip()
+
+                    if text:
+                        command_msg = String()
+                        command_msg.data = text
+                        self.command_pub.publish(command_msg)
+                        self.get_logger().info(f"Voice command: {text}")
+
+        import threading
+        threading.Thread(target=audio_thread, daemon=True).start()
+```
+
+## Real-Time Speech Processing
+
+For real-time applications, we need to optimize Whisper for low latency while maintaining accuracy:
+
+```python
+import asyncio
+import queue
+import threading
+
+class RealTimeWhisperNode(Node):
+    def __init__(self):
+        super().__init__('realtime_whisper_node')
+
+        self.model = whisper.load_model("small.en")
+        self.audio_queue = queue.Queue()
+
+        # Setup audio stream
+        self.setup_realtime_processing()
+
+        # Command publisher
+        self.command_pub = self.create_publisher(String, 'voice_command', 10)
+
+    def setup_realtime_processing(self):
+        """
+        Setup real-time audio processing with buffering
+        """
+        self.audio = pyaudio.PyAudio()
+        self.stream = self.audio.open(
+            format=pyaudio.paInt16,
+            channels=1,
+            rate=16000,
+            input=True,
+            frames_per_buffer=4096
+        )
+
+        # Start processing thread
+        self.processing_thread = threading.Thread(target=self.process_audio_stream, daemon=True)
+        self.processing_thread.start()
+
+    def process_audio_stream(self):
+        """
+        Continuously process audio stream with buffering
+        """
+        buffer = np.array([])
+
+        while rclpy.ok():
+            # Read audio chunk
+            data = self.stream.read(4096)
+            chunk = np.frombuffer(data, dtype=np.int16).astype(np.float32) / 32768.0
+
+            # Add to buffer
+            buffer = np.concatenate([buffer, chunk])
+
+            # Process when buffer reaches threshold
+            if len(buffer) >= 16000:  # 1 second of audio
+                # Only process if significant audio energy
+                if np.max(np.abs(buffer)) > 0.01:
+                    # Transcribe the buffer
+                    result = self.model.transcribe(buffer, language='en')
+                    text = result["text"].strip()
+
+                    if text:
+                        self.publish_command(text)
+
+                # Keep last 0.5 seconds for continuity
+                buffer = buffer[-8000:]
+
+    def publish_command(self, text):
+        """
+        Publish recognized command with confidence scoring
+        """
+        command_msg = String()
+        command_msg.data = text
+        self.command_pub.publish(command_msg)
+        self.get_logger().info(f"Command: {text}")
+```
+
+## Voice Command Processing Pipeline
+
+A complete voice command system includes preprocessing, recognition, and command parsing:
+
+```python
+class VoiceCommandProcessor:
+    def __init__(self):
+        self.whisper_model = whisper.load_model("base.en")
+        self.command_patterns = self.define_command_patterns()
+
+    def define_command_patterns(self):
+        """
+        Define common command patterns for robotics
+        """
+        return {
+            'navigation': [
+                r'move to (.+)',
+                r'go to (.+)',
+                r'go to the (.+)',
+                r'walk to (.+)',
+                r'navigate to (.+)'
+            ],
+            'manipulation': [
+                r'pick up (.+)',
+                r'grab (.+)',
+                r'pick the (.+) up',
+                r'lift the (.+)',
+                r'get the (.+)'
+            ],
+            'object_interaction': [
+                r'open (.+)',
+                r'close (.+)',
+                r'turn on (.+)',
+                r'turn off (.+)',
+                r'switch (.+)'
+            ]
+        }
+
+    def process_voice_command(self, audio_input):
+        """
+        Complete pipeline: audio -> text -> command -> action
+        """
+        # Step 1: Transcribe audio to text
+        if isinstance(audio_input, np.ndarray):
+            result = self.whisper_model.transcribe(audio_input)
+        else:
+            result = self.whisper_model.transcribe(audio_input)  # file path
+
+        text = result["text"].strip()
+
+        # Step 2: Parse command structure
+        parsed_command = self.parse_command_structure(text)
+
+        # Step 3: Validate and sanitize command
+        if self.validate_command(parsed_command):
+            return parsed_command
+        else:
+            return None
+
+    def parse_command_structure(self, text):
+        """
+        Parse natural language command into structured format
+        """
+        import re
+
+        # Normalize text
+        text = text.lower().strip()
+
+        # Identify command type and parameters
+        for cmd_type, patterns in self.command_patterns.items():
+            for pattern in patterns:
+                match = re.search(pattern, text)
+                if match:
+                    return {
+                        'type': cmd_type,
+                        'parameters': match.groups(),
+                        'original': text,
+                        'confidence': result.get('confidence', 0.8)  # Assuming high confidence
+                    }
+
+        # If no pattern matches, return as general command
+        return {
+            'type': 'general',
+            'parameters': [text],
+            'original': text,
+            'confidence': 0.5
+        }
+
+    def validate_command(self, command):
+        """
+        Validate command safety and feasibility
+        """
+        if command['confidence'] < 0.7:
+            return False  # Low confidence
+
+        # Add safety checks here
+        if 'kill' in command['original'] or 'destroy' in command['original']:
+            return False  # Safety filter
+
+        return True
+```
+
+## Practical Example: Voice-Controlled Robot
+
+Let's build a complete example that combines Whisper with ROS 2 for voice-controlled robot navigation:
+
+```python
+class VoiceControlledRobot(Node):
+    def __init__(self):
+        super().__init__('voice_controlled_robot')
+
+        # Whisper model
+        self.whisper = whisper.load_model("base.en")
+
+        # ROS 2 interfaces
+        self.command_sub = self.create_subscription(
+            String, 'voice_command', self.command_callback, 10
+        )
+        self.nav_goal_pub = self.create_publisher(String, 'navigation_goal', 10)
+        self.manipulation_pub = self.create_publisher(String, 'manipulation_command', 10)
+
+        # Command processor
+        self.command_processor = VoiceCommandProcessor()
+
+        self.get_logger().info("Voice controlled robot initialized")
+
+    def command_callback(self, msg):
+        """
+        Process incoming voice commands
+        """
+        command_text = msg.data
+
+        # Parse the command
+        parsed_command = self.command_processor.parse_command_structure(command_text)
+
+        if parsed_command['confidence'] > 0.7:
+            self.execute_command(parsed_command)
+        else:
+            self.get_logger().warn(f"Low confidence command: {command_text}")
+
+    def execute_command(self, command):
+        """
+        Execute parsed command based on type
+        """
+        cmd_type = command['type']
+        params = command['parameters']
+
+        if cmd_type == 'navigation':
+            goal = params[0]  # Location to navigate to
+            nav_msg = String()
+            nav_msg.data = f"navigate_to:{goal}"
+            self.nav_goal_pub.publish(nav_msg)
+            self.get_logger().info(f"Navigating to: {goal}")
+
+        elif cmd_type == 'manipulation':
+            object_name = params[0]  # Object to manipulate
+            manip_msg = String()
+            manip_msg.data = f"pick_up:{object_name}"
+            self.manipulation_pub.publish(manip_msg)
+            self.get_logger().info(f"Attempting to pick up: {object_name}")
+
+        elif cmd_type == 'object_interaction':
+            target = params[0]  # Object to interact with
+            # Determine action based on original command
+            if 'open' in command['original']:
+                action = 'open'
+            elif 'close' in command['original']:
+                action = 'close'
+            elif 'turn on' in command['original']:
+                action = 'turn_on'
+            elif 'turn off' in command['original']:
+                action = 'turn_off'
+            else:
+                action = 'interact'
+
+            interaction_msg = String()
+            interaction_msg.data = f"{action}:{target}"
+            self.manipulation_pub.publish(interaction_msg)
+            self.get_logger().info(f"Interacting with {target} - {action}")
+
+        else:
+            self.get_logger().info(f"General command: {command['original']}")
+```
+
+## Performance Optimization
+
+For real-time applications, consider these optimization strategies:
+
+```python
+class OptimizedWhisperNode(Node):
+    def __init__(self):
+        super().__init__('optimized_whisper_node')
+
+        # Use smaller model for faster inference
+        self.model = whisper.load_model("tiny.en")
+
+        # GPU acceleration if available
+        if torch.cuda.is_available():
+            self.model = self.model.cuda()
+
+        # Audio processing optimizations
+        self.setup_optimized_audio()
+
+        # Command caching to avoid duplicate processing
+        self.command_cache = {}
+
+    def setup_optimized_audio(self):
+        """
+        Setup optimized audio processing pipeline
+        """
+        # Use lower sample rate for faster processing
+        self.audio = pyaudio.PyAudio()
+        self.stream = self.audio.open(
+            format=pyaudio.paInt16,
+            channels=1,
+            rate=8000,  # Lower rate for faster processing
+            input=True,
+            frames_per_buffer=2048  # Smaller buffer for lower latency
+        )
+
+    def transcribe_with_cache(self, audio_data, cache_duration=5.0):
+        """
+        Transcribe audio with caching to avoid duplicate processing
+        """
+        import hashlib
+        import time
+
+        # Create hash of audio data for caching
+        audio_hash = hashlib.md5(audio_data.tobytes()).hexdigest()
+        current_time = time.time()
+
+        # Check if we have cached result
+        if audio_hash in self.command_cache:
+            cached_result, timestamp = self.command_cache[audio_hash]
+            if current_time - timestamp < cache_duration:
+                return cached_result
+
+        # Process new audio
+        result = self.model.transcribe(audio_data)
+
+        # Cache the result
+        self.command_cache[audio_hash] = (result, current_time)
+
+        return result
+```
+
+## Best Practices
+
+### 1. Model Selection
+Choose the appropriate Whisper model size based on your hardware constraints:
+- **tiny**: Fastest, lowest accuracy
+- **base**: Good balance of speed and accuracy
+- **small**: Better accuracy, moderate speed
+- **medium**: High accuracy, slower
+- **large**: Highest accuracy, slowest
+
+### 2. Audio Quality
+- Use high-quality microphones for better recognition
+- Implement noise reduction filters
+- Consider beamforming for directional audio capture
+
+### 3. Context Awareness
+- Provide context to the model when possible
+- Use language models to disambiguate commands
+- Implement dialogue management for multi-turn conversations
+
+### 4. Error Handling
+- Always validate command confidence scores
+- Implement fallback mechanisms for unrecognized commands
+- Provide feedback to users about command recognition status
+
+## Common Pitfalls
+
+- **High Latency**: Large models can introduce significant processing delays
+- **Background Noise**: Poor audio quality can degrade recognition accuracy
+- **Command Ambiguity**: Natural language commands may be ambiguous
+- **Resource Usage**: Whisper models can be computationally expensive
+
+## Summary
+
+In this chapter, you learned:
+
+- ✅ How to integrate OpenAI Whisper with ROS 2 for speech recognition
+- ✅ Real-time audio processing techniques for voice commands
+- ✅ Command parsing and validation strategies
+- ✅ Performance optimization for robotic applications
+- ✅ Building complete voice-controlled robot systems
+- ✅ Best practices for robust speech recognition
+
+## Next Steps
+
+Now that you can process voice commands, let's explore how to use Large Language Models for planning robot actions based on natural language input.
+
+**Continue to:** [Chapter 4.3: Language Models for Robot Planning →](./chapter-4-3-llm-planning)
+
+## Additional Resources
+
+- [OpenAI Whisper Documentation](https://github.com/openai/whisper)
+- [Whisper Paper](https://cdn.openai.com/papers/whisper.pdf)
+- [Real-Time Speech Recognition Techniques](https://arxiv.org/abs/2203.09893)
+- [Voice Command Systems for Robotics](https://ieeexplore.ieee.org/document/9812345)
+- [PyAudio Documentation](https://pyaudio.readthedocs.io/)

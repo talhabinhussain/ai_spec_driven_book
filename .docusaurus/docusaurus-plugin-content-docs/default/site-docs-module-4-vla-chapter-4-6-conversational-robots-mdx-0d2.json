@@ -1,0 +1,27 @@
+{
+  "id": "module-4-vla/chapter-4-6-conversational-robots",
+  "title": "Chapter 4.6: Building Conversational Robots",
+  "description": "Overview",
+  "source": "@site/docs/module-4-vla/chapter-4-6-conversational-robots.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/chapter-4-6-conversational-robots",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-6-conversational-robots",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/chapter-4-6-conversational-robots.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "sidebar_position": 7
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 4.5: Action Primitives and Execution",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-5-action-primitives"
+  },
+  "next": {
+    "title": "Chapter 4.7: The Capstone Project - Autonomous Humanoid",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-7-capstone-project"
+  }
+}

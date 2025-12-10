@@ -1,0 +1,29 @@
+{
+  "id": "module-2-simulation/chapter-2-6-building-complex-environments",
+  "title": "Chapter 2.6 - Building Complex Environments",
+  "description": "Creating advanced simulation environments with optimization",
+  "source": "@site/docs/module-2-simulation/chapter-2-6-building-complex-environments.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/chapter-2-6-building-complex-environments",
+  "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-6-building-complex-environments",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-2-simulation/chapter-2-6-building-complex-environments.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "title": "Chapter 2.6 - Building Complex Environments",
+    "description": "Creating advanced simulation environments with optimization",
+    "sidebar_position": 7
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 2.5 - Unity for Robot Visualization",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization"
+  },
+  "next": {
+    "title": "Chapter 3.1: Understanding the Isaac Ecosystem",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-1-isaac-ecosystem"
+  }
+}

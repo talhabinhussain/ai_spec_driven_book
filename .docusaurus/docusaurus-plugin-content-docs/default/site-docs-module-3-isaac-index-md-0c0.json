@@ -1,7 +1,7 @@
 {
   "id": "module-3-isaac/index",
-  "title": "Module 3 - The AI-Robot Brain (NVIDIA Isaac)",
-  "description": "Implementing perception and navigation pipelines",
+  "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac™)",
+  "description": "Introduction",
   "source": "@site/docs/module-3-isaac/index.md",
   "sourceDirName": "module-3-isaac",
   "slug": "/module-3-isaac/",
@@ -11,20 +11,17 @@
   "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-3-isaac/index.md",
   "tags": [],
   "version": "current",
-  "sidebarPosition": 1,
+  "sidebarPosition": 4,
   "frontMatter": {
-    "title": "Module 3 - The AI-Robot Brain (NVIDIA Isaac)",
-    "description": "Implementing perception and navigation pipelines",
-    "sidebar_position": 1,
-    "sidebar_label": "Module Overview"
+    "sidebar_position": 4
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "chapter-2",
-    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2"
+    "title": "Chapter 3.4: Robot Training with Isaac Gym",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-4-robot-training"
   },
   "next": {
-    "title": "Module Overview",
-    "permalink": "/ai_spec_driven_book/docs/module-4-vla/"
+    "title": "Chapter 3.5: Isaac ROS for Production Robotics",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-5-isaac-ros"
   }
 }

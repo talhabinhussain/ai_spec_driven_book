@@ -1,0 +1,27 @@
+{
+  "id": "module-3-isaac/chapter-3-2-isaac-sim-basics",
+  "title": "Chapter 3.2: Getting Started with Isaac Sim",
+  "description": "Overview",
+  "source": "@site/docs/module-3-isaac/chapter-3-2-isaac-sim-basics.md",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/chapter-3-2-isaac-sim-basics",
+  "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-2-isaac-sim-basics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-3-isaac/chapter-3-2-isaac-sim-basics.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 3.1: Understanding the Isaac Ecosystem",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-1-isaac-ecosystem"
+  },
+  "next": {
+    "title": "Chapter 3.3: Photorealistic Rendering & Synthetic Data",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-3-photorealistic-rendering"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "module-2-simulation/chapter-2-5-unity-for-robot-visualization",
+  "title": "Chapter 2.5 - Unity for Robot Visualization",
+  "description": "Using Unity for advanced robot visualization and interaction",
+  "source": "@site/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/chapter-2-5-unity-for-robot-visualization",
+  "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-2-simulation/chapter-2-5-unity-for-robot-visualization.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "title": "Chapter 2.5 - Unity for Robot Visualization",
+    "description": "Using Unity for advanced robot visualization and interaction",
+    "sidebar_position": 6
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 2.4 - Sensor Simulation in Gazebo",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-4-sensor-simulation-in-gazebo"
+  },
+  "next": {
+    "title": "Chapter 2.6 - Building Complex Environments",
+    "permalink": "/ai_spec_driven_book/docs/module-2-simulation/chapter-2-6-building-complex-environments"
+  }
+}

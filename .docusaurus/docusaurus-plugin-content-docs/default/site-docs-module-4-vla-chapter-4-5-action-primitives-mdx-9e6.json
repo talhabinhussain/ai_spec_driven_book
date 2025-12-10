@@ -1,0 +1,27 @@
+{
+  "id": "module-4-vla/chapter-4-5-action-primitives",
+  "title": "Chapter 4.5: Action Primitives and Execution",
+  "description": "Overview",
+  "source": "@site/docs/module-4-vla/chapter-4-5-action-primitives.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/chapter-4-5-action-primitives",
+  "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-5-action-primitives",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-4-vla/chapter-4-5-action-primitives.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 4.4: Vision-Language Integration",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-4-vision-language"
+  },
+  "next": {
+    "title": "Chapter 4.6: Building Conversational Robots",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/chapter-4-6-conversational-robots"
+  }
+}

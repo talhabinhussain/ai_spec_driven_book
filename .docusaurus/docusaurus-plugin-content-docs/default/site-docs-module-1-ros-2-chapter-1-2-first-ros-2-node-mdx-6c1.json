@@ -16,7 +16,7 @@
     "title": "Chapter 1.2 - Building Your First ROS 2 Node",
     "description": "Create and run your first ROS 2 node with Python and rclpy",
     "sidebar_position": 2,
-    "sidebar_label": "Ch 1.2: First ROS 2 Node"
+    "sidebar_label": "Chapter 1.2: First ROS2 Node"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
@@ -24,7 +24,7 @@
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/"
   },
   "next": {
-    "title": "Ch 1.3: Communication Patterns",
+    "title": "Chapter 1.3: Communication Patterns",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-3-communication-patterns"
   }
 }

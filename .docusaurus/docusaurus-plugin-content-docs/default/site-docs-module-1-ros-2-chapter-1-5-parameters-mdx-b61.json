@@ -16,15 +16,15 @@
     "title": "Chapter 1.5 - ROS 2 Parameters and Configuration",
     "description": "Managing configuration through parameters, launch files, and parameter files",
     "sidebar_position": 5,
-    "sidebar_label": "Ch 1.5: Parameters"
+    "sidebar_label": "Chapter 1.5: Parameters"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Ch 1.4: Message Types",
+    "title": "Chapter 1.4: Message Types",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-4-message-types"
   },
   "next": {
-    "title": "Ch 1.6: Launch Files",
+    "title": "Chapter 1.6: Launch Files",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-6-launch-files"
   }
 }

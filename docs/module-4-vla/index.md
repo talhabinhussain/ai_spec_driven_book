@@ -35,6 +35,7 @@ The convergence of LLMs and Robotics for natural human-robot interaction.
 
 ### Chapter 4.1: Introduction to Vision-Language-Action Models
 
+- [Chapter 4.1: Introduction to Vision-Language-Action Models](./chapter-4-1-vla-intro.mdx)
 - The evolution of robot interfaces
 - What are VLA models?
 - Foundation models for robotics
@@ -42,6 +43,7 @@ The convergence of LLMs and Robotics for natural human-robot interaction.
 
 ### Chapter 4.2: Speech Recognition with Whisper
 
+- [Chapter 4.2: Speech Recognition with Whisper](./chapter-4-2-whisper-speech.mdx)
 - OpenAI Whisper architecture and capabilities
 - Real-time speech processing
 - Integrating Whisper with ROS 2
@@ -50,6 +52,7 @@ The convergence of LLMs and Robotics for natural human-robot interaction.
 
 ### Chapter 4.3: Language Models for Robot Planning
 
+- [Chapter 4.3: Language Models for Robot Planning](./chapter-4-3-llm-planning.mdx)
 - GPT models for task decomposition
 - Prompt engineering for robotics
 - From natural language to action sequences
@@ -57,6 +60,7 @@ The convergence of LLMs and Robotics for natural human-robot interaction.
 
 ### Chapter 4.4: Vision-Language Integration
 
+- [Chapter 4.4: Vision-Language Integration](./chapter-4-4-vision-language.mdx)
 - Visual question answering for robots
 - Scene understanding and spatial reasoning
 - Object identification and localization
@@ -64,6 +68,7 @@ The convergence of LLMs and Robotics for natural human-robot interaction.
 
 ### Chapter 4.5: Action Primitives and Execution
 
+- [Chapter 4.5: Action Primitives and Execution](./chapter-4-5-action-primitives.mdx)
 - Defining robot action vocabularies
 - Translating high-level plans to low-level controls
 - Error handling and recovery strategies
@@ -71,6 +76,7 @@ The convergence of LLMs and Robotics for natural human-robot interaction.
 
 ### Chapter 4.6: Building Conversational Robots
 
+- [Chapter 4.6: Building Conversational Robots](./chapter-4-6-conversational-robots.mdx)
 - Multi-turn dialogue management
 - Context awareness and memory
 - Gesture and non-verbal communication
@@ -78,6 +84,7 @@ The convergence of LLMs and Robotics for natural human-robot interaction.
 
 ### Chapter 4.7: The Capstone Project - Autonomous Humanoid
 
+- [Chapter 4.7: The Capstone Project - Autonomous Humanoid](./chapter-4-7-capstone-project.mdx)
 - Project overview and requirements
 - System architecture design
 - Voice command → Planning → Navigation → Manipulation pipeline

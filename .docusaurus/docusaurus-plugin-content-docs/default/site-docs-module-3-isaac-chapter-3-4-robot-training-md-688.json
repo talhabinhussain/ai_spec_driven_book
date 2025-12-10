@@ -1,0 +1,27 @@
+{
+  "id": "module-3-isaac/chapter-3-4-robot-training",
+  "title": "Chapter 3.4: Robot Training with Isaac Gym",
+  "description": "Overview",
+  "source": "@site/docs/module-3-isaac/chapter-3-4-robot-training.md",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/chapter-3-4-robot-training",
+  "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-4-robot-training",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-3-isaac/chapter-3-4-robot-training.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 3.3: Photorealistic Rendering & Synthetic Data",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-3-photorealistic-rendering"
+  },
+  "next": {
+    "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac™)",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/"
+  }
+}

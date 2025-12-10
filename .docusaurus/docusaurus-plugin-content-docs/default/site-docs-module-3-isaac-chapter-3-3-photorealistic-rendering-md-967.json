@@ -1,0 +1,27 @@
+{
+  "id": "module-3-isaac/chapter-3-3-photorealistic-rendering",
+  "title": "Chapter 3.3: Photorealistic Rendering & Synthetic Data",
+  "description": "Overview",
+  "source": "@site/docs/module-3-isaac/chapter-3-3-photorealistic-rendering.md",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/chapter-3-3-photorealistic-rendering",
+  "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-3-photorealistic-rendering",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-3-isaac/chapter-3-3-photorealistic-rendering.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Chapter 3.2: Getting Started with Isaac Sim",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-2-isaac-sim-basics"
+  },
+  "next": {
+    "title": "Chapter 3.4: Robot Training with Isaac Gym",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-4-robot-training"
+  }
+}

@@ -20,11 +20,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Ch 1.1: ROS 2 Architecture",
+    "title": "Chapter 1.1: ROS2 Architecture",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-1-ros2-architecture"
   },
   "next": {
-    "title": "Ch 1.2: First ROS 2 Node",
+    "title": "Chapter 1.2: First ROS2 Node",
     "permalink": "/ai_spec_driven_book/docs/module-1-ros2/chapter-1-2-first-ros2-node"
   }
 }

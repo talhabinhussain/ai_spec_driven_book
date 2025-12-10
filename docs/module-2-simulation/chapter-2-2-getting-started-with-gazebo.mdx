@@ -1,0 +1,141 @@
+---
+title: Chapter 2.2 - Getting Started with Gazebo
+description: Installing and configuring Gazebo for robotics simulation
+sidebar_position: 3
+---
+
+# Chapter 2.2: Getting Started with Gazebo
+
+## Learning Objectives
+
+After completing this chapter, you will be able to:
+- Install and configure Gazebo simulation environment
+- Understand SDF (Simulation Description Format) for world definition
+- Spawn robots and objects in simulation environments
+- Navigate the Gazebo GUI and visualization tools
+
+## Installing and Configuring Gazebo
+
+Gazebo provides a comprehensive 3D simulation environment for robotics development. The installation process varies depending on your operating system and ROS version.
+
+### System Requirements
+- **Ubuntu 20.04/22.04**: Recommended for compatibility with ROS 2 Humble
+- **64-bit processor** with SSE2 support
+- **8GB+ RAM** for complex simulations
+- **Dedicated GPU** with OpenGL 3.3+ support
+- **Multi-core processor** for parallel physics simulation
+
+### Installation Methods
+
+#### Ubuntu Installation
+```bash
+sudo apt update
+sudo apt install gazebo
+```
+
+#### ROS 2 Integration
+```bash
+sudo apt install ros-humble-gazebo-*
+```
+
+### Initial Configuration
+
+After installation, verify Gazebo functionality:
+```bash
+gazebo --version
+gazebo
+```
+
+## World Files and SDF (Simulation Description Format)
+
+Simulation Description Format (SDF) is the XML-based language for describing simulation environments in Gazebo. SDF files define:
+
+### World Structure
+```xml
+<sdf version='1.7'>
+  <world name='my_world'>
+    <!-- World elements go here -->
+  </world>
+</sdf>
+```
+
+### Key SDF Elements
+
+#### Models
+- Physical objects with geometry, mass, and material properties
+- Can include URDF models for robots
+- Support for sensors and actuators
+
+#### Lighting
+- Directional, point, and spot light sources
+- Shadows and ambient lighting
+- Time-of-day simulation
+
+#### Physics Engine
+- Selection of ODE, Bullet, or DART
+- Gravity and numerical parameters
+- Real-time update rates
+
+#### Plugins
+- Custom simulation logic
+- Sensor interfaces
+- ROS 2 communication bridges
+
+## Spawning Robots and Objects
+
+Gazebo provides multiple methods for adding objects to simulation environments:
+
+### Command Line Spawning
+```bash
+gz model --spawn-file my_robot.sdf --model-name my_robot --z 1.0
+```
+
+### ROS 2 Integration
+```bash
+ros2 run gazebo_ros spawn_entity.py -file my_robot.urdf -entity my_robot
+```
+
+### Programmatic Spawning
+Using the Gazebo API or ROS 2 services to dynamically add objects during simulation.
+
+## The Gazebo GUI and Visualization Tools
+
+The Gazebo graphical interface provides several key components:
+
+### 3D Visualization Window
+- Real-time rendering of the simulation environment
+- Camera controls for different viewing angles
+- Overlay displays for physics information
+
+### Scene Tree
+- Hierarchical view of all objects in the simulation
+- Property inspection and modification
+- Object selection and manipulation
+
+### Time Control
+- Play, pause, and reset simulation
+- Real-time factor adjustment
+- Step-by-step simulation for debugging
+
+### Tools Panel
+- Model insertion and manipulation
+- Light editing
+- Scene properties
+
+## Practical Exercise
+
+Create a simple world file with:
+1. A ground plane with texture
+2. A basic robot model
+3. Several static objects
+4. Directional lighting
+
+Launch Gazebo with your world file and experiment with the GUI controls.
+
+## Summary
+
+Gazebo provides a powerful simulation environment for robotics development. Understanding its installation, configuration, and basic operation is essential for creating effective digital twins. The SDF format offers flexibility in defining complex simulation scenarios.
+
+## Next Steps
+
+In the next chapter, we'll dive deeper into physics configuration and tuning for realistic simulation behavior.

@@ -1,0 +1,27 @@
+{
+  "id": "module-3-isaac/chapter-3-5-isaac-ros",
+  "title": "Chapter 3.5: Isaac ROS for Production Robotics",
+  "description": "Overview",
+  "source": "@site/docs/module-3-isaac/chapter-3-5-isaac-ros.md",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/chapter-3-5-isaac-ros",
+  "permalink": "/ai_spec_driven_book/docs/module-3-isaac/chapter-3-5-isaac-ros",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/talhabinhussain/ai_spec_driven_book/tree/main/docs/module-3-isaac/chapter-3-5-isaac-ros.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac™)",
+    "permalink": "/ai_spec_driven_book/docs/module-3-isaac/"
+  },
+  "next": {
+    "title": "Module Overview",
+    "permalink": "/ai_spec_driven_book/docs/module-4-vla/"
+  }
+}
